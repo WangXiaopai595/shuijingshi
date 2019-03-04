@@ -1,0 +1,247 @@
+{include file="public/head" /}
+
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/topbottom.css" />
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/OnlineCourseDetails.css" />
+{include file="public/nav" /}
+{include file="public/fiex" /}
+
+		<!-- 内容 -->
+		<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-left clearpadding margintop140">
+			<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 marginleft8_33333">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 clearpadding marginleft8_33333">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding" onclick="javascript:history.back(-1);" style="cursor:pointer;">
+							<img class="paddingbottom10 cur"  src="__STYLE__/img/prev.png" width="1%" />
+							<span class="CourseDetailsTitle">{$detail['class']['title']}</span>
+						</div>
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 height20"></div>
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding detailwork">
+							<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 clearpadding bfzt video1" id="player">
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 CourseTable">
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding kcTable paddingtopbottom10">
+									<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+										<span>课程列表</span>
+									</div>
+								</div>
+								<div style="display: none">
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 clearpadding text-left  margin-top10">
+										<!--视频封面 视频地址-->
+										<span data-srcVideo="{$detail['class']['video']}" data-srcImg="{$detail['class']['icon']}" class=" kcdetailsTitle playMb Movies"></span>
+									</div>
+								</div>
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-top20 oneliDe">
+									{if condition="$detail['list']"}
+										{volist name="detail['list']" id="vo"}
+										<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding bgwhites">
+											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 clearpadding text-left  margin-top10">
+												<!--视频封面 视频地址-->
+												<span data-srcVideo="{$vo.playcode}" data-srcImg="" class=" kcdetailsTitle playMb Movies">{$vo.title}</span>
+											</div>
+											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right clearpadding margin-top10">
+												<span class="time"><img src="__STYLE__/img/Clock.png" width="10%">{$vo.duration}</span>
+											</div>
+											<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding margin-top20 marginbottom10">
+												<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding">
+													{if condition="$user"}
+														<a class="col-lg-6 col-md-6 col-sm-6 col-xs-6 clearpadding" href="{$vo.down_url}" target="_blank"><img data-dow="1" class="download" src="__STYLE__/img/download.png" width="22%">
+															<span class="xiazai">素材下载</span>
+														</a>
+														<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 clearpadding text-left">
+															<span class="kcspPassword">密码：{$vo.pwd}</span>
+														</div>
+													{else/}
+														<a href="javascript:;" target="_blank" class="place_login"><img data-dow="0" class="download" src="__STYLE__/img/download.png" width="22%">
+															<span class="xiazai">素材下载</span>
+														</a>
+													{/if}
+												</div>
+											</div>
+										</div>
+										{/volist}
+									{else/}
+										<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding bgwhites">
+											<p>暂无素材</p>
+										</div>
+									{/if}
+								</div>
+							</div>
+							<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 clearpadding"></div>
+							<div class="col-lg-4 col-md-4 col-sm-4 col-sm-4 scll">
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+									<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 Coursebottom bordertop01">
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left clearpadding">
+											<img class="BigBrowse" src="__STYLE__/img/BigBrowse.png" width="25%">
+											<span class="liuyan">{$detail['class']['people']}</span>
+
+										</div>
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right clearpadding Collections" data-id="{$detail['class']['id']}" data-collect="{$detail['class']['is_collect']}">
+											{if condition="$detail['class']['is_collect']"}
+											<img class="Collection" src="__STYLE__/img/Collection.png" width="18%">
+											<img class="CollectionIcon" src="__STYLE__/img/CollectionIcon.png" style="display: inline-block"/>
+											<span class="shoucang">收藏</span>
+											{else/}
+											<img class="Collection" src="__STYLE__/img/Collection.png" width="18%">
+											<img class="CollectionIcon" src="__STYLE__/img/CollectionIcon.png"/>
+											<span class="shoucang">收藏</span>
+											{/if}
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 clearpadding margin-top80">
+
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding">
+								<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 clearpadding">
+									<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding">
+										<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 clearpadding">
+											<img src="{$detail['class']['teacher_icon']}" width="100%" />
+										</div>
+										<div class="col-md-10 col-lg-10 col-sm-10 col-xs-10">
+											<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 Lecturer">
+												<span>主讲：{$detail['class']['teacher']}</span>
+											</div>
+											<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 TeacherDes">
+												<span>{$detail['class']['teacher_sign']}</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding TrainerTalk margin-top20">
+										<span>讲师简介</span>
+									</div>
+									<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding TrainerTalk1 margin-top15">
+										<span>{$detail['class']['teacher_brief']}</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 margin-top80">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center Introduction">
+								<span>——  课程介绍  ——</span>
+							</div>
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 introCount margin-top20">
+								<span>{$detail['class']['brief']}</span>
+							</div>
+						</div>
+						<!--评论-->
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding" style="height: 50px;"></div>
+						<div id="SOHUCS" sid="请将此处替换为配置SourceID的语句"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+{include file="public/foot" /}
+<script type="text/javascript" src="__STYLE__/js/jQuery-2.1.0.js" ></script>
+<script type="text/javascript" src="__STYLE__/js/topHover.js" ></script>
+<script type="text/javascript" src="__STYLE__/js/ckplayer.js"></script>
+<script type="text/javascript" src="__STYLE__/js/video.js" ></script>
+<script type="text/javascript" src="__STYLE__/js/fixedRight.js" ></script>
+<script type="text/javascript" src="__STYLE__/js/qrCodeAndPage.js" ></script>
+<script type="text/javascript" src="/static/admin/js/layer.js" ></script>
+<script>
+	var is_login = "{$user ? '1' : '0'}";
+	$(function(){
+
+
+		$('.Collections').click(function(){
+			if(!is_login){
+				return layer.msg('请先登录',{icon:0,time:1500});
+			}
+			var that = $(this);
+			var collect = $(this).attr('data-collect');
+			var id = $(this).attr('data-id');
+			if(collect == 1){
+				url = '{:url("project/delCollect")}';
+				collect = 0;
+			}else{
+				url = '{:url("project/collect")}';
+				collect = 1;
+			}
+			$.ajax({
+				type:'POST',
+				dataType:'json',
+				url:url,
+				data:{
+					class:id
+				},
+				async: true,
+				success:function(data){
+					if(data.status){
+						layer.msg(data.msg,{icon:1,time:1500});
+						that.attr('data-collect',collect);
+						if(collect){
+							$('.CollectionIcon').css('display','inline');
+						}else{
+							$('.CollectionIcon').css('display','none');
+						}
+					}else{
+						layer.msg(data.msg,{icon:0,time:1500});
+					}
+				}
+			});
+		});
+
+		$('.place_login').click(function(){
+			layer.msg('请先登录',{icon:0,time:1500});
+		})
+	})
+
+
+	$('.playMb').each(function() {
+		$(this).bind('click', function() {
+			//获取视频地址
+			var urlVideo = $(this).attr('data-srcVideo');
+			//获取封面图片
+			var urlImg = $(this).attr('data-srcImg');
+
+			//	填充 url
+			var player = new ckplayer({
+				container	: '#player', 	//“#”代表容器的ID，“.”或“”代表容器的class
+				variable	: 'player1', 	//该属性必需设置，值等于下面的new chplayer()的对象
+				poster		: urlImg, 		//视频封面图片
+				video		: urlVideo, 	//视频地址
+				loaded:'loadedHandler',//监听播放器加载成功
+				autoplay	: true 			//是否自动播放
+			});
+		});
+	});
+
+	//默认播放第一个视频 并获取第一个视频地址和封面图片
+	var urlVideo = $('.Movies').attr('data-srcVideo');
+	var urlImg = $('.Movies').attr('data-srcImg');
+	//	填充 url
+	var player = new ckplayer({
+		container	: '#player', 	//“#”代表容器的ID，“.”或“”代表容器的class
+		variable	: 'player1',	//该属性必需设置，值等于下面的new chplayer()的对象
+		poster		: urlImg, 		//封面图片
+		video		: urlVideo, 	//视频地址
+		loaded:'loadedHandler',//监听播放器加载成功
+		autoplay	: true 			//是否自动播放
+	});
+	function loadedHandler(){
+		player.addListener('time', timeHandler);
+	};
+	function timeHandler(t){
+		if(t >= 300 && !is_login){
+			player.videoPause();
+			layer.open({
+				title: '提示',
+				icon:1,
+				content: '未登陆状态下只能试看5分钟，如想继续观看，请先登陆。',
+				yes:function(index, layero){
+					layer.close(index);
+					location.href = '{:url("login/index")}?top_url=' + location.href;
+				}
+			});
+		}
+	}
+</script>
+<!--WEB版-->
+
+<script id="changyan_mobile_js" charset="utf-8" type="text/javascript"
+		src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=cyu1zpnnC&conf=prod_d039ac3ad2abe2faf485ce8332961453">
+</script>

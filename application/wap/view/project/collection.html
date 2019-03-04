@@ -1,0 +1,109 @@
+{include file="public/head" /}
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/onRoom.css" />
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/swiper.css" />
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/leftrightTab.css" />
+{include file="public/nav" /}
+<!--内容-->
+<div class="closeIconMore">
+	<div class="col-xs-12 col-sm-12 clearpadding margin-top60"></div>
+	<div class="wrapper editWrapper" id="editWrapper">
+		<div class="scroller">
+			<ul class="clearfix ">
+				<li>
+					<a class="{$param['type_id'] ? '' : 'myactive'}" href="{:url('project/collection')}">全部</a>
+				</li>
+				{volist name="project['type']" id="vo"}
+					<li>
+						<a class="{$param['type_id'] == $vo['id'] ? 'myactive' : ''}" href="{:url('project/collection',['type_id' => $vo['id']])}">室内设计</a>
+					</li>
+				{/volist}
+			</ul>
+		</div>
+	</div>
+
+	<div class="col-xs-12 col-sm-12 clearpadding paddingleftright5 onRoomCs">
+		{volist name="$project['class']['list']" id="vo"}
+			<a href="{:url('project/detail',['class' => $vo['id']])}" class="col-xs-6 col-sm-6 clearpadding onRoomC">
+				<img src="{$vo.icon}" width="100%" />
+				<span class="col-xs-12 col-sm-12 clearpadding onRoomCTitle paddingleftright10">{$vo.title}</span>
+				<div class="col-xs-12 col-sm-12 clearpadding">
+					<span class="col-xs-7 col-sm-7 clearpadding paddingleftright10 onRoomCUser">主讲人：{$vo.teacher}</span>
+					<div class="col-xs-5 col-sm-5 clearpadding paddingleftright10 text-right onRoomCUser">
+						<img class="browse" src="__STYLE__/img/browse.png" width="30%" />
+						<span class="">{$vo.people}</span>
+					</div>
+				</div>
+			</a>
+		{/volist}
+	</div>
+</div>
+<div class="col-xs-12 col-sm-12 clearpadding" style="height: 100px;"></div>
+{include file="public/foot" /}
+<script type="text/javascript" src="__STYLE__/js/mx-plugin.js" charset="utf-8"></script>
+<script type="text/javascript" src="/static/admin/js/layer.js" ></script>
+<script>
+	$(function() {
+		$('.editWrapper').mxPlugin();
+		$('.onRoomNav li').each(function() {
+			$(this).click(function() {
+				$(this).addClass('myactive').parent().siblings().children().removeClass('myactive');
+			});
+		});
+
+		$('.closeIconMore').click(function(){
+			$('.selectTab').hide();
+		});
+		$('.scroller .clearfix li a').each(function(){
+			$(this).click(function(){
+				$(this).addClass('myactive').parent().siblings().children().removeClass('myactive');
+			});
+		})
+
+		var type = "{$param['type_id'] ?: ''}";
+		var is_request = true;
+		var page = 2;
+		var url = "{:url('project/collection')}";
+		$(window).scroll(function () {
+			if ($(window).scrollTop() >= $(document).height() - $(window).height() - 100) {
+				if(is_request){
+					is_request = false;
+					var index = layer.load(3,{time:10000});
+					$.ajax({
+						type:'GET',
+						dataType:'json',
+						url:url,
+						data:{
+							page:page,
+							type_id:type
+						},
+						success:function(data){
+							layer.close(index);
+							var res = data.data.class.list;
+							if(page < res.last_page){
+								is_request = true;
+							}
+							content(res.data);
+						}
+					});
+				}
+			}
+		});
+
+		function content(arr){
+			for(var item in arr){
+				 html = '<a href="{:url("project/detail")}?class='+ arr[item]["id"]+ '" class="col-xs-6 col-sm-6 clearpadding onRoomC">'
+					+'<img src="'+arr[item]["icon"]+'" width="100%" />'
+					+'<span class="col-xs-12 col-sm-12 clearpadding onRoomCTitle paddingleftright10">'+ arr[item]["title"] +'</span>'
+					+'<div class="col-xs-12 col-sm-12 clearpadding">'
+					+'<span class="col-xs-7 col-sm-7 clearpadding paddingleftright10 onRoomCUser">主讲人：'+arr[item]["teacher"]+'</span>'
+					+'<div class="col-xs-5 col-sm-5 clearpadding paddingleftright10 text-right onRoomCUser">'
+					+'<img class="browse" src="__STYLE__/img/browse.png" width="30%" />'
+					+'<span class="">'+arr[item]["people"]+'</span>'
+					+'</div>'
+					+'</div>'
+					+'</a>';
+				$('.onRoomCs').append(html);
+			}
+		}
+	})
+</script>

@@ -1,0 +1,270 @@
+{include file="public/header" /}
+<section class="layui-larry-box">
+	<div class="larry-personal">
+		<div class="layui-tab">
+			<blockquote class="layui-elem-quote news_search">
+				<div class="layui-inline">
+					<form method="get">
+						<div class="layui-input-inline">
+							<input value="{$param.uid}" placeholder="请输入用户ID" name="uid" class="layui-input search_input" type="text">
+						</div>
+						<div class="layui-input-inline">
+							<input value="{$param.username}" placeholder="请输入用户昵称" name="username" class="layui-input search_input" type="text">
+						</div>
+						<div class="layui-input-inline">
+							<input value="{$param.name}" placeholder="请输入预约人姓名" name="name" class="layui-input search_input" type="text">
+						</div>
+						<div class="layui-input-inline">
+							<input value="{$param.phone}" placeholder="请输入手机号码" name="phone" class="layui-input search_input" type="text">
+						</div>
+						<button type="submit" class="layui-btn search_btn">筛选</button>
+					</form>
+				</div>
+					
+			</blockquote>
+
+			<!-- 操作日志 -->
+			<div class="layui-form news_list">
+				<table class="layui-table">
+					<thead>
+						<tr>
+							<th>用户ID</th>
+							<th>预约用户</th>
+							<th>姓名</th>
+							<th>性别</th>
+							<th>电话</th>
+							<th>预约课程</th>
+							<th>预约时间</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody class="news_content">
+						{volist name="appoint['list']" id="vo"}
+							<tr>
+								<td>{$vo.uid ?: '未登录'}</td>
+								<td>{$vo.user_name ?: '未登录'}</td>
+								<td>{$vo.name}</td>
+								<td>
+									{if condition="$vo['sex'] eq 0"}
+										未知
+									{elseif condition="$vo['sex'] eq 1"/}
+										男
+									{else/}
+										女
+									{/if}
+								</td>
+								<td>{$vo.phone}</td>
+								<td>{$vo.calss}</td>
+								<td>{$vo.time|date='Y-m-d H:i',###}</td>
+								<td>
+									{if condition="$vo.status eq 0"}
+										{if condition="in_array('curriculum/editcurriculum',$operable)"}
+											<a data-url="{:url('appoint/handle')}" data-id="{$vo.id}" class="layui-btn layui-btn-mini status">待处理</a>
+										{else/}
+											<a class="layui-btn layui-btn-mini status">待处理</a>
+										{/if}
+									{else/}
+										<a class="layui-btn layui-btn-danger layui-btn-mini">已处理</a>
+									{/if}
+								</td>
+							</tr>
+						{/volist}
+					</tbody>
+				</table>
+				<div style="text-align: right;">
+					{$appoint.page}
+				</div>
+			</div>
+
+		</div>
+	</div>
+</section>
+{include file="public/footer" /}
+<script>
+	$(function(){
+		//点击图片查看大图
+		layer.photos({
+			photos: '.news_content',
+			anim: 5
+		});
+
+		/**
+		 * 更新排序
+		 */
+		$("#edit").click(function(){
+			var index = layer.load(0, {time: 10000});
+			var url = $(this).attr("data-url");
+			var gid = $("input[name='id']");
+			var sort = $("input[name='sort']");
+			var id = '';
+			var sor = '';
+			for(var i=0;i<gid.length;i++){
+				if(i == 0){
+					id = gid.eq(i).val();
+					sor = sort.eq(i).val();
+				}else{
+					id += ','+gid.eq(i).val();
+					sor += ','+sort.eq(i).val();
+				}
+			}
+			$.ajax({
+				type:"post",
+				dataType:"json",
+				url:url,
+				data:{
+					id:id,
+					sort:sor
+				},
+				success:function(date){
+					if(date.status == 1){
+						layer.msg(date.msg,{icon:1,time:1000});
+						setTimeout(function(){
+							location.reload();
+						},400)
+					}else{
+						layer.msg(date.msg,{icon:2,time:1000});
+					}
+				}
+			});
+		})
+
+		/**
+		 * 多条删除
+		 */
+		$(".batchDel").click(function(){
+			var checkedList = new Array();   
+			$("input[name='check']:checked").each(function() {   
+			    checkedList.push($(this).val());   
+			})
+			var id = checkedList.join(',');
+			var url = $(this).attr("data-url");
+			layer.open({
+				content: '您正在进行删除操作，是否确认?',
+				icon : 3,
+				yes: function(layero, index){
+				    $.ajax({
+						type:"post",
+						dataType:"json",
+						url:url,
+						data:{
+							id:id
+						},
+						success:function(date){
+							if(date.status == 1){
+								layer.msg(date.msg,{icon:1,time:1000});
+								setTimeout(function(){
+									location.reload();
+								},400)
+							}else{
+								layer.msg(date.msg,{icon:2,time:1000});
+							}
+						}
+					});
+			  	}
+			});
+		})
+		
+		/**
+		 * 全选、全不选
+		 */
+		$("#check").click(function(){
+			var check = $(this).is(":checked");
+			if(check){
+				$('input[name="check"]').each(function(){
+                    $(this).prop("checked",true);  
+                }); 
+			}else{
+				$('input[name="check"]').each(function(){
+                    $(this).prop("checked",false);  
+                }); 
+			}
+		})
+		
+		/**
+		 * 单条删除
+		 */
+		$(".delete").click(function(){
+			var status = $(this).prev().val();
+			var url = $(this).attr("data-url");
+			var id = $(this).attr("data-id");
+			layer.open({
+				content: '您正在进行删除操作，是否确认?',
+				icon : 3,
+				yes: function(layero, index){
+				    $.ajax({
+						type:"post",
+						dataType:"json",
+						url:url,
+						data:{
+							id:id
+						},
+						success:function(date){
+							if(date.status == 1){
+								layer.msg(date.msg,{icon:1,time:1000});
+								setTimeout(function(){
+									location.reload();
+								},400)
+							}else{
+								layer.msg(date.msg,{icon:2,time:1000});
+							}
+						}
+					});
+			  	}
+			});
+		})
+
+		$(".status").click(function(){
+			var url = $(this).attr("data-url");
+			var id = $(this).attr("data-id");
+			if(!url){
+				layer.msg('无权限操作此项',{icon:1,time:1000});
+			}else{
+				$.ajax({
+					type:"post",
+					dataType:"json",
+					url:url,
+					data:{
+						id:id,
+						status:1
+					},
+					success:function(date){
+						if(date.status == 1){
+							layer.msg(date.msg,{icon:1,time:1000});
+							setTimeout(function(){
+								location.reload();
+							},400)
+						}else{
+							layer.msg(date.msg,{icon:2,time:1000});
+						}
+					}
+				})
+			}
+		})
+
+		$('select[name=type_id]').change(function(){
+			var type_id = $(this).val();
+			if(!type_id){
+				$('select[name=child_id]').html('<option value="">选择科目</option>');
+				return '';
+			}
+			$.ajax({
+				type:"post",
+				dataType:"json",
+				url:'{:url("index/getType")}',
+				data:{
+					parent_id:type_id
+				},
+				success:function(date){
+					if(date.status == 1){
+						$('select[name=child_id]').html('<option value="">选择科目</option>');
+						var data = date.data;
+						for(var val in data){
+							var ctn = '<option value="'+data[val]['id']+'">'+data[val]['name']+'</option>';
+							$('select[name=child_id]').append(ctn);
+						}
+					}
+				}
+			})
+		})
+	})
+</script>

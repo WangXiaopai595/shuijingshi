@@ -1,0 +1,63 @@
+{include file="public/head" /}
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/topbottom.css"/>
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/CollegeEnvironment.css"/>
+<link rel='stylesheet' type='text/css' href='__STYLE__/css/animate.css' />
+{include file="public/nav" /}
+{include file="public/fiex" /}
+		<!--内容-->
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding margin-top80 setBannerStyle">
+			<a href="{$about['banner'] && $about['banner']['url'] ? $about['banner']['url']: 'javascript:;'}" target="_blank">
+				<img src="{$about['banner']['path'] ?: '/static/web/img/environBg.png'}"width="100%"/>
+			</a>
+		</div>
+		<!--国 际 项 目-->
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center clearpadding margin-top80">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-top60">
+				<span class="goodwork">良好的学习氛围  助你成就高薪未来</span>
+			</div>
+		</div>
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding text-center margin-top20">
+			<div class="border3"></div>
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 clearpadding text-center margin-top20 marginleft25">
+			<span class="alonework">水晶石参与过诸多大型项目制作，作为亚洲顶尖的制作公司，在行业内积累多年项目经验，备受客户信赖。为此，水晶石也接受了央视、北京卫视、深圳卫视等
+众多电视台的采访。水晶石公司正在努力成为全球领先的数字视觉创意集团，为不同行业客户提供基于珠子图像服务的整体解决方案。</span>
+		</div>
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-top60" style="margin-bottom: 70px;">
+			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 clearpadding BrandStoryCover marginleft16_67">
+				<div class="BigPic hide">
+					<img class="BigPicture" src="__STYLE__/img/BigPicture.png"/>
+					<img class="BigPicClose" src="__STYLE__/img/BigPicClose.png"/>
+				</div>
+				{volist name="about['ambient']" id="vo"}
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 margintop2_2 atmosphereCover">
+						<img class="myschoolImg" src="{$vo.img}" width="100%"/>
+						<img class="enlarge" src="__STYLE__/img/enlarge.png"width="9%"/>
+						<div class="BigPic hide">
+							<div class="col-lg-6 col-md-6 clearpadding "style="margin-left: 25%;position: relative;margin-top: 9.5%;">
+								<img class="BigPicture" src="{$vo.img}"/>
+								<img class="BigPicClose" src="__STYLE__/img/BigPicClose.png"/>
+							</div>
+						</div>
+					</div>
+				{/volist}
+			</div>
+		</div>
+{include file="public/foot" /}
+<script type="text/javascript" src="__STYLE__/js/jQuery-2.1.0.js" ></script>
+<script type="text/javascript" src="__STYLE__/js/topHover.js" ></script>
+<script type="text/javascript" src="__STYLE__/js/fixedRight.js" ></script>
+<script type="text/javascript" src="__STYLE__/js/qrCodeAndPage.js" ></script>
+<script>
+	$(function(){
+		$(".atmosphereCover .enlarge").each(function(){
+			$(this).click(function(){
+				$(this).next(".BigPic").removeClass("hide fadeIn animated").addClass("show fadeIn animated");
+			});
+		});
+		$(".BigPicClose").click(function(){
+			$(".BigPic").removeClass("show").addClass("hide");
+		});
+	})
+</script>

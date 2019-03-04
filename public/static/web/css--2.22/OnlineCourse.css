@@ -1,0 +1,192 @@
+.course {
+	padding-right: 18%;
+}
+.course ul li{
+	font-size:16px;
+	font-weight:300;
+	color:rgba(51,51,51,1);
+	margin-left: 0.5%;
+	cursor: pointer;
+}
+.course ul li.myactive{
+	font-size:16px;
+	font-weight:300;
+	color: rgba(246, 125, 14, 1);
+	margin-left: 0.5%;
+}
+#view{
+	min-height: 382.4px;
+}
+.CourseTitle{
+	font-size:16px;
+	font-weight:300;
+	color:rgba(51,51,51,1);
+}
+.courses {
+	padding-right: 18%;
+}
+.marginleft16_67{
+	margin-left: 16.666666667%;
+}
+.courses ul li{
+	font-size:16px;
+	font-weight:300;
+	color:rgba(51,51,51,1);
+	cursor: pointer;
+}
+.ExcellentCount{
+	position: relative;
+}
+.ExcellentCount .Online .OnlineCover{
+	overflow: hidden;
+	cursor: pointer;
+	transition: 1s;
+}
+.courses ul li.myactive{
+	color: rgba(246, 125, 14, 1);
+}
+.ExcellentCount{
+	padding-bottom: 15px;
+	width: 23.5%;
+	background:rgba(255,255,255,1);
+	border:1px solid rgba(245,245,245,1);
+	border-radius:5px;
+	margin: 1% 1.5% 1% 0;
+}
+.ExcellentCount img {
+    margin-bottom: 2px;
+    border-radius: 5px 5px 0px 0px;
+    margin-right: 3px;
+}
+.OnlineCover{
+	width: 100%;
+	height: 240px;
+}
+.ExcellentCount .speaker{
+	padding-left: 10px;
+	line-height: 50px;
+	font-size:18px;
+	font-weight:300;
+	color:rgba(51,51,51,1);
+}
+.KcCount{
+	padding: 5% 0;
+}
+.KcCount span{
+	font-size:16px;
+	font-weight:500;
+	color:rgba(51,51,51,0.5);
+}
+.fenyediv{
+	margin-right:12px ;
+}
+.fenye{
+		padding-right: 7%;
+}
+.fenye .fenyediv ul{
+	/* padding: 0 20px 0 15px; */
+}
+.fenye .fenyediv ul li{
+	padding: 5px 0;
+	margin-left: 12px;
+	border:1px solid rgba(245,245,245,1);
+}
+.fenye .fenyediv ul li.myactive{
+	color: #FFFFFF;
+	background: #F67D0E;
+}
+
+.bottomfenye{
+	padding-bottom:5% ;
+}
+.ExcellentCount .speaker1{
+	text-decoration: none;
+	padding-left: 10px;
+	font-size:14px;
+	font-weight:300;
+	color:rgba(153,153,153,1);
+}
+.speaker2{
+	text-decoration: none;
+	font-size:12px;
+	font-weight:300;
+	color:rgba(153,153,153,1);
+}
+.speaker2 img{
+	width: 15px;
+	height: 9px;
+}
+.onlineDiv{
+	margin-bottom:3px ;
+	padding-right: 10px;
+}
+.onlineDiv .OnlineA{
+	text-decoration: none;
+}
+@media only screen and (max-width:1366px ) and (max-height: 768px) {
+	.courses ul li.myactive{
+		font-size: 14px;
+	}
+	.ExcellentCount .speaker{
+		font-size: 14px;
+	}
+	.CourseTitle{
+		font-size: 14px;
+	}
+	.course ul li.myactive{
+		font-size: 14px;
+	}
+	.course ul li{
+		font-size: 14px;
+	}
+	.ExcellentCount .speaker1{
+		font-size: 12px;
+	}
+	.CourseTitle{
+		font-size: 14px;
+	}
+	.course ul li.myactive{
+		font-size: 14px;
+	}
+	.OnlineCover{
+		height: 190px;
+	}
+	.course ul li{
+		font-size: 14px;
+	}
+	.ExcellentCount .speaker1{
+		font-size: 12px;
+	}
+	onlineDivs{
+		margin-bottom: 3px;
+	}
+	.courses ul li.myactive{
+		font-size: 14px;
+	}
+}
+@media only screen and (min-width: 1440px) and (max-height: 900px) {
+	.courses ul li.myactive{
+		font-size: 14px;
+	}
+	.ExcellentCount .speaker{
+		font-size: 14px;
+	}
+	.CourseTitle{
+		font-size: 14px;
+	}
+	.course ul li.myactive{
+		font-size: 14px;
+	}
+	.course ul li{
+		font-size: 14px;
+	}
+	.ExcellentCount .speaker1{
+		font-size: 12px;
+	}
+	onlineDivs{
+		margin-bottom: 3px;
+	}
+	.ExcellentCount .Online .OnlineCover{
+		height: 180px;
+	}
+}

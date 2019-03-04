@@ -1,0 +1,318 @@
+{include file="public/header" /}
+<section class="layui-larry-box">
+	<div class="larry-personal">
+		<div class="layui-tab">
+			<blockquote class="layui-elem-quote news_search">
+				<div class="layui-inline">
+					<form method="get">
+						<div class="layui-input-inline">
+							<input value="{$param.title}" placeholder="请输入标题" name="title" class="layui-input search_input" type="text">
+						</div>
+						<button type="submit" class="layui-btn search_btn">筛选</button>
+					</form>
+				</div>
+				<div style="float: right">
+					<div class="layui-form-mid layui-word-aux">只展示最新6条,设置推荐优先展示</div>
+					{if condition="in_array('report/addvideo',$operable)"}
+						<div class="layui-inline">
+							<a href="{:url('report/addvideo')}" class="layui-btn layui-btn-normal newsAdd_btn">添加报道</a>
+						</div>
+					{/if}
+					{if condition="in_array('report/delete',$operable)"}
+						<div class="layui-inline">
+							<a data-url="{:url('report/delete')}" class="layui-btn layui-btn-danger batchDel">批量删除</a>
+						</div>
+					{/if}
+				</div>
+					
+			</blockquote>
+
+			<!-- 操作日志 -->
+			<div class="layui-form news_list">
+				<table class="layui-table">
+					<thead>
+						<tr>
+							<th>
+								<input id="check" type="checkbox" style="display: block;">
+							</th>
+							<th>封面图</th>
+							<th>标题</th>
+							<th>发布时间</th>
+							<th>是否推荐</th>
+							<th>是否显示</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody class="news_content">
+						{volist name="video['list']" id="vo"}
+							<tr>
+								<td>
+									<input name="check" type="checkbox" value="{$vo.id}" style="display: block;">
+								</td>
+								<td><img src="{$vo.icon}" style="width: 50px;height: 50px;" /></td>
+								<td>{$vo.title}</td>
+								<td>{$vo.time|date='Y-m-d H:i',###}</td>
+								<td class="status">
+									{if condition="in_array('report/setrecommend',$operable)"}
+										{if condition="$vo['is_recommend'] eq 1"}
+										<input name="show" lay-skin="switch" lay-text="NO|OFF" checked lay-filter="isShow" type="checkbox" value="1">
+										<div data-url="{:url('report/setrecommend')}" data-key="is_recommend" data-id="{$vo.id}" class="layui-unselect layui-form-switch layui-form-onswitch" lay-skin="_switch"><em>NO</em><i></i></div>
+										{else/}
+										<input name="show" lay-skin="switch" lay-text="NO|OFF" lay-filter="isShow" type="checkbox" value="0">
+										<div data-url="{:url('report/setrecommend')}" data-key="is_recommend" data-id="{$vo.id}" class="layui-unselect layui-form-switch" lay-skin="_switch"><em>OFF</em><i></i></div>
+										{/if}
+									{else/}
+										{if condition="$vo['is_recommend'] eq 1"}
+										<input name="show" lay-skin="switch" lay-text="NO|OFF" checked lay-filter="isShow" type="checkbox" value="1">
+										<div class="layui-unselect layui-form-switch layui-form-onswitch" lay-skin="_switch"><em>NO</em><i></i></div>
+										{else/}
+										<input name="show" lay-skin="switch" lay-text="NO|OFF" lay-filter="isShow" type="checkbox" value="0">
+										<div class="layui-unselect layui-form-switch" lay-skin="_switch"><em>OFF</em><i></i></div>
+										{/if}
+									{/if}
+								</td>
+								<td class="status">
+									{if condition="in_array('report/setshow',$operable)"}
+										{if condition="$vo['is_show'] eq 1"}
+										<input name="show" lay-skin="switch" lay-text="NO|OFF" checked lay-filter="isShow" type="checkbox" value="1">
+										<div data-url="{:url('report/setshow')}" data-key="is_show" data-id="{$vo.id}" class="layui-unselect layui-form-switch layui-form-onswitch" lay-skin="_switch"><em>NO</em><i></i></div>
+										{else/}
+										<input name="show" lay-skin="switch" lay-text="NO|OFF" lay-filter="isShow" type="checkbox" value="0">
+										<div data-url="{:url('report/setshow')}" data-key="is_show" data-id="{$vo.id}" class="layui-unselect layui-form-switch" lay-skin="_switch"><em>OFF</em><i></i></div>
+										{/if}
+									{else/}
+										{if condition="$vo['is_show'] eq 1"}
+										<input name="show" lay-skin="switch" lay-text="NO|OFF" checked lay-filter="isShow" type="checkbox" value="1">
+										<div class="layui-unselect layui-form-switch layui-form-onswitch" lay-skin="_switch"><em>NO</em><i></i></div>
+										{else/}
+										<input name="show" lay-skin="switch" lay-text="NO|OFF" lay-filter="isShow" type="checkbox" value="0">
+										<div class="layui-unselect layui-form-switch" lay-skin="_switch"><em>OFF</em><i></i></div>
+										{/if}
+									{/if}
+								</td>
+								<td>
+									{if condition="in_array('report/editvideo',$operable)"}
+										<a href="{:url('report/editvideo',array('id'=>$vo['id']))}" class="layui-btn layui-btn-mini "><i class="iconfont icon-edit"></i> 编辑</a>
+									{/if}
+									{if condition="in_array('report/reportlist',$operable)"}
+										<a href="{:url('report/reportlist',array('class_id'=>$vo['id']))}" class="layui-btn layui-btn-mini "><i class="iconfont icon-edit"></i> 课程列表</a>
+									{/if}
+									{if condition="in_array('report/delete',$operable)"}
+										<a data-url="{:url('report/delete')}" data-id="{$vo.id}" class="layui-btn layui-btn-danger layui-btn-mini delete"><i class="layui-icon"></i> 删除</a>
+									{/if}
+								</td>
+							</tr>
+						{/volist}
+					</tbody>
+				</table>
+				<div style="text-align: right;">
+					{$video.page}
+				</div>
+			</div>
+
+		</div>
+	</div>
+</section>
+{include file="public/footer" /}
+<script>
+	$(function(){
+		//点击图片查看大图
+		layer.photos({
+			photos: '.news_content',
+			anim: 5
+		});
+
+		/**
+		 * 更新排序
+		 */
+		$("#edit").click(function(){
+			var index = layer.load(0, {time: 10000});
+			var url = $(this).attr("data-url");
+			var gid = $("input[name='id']");
+			var sort = $("input[name='sort']");
+			var id = '';
+			var sor = '';
+			for(var i=0;i<gid.length;i++){
+				if(i == 0){
+					id = gid.eq(i).val();
+					sor = sort.eq(i).val();
+				}else{
+					id += ','+gid.eq(i).val();
+					sor += ','+sort.eq(i).val();
+				}
+			}
+			$.ajax({
+				type:"post",
+				dataType:"json",
+				url:url,
+				data:{
+					id:id,
+					sort:sor
+				},
+				success:function(date){
+					if(date.status == 1){
+						layer.msg(date.msg,{icon:1,time:1000});
+						setTimeout(function(){
+							location.reload();
+						},400)
+					}else{
+						layer.msg(date.msg,{icon:2,time:1000});
+					}
+				}
+			});
+		})
+
+		/**
+		 * 多条删除
+		 */
+		$(".batchDel").click(function(){
+			var checkedList = new Array();   
+			$("input[name='check']:checked").each(function() {   
+			    checkedList.push($(this).val());   
+			})
+			var id = checkedList.join(',');
+			var url = $(this).attr("data-url");
+			layer.open({
+				content: '您正在进行删除操作，是否确认?',
+				icon : 3,
+				yes: function(layero, index){
+				    $.ajax({
+						type:"post",
+						dataType:"json",
+						url:url,
+						data:{
+							id:id
+						},
+						success:function(date){
+							if(date.status == 1){
+								layer.msg(date.msg,{icon:1,time:1000});
+								setTimeout(function(){
+									location.reload();
+								},400)
+							}else{
+								layer.msg(date.msg,{icon:2,time:1000});
+							}
+						}
+					});
+			  	}
+			});
+		})
+		
+		/**
+		 * 全选、全不选
+		 */
+		$("#check").click(function(){
+			var check = $(this).is(":checked");
+			if(check){
+				$('input[name="check"]').each(function(){
+                    $(this).prop("checked",true);  
+                }); 
+			}else{
+				$('input[name="check"]').each(function(){
+                    $(this).prop("checked",false);  
+                }); 
+			}
+		})
+		
+		/**
+		 * 单条删除
+		 */
+		$(".delete").click(function(){
+			var status = $(this).prev().val();
+			var url = $(this).attr("data-url");
+			var id = $(this).attr("data-id");
+			layer.open({
+				content: '您正在进行删除操作，是否确认?',
+				icon : 3,
+				yes: function(layero, index){
+				    $.ajax({
+						type:"post",
+						dataType:"json",
+						url:url,
+						data:{
+							id:id
+						},
+						success:function(date){
+							if(date.status == 1){
+								layer.msg(date.msg,{icon:1,time:1000});
+								setTimeout(function(){
+									location.reload();
+								},400)
+							}else{
+								layer.msg(date.msg,{icon:2,time:1000});
+							}
+						}
+					});
+			  	}
+			});
+		})
+
+		$(".status div").click(function(){
+			var index = layer.load(0, {time: 100});
+			var status = $(this).prev().val();
+			var url = $(this).attr("data-url");
+			var id = $(this).attr("data-id");
+			var key = $(this).attr("data-key");
+			if(status == 1){
+				status = 0;
+			}else{
+				status = 1;
+			}
+			if(!url){
+				layer.msg('无权限操作此项',{icon:1,time:1000});
+			}else{
+				var data = {
+					id:id
+				};
+				if(key == 'is_show'){
+					data.is_show = status;
+				}else if(key == 'is_recommend'){
+					data.is_recommend = status;
+				}
+				$.ajax({
+					type:"post",
+					dataType:"json",
+					url:url,
+					data:data,
+					success:function(date){
+						layer.close(index);
+						if(date.status == 1){
+							layer.msg(date.msg,{icon:1,time:1000});
+							setTimeout(function(){
+								location.reload();
+							},400)
+						}else{
+							layer.msg(date.msg,{icon:2,time:1000});
+						}
+					}
+				})
+			}
+		})
+
+		$('select[name=type_id]').change(function(){
+			var type_id = $(this).val();
+			if(!type_id){
+				$('select[name=child_id]').html('<option value="">选择科目</option>');
+				return '';
+			}
+			$.ajax({
+				type:"post",
+				dataType:"json",
+				url:'{:url("index/getType")}',
+				data:{
+					parent_id:type_id
+				},
+				success:function(date){
+					if(date.status == 1){
+						$('select[name=child_id]').html('<option value="">选择科目</option>');
+						var data = date.data;
+						for(var val in data){
+							var ctn = '<option value="'+data[val]['id']+'">'+data[val]['name']+'</option>';
+							$('select[name=child_id]').append(ctn);
+						}
+					}
+				}
+			})
+		})
+	})
+</script>

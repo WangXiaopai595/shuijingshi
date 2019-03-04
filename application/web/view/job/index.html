@@ -1,0 +1,130 @@
+{include file="public/head" /}
+		<link rel="stylesheet" type="text/css" href="__STYLE__/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="__STYLE__/css/topbottom.css" />
+		<link rel="stylesheet" type="text/css" href="__STYLE__/css/EmploymentCenter.css" />
+		<link rel='stylesheet' type='text/css' href='__STYLE__/css/animate.css' />
+{include file="public/nav" /}
+{include file="public/fiex" /}
+<!--视频播放器-->
+<div class='col-lg-12 col-md-12 col-lg-12 col-md-12 clearpadding CollegeMb1 hide'>
+	<div  class='col-lg-8 col-md-8 col-lg-8 col-md-8 clearpadding marginleft16_67 Vid' style="position: relative;">
+		<div class='col-lg-12 col-md-12 col-lg-12 col-md-12 clearpadding' id="player">
+		
+		</div>
+		<img class='closeVideo1' src='__STYLE__/img/closeVideo.png' width='3%'/>
+	</div>
+</div>
+
+<!--内容-->
+<a href="{$job['banner'] && $job['banner']['url'] ? $job['banner']['url'] : 'javascript:;'}" target="_blank">
+	<div style="background-size: 100% 100%" class="col-lg-12 col-md-12 col-lg-12 col-md-12 EmploymentBg job_bn margin-top80" {$job['banner'] ? 'style="background: url('.$job['banner']['path'].') no-repeat"' : ''}></div>
+</a>
+<div class="col-lg-12 col-md-12 col-lg-12 col-md-12 margin-top80">
+	<div class="col-lg-8 col-md-8 col-lg-8 col-md-8 clearpadding marginleft16_67">
+		<div class="col-lg-12 col-lg-12 col-lg-12 col-md-12 clearpadding">
+			<div class="col-lg-12 col-md-12 col-lg-12 col-md-12 StartStudent">
+				<span>明星学员</span>
+			</div>
+			<div class="col-lg-12 col-md-12 col-lg-12 col-md-12 text-center margin-top30">
+				{volist name="job['student']" id="vo"}
+					<!--<a href="{:url('job/detail',['article'=>$vo['id']])}">-->
+					<div class="col-lg-3 col-md-3 setHeight col-lg-3 col-md-3 clearpadding StarCover">
+						<img class="starImage" src="{$vo.icon}" width="100%" />
+						<div class="col-lg-12 col-md-12 col-lg-12 col-md-12 clearpadding StarCoverMb text-center">
+							<span class="col-lg-10 col-md-10 col-lg-10 col-md-10 clearpadding marginleft8_33333">{$vo.title}</span>
+						</div>
+						<div class="col-lg-12 col-md-12 col-lg-12 col-md-12 clearpadding starCoverMbs">
+							<span class="col-lg-10 col-md-10 col-lg-10 col-md-10 clearpadding marginleft8_33333 starCoverMbName">{$vo.title}</span>
+							<div class="borderMb"></div>
+						<span class="col-lg-12 col-md-12 col-lg-12 col-md-12 clearpadding starCoverMbTitle">
+							{$vo.brief}
+						</span>
+						</div>
+					</div>
+					<!--</a>-->
+				{/volist}
+				<div class="col-lg-11 col-md-11 col-lg-11 col-md-11 text-center sss clearpadding SelectMore1 margin-top60">
+					<a href="{:url('job/startStudent')}" target="_blank"><input type="button" value="查看更多" /></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--学院采访-->
+<div class="col-lg-12 col-md-12 col-lg-12 col-md-12 margin-top80">
+	<div class="col-lg-8 col-md-8 col-lg-8 col-md-8 clearpadding marginleft16_67">
+		<div class="col-lg-12 col-lg-12 col-lg-12 col-md-12 clearpadding">
+			<div class="col-lg-12 col-md-12 col-lg-12 col-md-12 StartStudent">
+				<span>学员采访</span>
+			</div>
+			<div class="col-lg-12 col-md-12 col-lg-12 col-md-12 margin-top30">
+				{volist name="job['video']" id="vo"}
+					<div class="col-lg-4 col-md-4 col-lg-4 col-md-4 clearpadding paddingleftright10 StudentCover setListHeight">
+						<img class="StudentCover1" src="{$vo.icon}" width="100%"/>
+						<img class="play playMb" data-srcVideo="{$vo.playcode}" data-srcImg="{$vo.icon}" src="__STYLE__/img/Play.png" width="15%"/>
+						<div class="col-lg-12 col-md-12 col-lg-12 col-md-12 clearpadding stuTitle">{$vo.title}</div>
+					</div>
+				{/volist}
+				<div class="col-lg-12 col-md-12 col-lg-12 col-md-12 text-center sss SelectMore clearpadding margin-top60">
+					<a href="{:url('job/interview')}" target="_blank"><input type="button" value="查看更多" /></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--合作企业-->
+<div class="col-lg-12 col-md-12 col-lg-12 col-md-12 margin-top80" style="margin-bottom: 70px">
+	<div class="col-lg-8 col-md-8 col-lg-8 col-md-8 clearpadding marginleft16_67">
+		<div class="col-lg-12 col-lg-12 col-lg-12 col-md-12 clearpadding">
+			<div class="col-lg-12 col-md-12 col-lg-12 col-md-12 StartStudent">
+				<span>合作企业</span>
+			</div>
+			<div class="col-lg-12 col-md-12 col-lg-12 col-md-12 margin-top30">
+				{volist name="job['company']" id="vo"}
+					<!--<a href="{:url('job/detail',['article'=>$vo['id']])}" class="col-lg-6 col-md-6 ForMeCovers clearpadding">-->
+					<a href="javascript:;" class="col-lg-6 col-md-6 col-lg-6 col-md-6 ForMeCovers clearpadding">
+						<div class="col-lg-4 col-md-4 col-lg-4 col-md-4 clearpadding">
+							<img class="ForMeImg" src="{$vo.icon}" width="100%"/>
+						</div>
+						<div class="col-lg-8 col-md-8 col-lg-8 col-md-8 ForMeCover clearpadding">
+							<span class="col-lg-12 col-md-12 col-lg-12 col-md-12 clearpadding ForMeTitle margin-top15">{$vo.title}</span><br />
+							<span class="col-lg-12 col-md-12 col-lg-12 col-md-12 clearpadding ForMeDs margin-top15">{$vo.brief}</span>
+						</div>
+					</a>
+				{/volist}
+				<div class="col-lg-12 col-md-12 col-lg-12 col-md-12 text-center clearpadding SelectMore2 margin-top60">
+					<a href="{:url('job/company')}" target="_blank"><input type="button" id="" value="查看更多" /></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{include file="public/foot" /}
+	<script type="text/javascript" src="__STYLE__/js/jQuery-2.1.0.js" ></script>
+	<script type="text/javascript" src="__STYLE__/js/topHover.js" ></script>
+	<script type="text/javascript" src="__STYLE__/js/fixedRight.js" ></script>
+	<script type="text/javascript" src="__STYLE__/js/qrCodeAndPage.js" ></script>
+	<script type="text/javascript" src="__STYLE__/js/ckplayer.js" ></script>
+	<script>
+		$(function() {
+			$('.playMb').each(function() {
+				$(this).bind('click', function() {
+					$(".CollegeMb1").removeClass("hide fadeIn animated").addClass("show fadeIn animated");
+					var urlVideo = $(this).attr('data-srcVideo');
+					var urlImg = $(this).attr('data-srcImg');
+					//	填充 url
+					new ckplayer({
+						container: '#player', //“#”代表容器的ID，“.”或“”代表容器的class
+						variable: 'player1', //该属性必需设置，值等于下面的new chplayer()的对象
+						poster: urlImg, //封面图片
+						video: urlVideo, //视频地址
+						autoplay: true //是否自动播放
+					});
+				});
+			});
+			$('.closeVideo1').click(function(){
+				$('.CollegeMb1').removeClass('show fadeIn animated').addClass('hide fadeIn animated');
+				$('#player').html('');
+			});
+		})
+	</script>

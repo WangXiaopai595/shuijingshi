@@ -1,0 +1,132 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+ul li{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.margin5_{
+	margin-left: 5%;
+}
+.clearpadding{
+	padding-left: 0;
+	padding-right: 0;
+}
+.lineheight80{
+	line-height: 80px;
+}
+.introduce{
+	padding: 30px 0;
+	background:rgba(0,0,0,1);
+}
+.introduce .address p{
+	font-size:14px;
+	font-weight:300;
+	color:rgba(255,255,255,1);
+	opacity:0.5;
+}
+.forMeBg{
+	width:100%;
+	background: url(../img/forMeBg.png);
+	height:454px;
+	background-size:100% 100% ;
+}
+.KcCount{
+	padding: 5% 0;
+}
+.KcCount span{
+	font-size:16px;
+	font-weight:500;
+	color:rgba(51,51,51,0.5);
+}
+
+.StartStudent{
+	font-size:36px;
+	font-weight:300;
+	color:rgba(0,0,0,1);
+}
+.EnlishStar{
+	font-size:30px;
+	font-weight:200;
+	color:rgba(51,51,51,1);
+}
+.StarCover{
+	position: relative;
+	margin-top: 1.5%;
+}
+.StarCoverMb span{
+	font-size:14px;
+	font-weight:400;
+	color:rgba(255,255,255,1);
+}
+.FormeEnter{
+	width: 95%;
+}
+.ForMeCovers{
+	width: 48%;
+	margin: 1% 1%;
+ 	background:rgba(245,245,245,1);
+}
+.ForMeCover{
+	 padding: 0 15px;
+}
+.ForMeTitle{
+	padding: 0px 15px;
+	font-size:16px;
+	font-weight:300;
+	color:rgba(51,51,51,1);
+}
+.ForMeDs{
+	display: -webkit-box;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	word-break: break-all;
+	padding: 0 15px;
+	font-size:14px;
+	font-weight:300;
+	color:rgba(102,102,102,1);
+	line-height:25px;
+}
+.ForMeCovers{
+	height: 183px;
+}
+.ForMeImg{
+	height: 183px;
+}
+@media only screen and (max-width:1366px ) {
+	.ForMeTitle{
+		font-size: 14px;
+	}
+	.ForMeDs{
+		font-size: 14px;
+	}
+	.ForMeCovers{
+		height: 164px;
+	}
+	.ForMeImg{
+		width: 100%;
+		height: 164px;
+	}
+}
+
+
+
+
+/*20190225 17:22 lfs  新加样式*/
+@media only screen and (min-width: 900px) and (max-width: 1490px){
+	.ForMeImg {
+	    width: 100%;
+	    height: 137px;
+	} 
+	.ForMeCovers{
+	    height: 137px;
+	}
+	.ForMeDs{
+		font-size: 12px;
+		line-height: 20px;
+	    margin-top: 10px !important;
+	}
+}

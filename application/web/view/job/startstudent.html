@@ -1,0 +1,56 @@
+{include file="public/head" /}
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/StartStudent.css" />
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/topbottom.css"/>
+{include file="public/nav" /}
+{include file="public/fiex" /}
+<!--内容-->
+
+<a href="{$article['banner'] && $article['banner']['url'] ?: 'javascript:;'}" target="_blank">
+	<div class="col-lg-12 col-md-12 clearpadding text-center clearpadding startStuBg margin-top80" {$article['banner'] ? 'style="background: url('.$article['banner']['path'].') no-repeat;background-size: 100% 100%;"' : ''}></div>
+</a>
+<div class="col-lg-12 col-md-12 clearpadding text-center ExcellentCourseTitle clearpadding margin-top80">
+	<span class="col-lg-12 col-md-12 clearpadding StartStudent">明星学员</span>
+	<span class="col-lg-12 col-md-12 clearpadding EnlishStar">Star students</span><br />
+	<img src="__STYLE__/img/dowm.png"/>
+</div>
+<div class="col-lg-12 col-md-12 margin-top40">
+	<div class="col-lg-8 col-md-8 marginleft16_67">
+		<div class="col-lg-12 col-md-12 clearpadding ExcellentCounts">
+			<div class="col-lg-12 col-md-12 StarCovers">
+				{volist name="$article['student']['list']" id="vo"}
+				<!--<a href="{:url('job/detail',['article'=>$vo['id']])}">-->
+					<div class="col-lg-3 col-md-3 setHeight clearpadding StarCover">
+						<img class="starImage" src="{$vo.icon}" width="100%" />
+						<div class="col-lg-12 col-md-12 clearpadding StarCoverMb text-center">
+							<span class="col-lg-10 col-md-10 clearpadding marginleft8_33333">{$vo.title}</span>
+						</div>
+						<div class="col-lg-12 col-md-12 clearpadding starCoverMbs">
+						<span class="col-lg-10 col-md-10 clearpadding marginleft8_33333 starCoverMbName">
+							{$vo.title}
+						</span>
+							<div class="borderMb"></div>
+						<span class="col-lg-12 col-md-12 starCoverMbTitle">
+							{$vo.brief}
+						</span>
+						</div>
+					</div>
+				<!--</a>-->
+				{/volist}
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-6 col-md-6 bottomfenye marginleft25">
+		<div class="col-lg-12 col-md-12 text-center KcCount">
+			<span>总共{$article.count}个明星学员</span>
+		</div>
+		<div class="col-lg-12 col-md-12 text-center">
+			{$article['student']['page']}
+		</div>
+	</div>
+</div>
+{include file="public/foot" /}
+<script type="text/javascript" src="__STYLE__/js/jQuery-2.1.0.js" ></script>
+<script type="text/javascript" src="__STYLE__/js/topHover.js" ></script>
+<script type="text/javascript" src="__STYLE__/js/fixedRight.js" ></script>
+<script type="text/javascript" src="__STYLE__/js/qrCodeAndPage.js" ></script>

@@ -1,0 +1,189 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.borderbottom{
+	border-bottom:1px solid rgba(245,245,245,1);
+}
+.course ul li.myactive{
+	color: rgba(246, 125, 14, 1);
+	border-bottom: 3px solid rgba(246, 125, 14, 1);
+}
+.CampusNewsCover img{
+	height: 225px;
+}
+.mynewsbottom{
+	position: relative;
+	height: 225px;
+}
+
+.mHeight{
+	min-height: 539px;
+}
+
+.course {
+	padding-right: 5%;
+}
+.course ul{
+	margin: 0;
+}
+.course ul li{
+	font-size:16px;
+	font-weight:300;
+	color:rgba(51,51,51,1);
+	margin-left: 1.5%;
+	padding-bottom: 15px;
+}
+.CourseTitle{
+	font-size:16px;
+	font-weight:300;
+	color:rgba(51,51,51,1);
+}
+.KcCount{
+	padding: 5% 0;
+}
+.KcCount span{
+	font-size:16px;
+	font-weight:500;
+	color:rgba(51,51,51,0.5);
+}
+
+.bottomfenye{
+	padding-bottom:5% ;
+}
+.CampusNewsCover{
+	padding-right: 15px;
+}
+.CampusNewsTitle{
+	padding: 10px 15px 15px 15px;
+	font-size:26px;
+	font-weight:400;
+	color:rgba(51,51,51,1);
+}
+.CampusNewsDs{
+	padding-top: 10px;
+	font-size:16px;
+	font-weight:300;
+	color:rgba(51,51,51,1);
+	line-height:30px;
+}
+.NewsIconTitle{
+	font-size:14px;
+	font-weight:300;
+	color:rgba(153,153,153,1);
+	line-height:30px;
+}
+.timeIconImg{
+	width: 19px;
+	height: 19px;
+	margin-top: 5px;
+}
+.CampusNewsTitle{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.CampusNewsDs{
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+}
+@-moz-document url-prefix() {
+	.CampusNewsDs{
+		display: block;
+		position: relative;
+		line-height: 30px;
+		max-height: 70px;
+		overflow: hidden;
+	}
+	.CampusNewsDs::after{
+		content: ""; position: absolute;
+		bottom: 0;
+		right: 0;
+		padding-left: 40px;
+		background: -webkit-gradient(linear, 0 0, 100% 0, from(transparent), color-stop(0.55, #fff));
+		background: -webkit-linear-gradient(left, transparent, #fff 55%);
+		background: -moz-linear-gradient(left, transparent, #fff 55%);
+		background: -o-linear-gradient(left, transparent, #fff 55%);
+		background: linear-gradient(left, transparent, #fff 55%);
+	}
+}
+.NewsIcon{
+	position: absolute;
+	bottom: 0px;
+}
+.TimeIcon{
+	padding: 0;
+	padding-left: 5px;
+}
+.border1News{
+	height:1px;
+	background:rgba(245,245,245,1);
+}
+@media only screen and (min-width: 1367px) and (max-width: 1410px){
+	.timeIconImg{
+		width: 23px;
+		height: 23px;
+	}
+	.TimeIcon{
+		position: absolute;
+		bottom: -4px;
+	}
+}
+@media only screen and (min-width: 1367px) and (max-width: 1600px){
+	.CampusNewsCover img {
+		height: 200px;
+	}
+	.mynewsbottom{
+		height: 200px;
+	}
+}
+
+
+@media only screen and (max-width:1366px ) {
+	.CampusNewsCover img {
+		height: 180px;
+	}
+	.mynewsbottom{
+		height: 180px;
+	}
+	.timeIconImg{
+		width: 19px;
+		height: 19px;
+	}
+	.TimeIcon{
+		position: absolute;
+		bottom: -10px;
+	}
+	.NewsIconTitle {
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(153,153,153,1);
+    line-height: 30px;
+}
+.TimeIcon {
+    padding: 0;
+    padding-left: 5px;
+    margin-bottom: 4px;
+}
+.timeIconImg{
+	margin-top: 6px;
+}
+.CampusNewsTitle {
+    padding: 5px 15px 5px 15px;
+    font-size: 22px;
+    font-weight: 400;
+    color: rgba(51,51,51,1);
+}
+.CampusNewsDs {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(51,51,51,1);
+    line-height: 30px;
+}
+.NewsIcon {
+    padding-top: 2.6%;
+    padding-left:10px ;
+}
+}

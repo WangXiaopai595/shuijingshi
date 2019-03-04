@@ -1,0 +1,113 @@
+{include file="public/head" /}
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/topbottom.css"/>
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/OnlineCourse.css"/>
+<link rel='stylesheet' type='text/css' href='__STYLE__/css/animate.css' />
+{include file="public/nav" /}
+{include file="public/fiex" /}
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+	<div class="col-lg-12 col-md-12 clearpadding bgwhite margin-bottom20">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-top80 ">
+			<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 margin-top60 marginleft8_33333">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center course clearpadding">
+					<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 clearpadding CourseTitle marginleft8_33333">课程：</div>
+					<ul class="col-lg-10 col-md-10 col-sm-10 col-xs-10 pull-left clearpadding">
+						<a href="{:url('project/index')}">
+							<li class="col-lg-1_5 col-md-1_5 col-sm-1_5 col-xs-1_5 {$param['type_id'] ? '' : 'myactive'}">全部</li>
+						</a>
+						{volist name="project['type']" id="vo"}
+						<a href="{:url('project/index',['type_id' => $vo['id'],'child_id' => $param['child_id']])}">
+							<li class="col-lg-1_5 col-md-1_5 col-sm-1_5 col-xs-1_5 {$param['type_id'] == $vo['id'] ? 'myactive' : ''}">{$vo.name}</li>
+						</a>
+						{/volist}
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 margin-top60 marginleft8_33333">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center courses clearpadding">
+					<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 clearpadding"></div>
+					<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 clearpadding CourseTitle">科目：</div>
+					<ul class="col-lg-10 col-md-10 col-sm-10 col-xs-10 pull-left clearpadding">
+						<a href="{:url('project/index',['type_id' => $param['type_id']])}" target="_blank">
+							<li class="col-lg-1_5 col-md-1_5 col-sm-1_5 col-xs-1_5 {$param['child_id'] ? '' : 'myactive'}">全部</li>
+						</a>
+						{volist name="project['type_child']" id="vo"}
+						<a href="{:url('project/index',['type_id' => $param['type_id'],'child_id' => $vo['id']])}">
+							<li class="col-lg-1_5 col-md-1_5 {$param['child_id'] == $vo['id'] ? 'myactive' : ''}">{$vo.name}</li>
+						</a>
+						{/volist}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding bg-250"  id="view">
+		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 clearpadding title margin-top20 marginleft16_67 show">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding ExcellentCounts">
+				{volist name="project['class']['list']" id="vo"}
+				<div class="col-md-3 col-lg-3 col-sm-3 col-xs-3 text-left clearpadding ExcellentCount hide">
+					<a class="Online" href="{:url('project/detail',['class'=>$vo['id']])}">
+						<img class="OnlineCover " src="{$vo.icon}" width="100%">
+					</a>
+					<span class="speaker">{$vo.title}</span><br />
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 clearpadding col-lg-6 onlineDivs">
+						<a class="speaker1" href="javasript:void(0)" target="_blank">主讲人：{$vo.teacher}</a>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 clearpadding text-right onlineDiv">
+						<a class="OnlineA" href="javasript:void(0)" target="_blank"><img src="__STYLE__/img/browse.png"><span class="speaker2 clearpadding">{$vo.people}</span></a>
+					</div>
+				</div>
+				{/volist}
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 marginleft25">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center KcCount">
+			<span>总共{$project['count']}个课程</span>
+		</div>
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+			{$project['class']['page']}
+		</div>
+	</div>
+</div>
+{include file="public/foot" /}
+<script type="text/javascript" src="__STYLE__/js/jQuery-2.1.0.js" ></script>
+<script type="text/javascript" src="__STYLE__/js/topHover.js" ></script>
+<script type="text/javascript" src="__STYLE__/js/fixedRight.js" ></script>
+<script type="text/javascript" src="__STYLE__/js/qrCodeAndPage.js" ></script>
+<script>
+    $(function(){
+
+        $(".course ul li").each(function(){
+            $(this).click(function(){
+                $(this).addClass("myactive").siblings().removeClass("myactive");
+                $(".title").each(function(){
+                    $(this).removeClass("hide  ").addClass("show").siblings(".title").removeClass("show").addClass("hide");
+                });
+            });
+        });
+        $(".courses ul li").each(function(){
+            $(this).click(function(){
+                $(this).addClass("myactive").siblings().removeClass("myactive");
+            });
+        });
+        $('.ExcellentCount').addClass('show').removeClass('hide');
+        $('.ExcellentCount').addClass('rollIn animated');
+    })
+    //		function getInfoData (data,laber){
+    //			$('.clearpadding').empty();
+    //			$.ajax({
+    //				type:"post",
+    //				url:"",
+    //				data:{data:'',laber:''},
+    //				async:true,
+    //				success:function(){
+    //					var nodes = '';
+    //				}
+    //				$('.clearpadding').append(nodes);
+    //			})
+    //		}
+</script>

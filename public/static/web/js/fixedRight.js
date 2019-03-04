@@ -1,0 +1,12 @@
+$(function(){
+			$(".rightFixedImg").each(function(){
+				$(this).mouseenter(function(){
+					$(this).find(".FixedHover").removeClass("hide").addClass("show");
+				});
+			});
+			$(".rightFixedImg").each(function(){
+				$(this).mouseleave(function(){
+					$(this).find(".FixedHover").removeClass("show").addClass("hide");
+				});
+			});
+		})

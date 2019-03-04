@@ -1,0 +1,1755 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body,html{
+	height: 100%;
+}
+.banner{
+	height: 100%;
+}
+.indexBgEq0{
+	height: 100%;
+	overflow: hidden;
+}
+.indexVideo1{
+	height: 890px;
+}
+.bgteach:hover{
+	background: rgba(255,255,255,0.2);
+}
+.item .myTrans .mytranstion{
+	transition: 0.5s;
+	width: 1273.33px;
+}
+.item .myTrans:hover .mytranstion{
+	transform: scale(1.1);
+}
+
+.clearpadding .Courseimg img{
+	cursor: pointer;
+	transition: 0.5s;
+}
+.clearpadding .Courseimg:hover img{
+	transform: scale(1.1);
+}
+.myjpkc{
+	overflow: hidden;
+	cursor: pointer;
+	transition: 0.5s;
+}
+.numberthree1 .myxycf img{
+	transition: 0.5s;
+}
+.myxycf{
+	overflow: hidden;
+	cursor: pointer;
+}
+.mystuinv{
+	overflow: hidden;
+}
+.numberthree1:hover .myxycf img{
+	transform: scale(1.03);
+}
+.numberthree2 .mystuinv img{
+	cursor: pointer;
+	transition: 0.5s;
+}
+.numberthree2:hover .mystuinv img{
+	transform: scale(1.03);
+}
+.mystuworks{
+	overflow: hidden;
+}
+.myWorksCover .mystuworks img{
+	cursor: pointer;
+	transition: 0.5s;
+}
+.myWorksCover:hover .mystuworks img{
+	transform: scale(1.03);
+}
+.mystuworks1{
+	overflow: hidden;
+}
+.worksCovers .mystuworks1 img{
+	cursor: pointer;
+	transition: 0.5s;
+}
+.worksCovers:hover .mystuworks1 img{
+	transform: scale(1.03);
+}
+.WorksCovers .mystuworks img{
+	cursor: pointer;
+	transition: 0.5s;
+}
+.WorksCovers:hover .mystuworks img{
+	transform: scale(1.03);
+}
+.myWorksCovers{
+	cursor: pointer;
+	transition: 0.5s;
+}
+.myWorksCovers:hover{
+	transform: scale(1.03);
+}
+.mystuworks{
+	overflow: hidden;
+}
+.WorksCover .mystuworks img{
+	cursor: pointer;
+	transition: 0.5s;
+}
+.clearpadding .WorksCovers:nth-of-type(2)
+{
+	margin-top: 20px
+}
+
+.WorksCover:hover .mystuworks img{
+	transform: scale(1.03);
+}
+.bgteach{
+	cursor: pointer;
+	transition: 0.5s;
+}
+.bgteach:hover{
+	transform: scale(1.03);
+}
+.bgDynamics{
+	cursor: pointer;
+	transition: 0.5s;
+}
+.bgDynamics:hover{
+	background: rgba(255,255,255,0.2);
+}
+.clearpadding {
+	padding-left: 0;
+	padding-right: 0;
+}
+.paddingleftright10 {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+#myvideo{
+	height: 68.5%;
+}
+.myindexImg{
+	height: 663.75px;
+}
+.RecRegLogin ul li a{
+	color:rgba(255,255,255,1);
+	text-decoration: none;
+}
+.paddingtopbottom10 {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.indexImgBanner {
+	margin-top: 80px;
+}
+.margintop5 {
+	margin-top: 5%;
+}
+.margintop5{
+	margin-top: 0;
+}
+.lineheight80 {
+	line-height: 80px;
+}
+.header {
+	width: 100%;
+	background: -webkit-linear-gradient(top, RGBA(0, 0, 0, 0.2), RGBA(0, 0, 0, 0));
+	background: -o-linear-gradient(top, RGBA(0, 0, 0, 0.2), RGBA(0, 0, 0, 0));
+	background: -moz-linear-gradient(top, RGBA(0, 0, 0, 0.2), RGBA(0, 0, 0, 0));
+	z-index: 9999999;
+}
+.bottoms {
+	background: rgba(0,0,0,1);
+	padding-left: 0;
+	padding-right: 0;
+	margin-bottom: 0%;
+}
+.introduce{
+	padding: 30px 0;
+	background:rgba(0,0,0,1);
+}
+.NavigationBar .listUl li a {
+	font-weight: 300;
+	color: rgba(255, 255, 255, 1);
+	text-decoration: none;
+}
+
+.iconcount {
+	background: rgba(255, 255, 255, 1);
+	box-shadow: 0px 2px 6px 0px rgba(1, 1, 1, 0.15);
+}
+.Honors{
+	width: 1920px;
+}
+.Honor{
+	width: 384px;
+}
+.iconcount .icons {
+	padding: 3% 1.7% 3% 5.3%;
+}
+
+.iconcount .icons div {
+	float: left;
+}
+.index_banner{
+	width: 1273.33px;
+}
+.mytranstion{
+	width: 1273.33px;
+}
+.numbertwo{
+	width: 621.66px;
+}
+.myjpkcs{
+	width: 621.66px;
+}
+.mysztds{
+	width: 1273.33px;
+}
+.myxydts{
+	width: 1273.33px;
+}
+.indexBanners{
+	width: 1920px;
+}
+.indexVidMb{
+	cursor: pointer;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.5);
+	padding: 15px;
+}
+.indexVidMb .indexVidMbs{
+	font-size:18px;
+	font-weight:400;
+	color:rgba(255,255,255,1);
+}
+.indexVidMb2{
+	cursor: pointer;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.5);
+	padding: 20px 0 20px 20px;
+}
+.indexVidMb2 .indexVidMbs2{
+	font-size:17px;
+	font-weight:400;
+	color:rgba(255,255,255,1);
+}
+.indexVidMb3{
+	cursor: pointer;
+	width: 425px;
+	position: absolute;
+	bottom: 0px;
+	left: 0;
+	background: rgba(0,0,0,0.5);
+	padding: 20px 0 20px 20px;
+}
+.indexVidMb3 .indexVidMbs3{
+	font-size:17px;
+	font-weight:400;
+	color:rgba(255,255,255,1);
+}
+.iconcount .icons img {
+
+}
+
+.iconcount .icons div .iconTitle {
+	font-size: 20px;
+	font-weight: 300;
+	color: rgba(51, 51, 51, 1);
+}
+
+.iconcount .icons div .introduces {
+	font-size: 16px;
+	font-weight: 300;
+	color: rgba(153, 153, 153, 1);
+}
+
+.iconcount {
+	position: absolute;
+	bottom: -87.155px;
+	left: 16.6666667%;
+}
+
+.Honor {
+	margin: 6% 0 5% 0;
+	border-right: 1px solid rgba(153, 153, 153, 0.2);
+}
+
+.carousel-inner .item img {
+	background-size: 100% 100%;
+}
+
+.Honor .HonorTitle {
+	font-size: 32px;
+	font-weight: 400;
+	color: rgba(51, 51, 51, 1);
+}
+
+.Honor .Honorintroduces {
+	font-size: 16px;
+	font-weight: 300;
+	color: rgba(102, 102, 102, 1);
+}
+
+.Noborder {
+	border: none;
+}
+
+.carousel-control.left {
+	display: none;
+}
+
+.carousel-control.right {
+	display: none;
+}
+
+.carousel-indicators1 {
+	position: absolute;
+	bottom: 10px;
+	left: 20%;
+	z-index: 15;
+	width: 60%;
+	padding-left: 0;
+	text-align: center;
+	list-style: none
+}
+
+.height80 {
+	height: 80px;
+}
+
+.carousel-indicators1 li {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	margin: 1px;
+	text-indent: -999px;
+	cursor: pointer;
+	background-color: #000\9;
+	background-color: rgba(0, 0, 0, 0);
+	border: 1px solid #fff;
+	border-radius: 10px
+}
+
+.cur {
+	cursor: pointer;
+}
+
+.carousel-indicators1 .active {
+	width: 12px;
+	height: 12px;
+	margin: 0;
+	background-color: #fff
+}
+
+.Course_bg {
+	background: url(../img/Course_bg.png) no-repeat;
+	height: 100%;
+	background-size: 100% 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 1920px;
+}
+
+.numbertwo {
+	font-size: 156px;
+	font-weight: 200;
+	color: rgba(255, 255, 255, 1);
+}
+
+.coursechina {
+	font-size: 46px;
+	font-weight: 200;
+	color: rgba(255, 255, 255, 1);
+}
+
+.course {
+	font-size: 20px;
+	font-weight: 200;
+	color: rgba(255, 255, 255, 1);
+}
+
+.ExcellentCourse1 {
+	float: right;
+	line-height: 50px;
+	padding: 10% 0 0 0;
+}
+
+.clearpadding .Courseimg {
+	width: 23%;
+	text-decoration: none;
+	margin: 1%;
+}
+
+.Courseimg img {
+	width: 100%;
+	height: 217px;
+}
+
+.courseimgTitle {
+	font-size: 20px;
+	font-weight: 300;
+	color: rgba(255, 255, 255, 1);
+	padding: 10px 0 0 0;
+	/*color: black;*/
+}
+
+.Interview_bg {
+	background: url(../img/Interview_bg.png) no-repeat;
+	background-size: 100% 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 1920px;
+}
+
+.myxyzps{
+	width: 1273.33px;
+}
+
+.border3_ {
+	margin-top: 10px;
+	width: 54px;
+	border: 3px solid rgba(255, 255, 255, 1);
+}
+
+.paddingtopbottom10_ {
+	padding: 10% 0;
+	line-height: 50px;
+}
+
+.marginright8 {
+	margin-right: 8%;
+}
+
+.marginleft65 {
+	margin-left: 65%;
+}
+
+.SeeMore {
+	margin-top: 65px;
+	font-size: 18px;
+	font-weight: 400;
+}
+
+.SeeMores {
+	margin-top: 63px;
+	font-size: 18px;
+	font-weight: 400;
+}
+
+.SeeMores a {
+	text-decoration: none;
+	color: rgba(255, 255, 255, 1);
+}
+
+.SeeMore a {
+	text-decoration: none;
+	color: rgba(255, 255, 255, 1);
+}
+
+.paddingtopbottom15 {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.floatleft {
+	float: left;
+}
+
+.floatright {
+	float: right;
+}
+
+.paddingbottom10 {
+	padding-bottom: 50px;
+}
+
+.WorksCover2_3 {
+	padding: 15px 0;
+}
+
+.numberthree1 {
+	position: relative;
+}
+
+.numberthree2 {
+	position: relative;
+}
+
+.numberthree3 {
+	position: relative;
+	padding: 7.5px 0px 0px 0px;
+}
+
+.play1 {
+	position: absolute;
+	top: 44%;
+	left: 44%;
+}
+
+.play2 {
+	position: absolute;
+	top: 33%;
+	left: 41%;
+}
+
+.play3 {
+	position: absolute;
+	top: 33%;
+	left: 53%;
+}
+
+.numberthree4 {
+	position: relative;
+}
+
+.numberthree5 {
+	position: relative;
+	padding: 0px 0px 0px 0px;
+}
+
+.numberthree6 {
+	position: relative;
+	padding: 15px 0px 15px 0px;
+}
+
+.play4 {
+	position: absolute;
+	top: 38%;
+	left: 43%;
+}
+
+.play5 {
+	position: absolute;
+	top: 38%;
+	left: 43%;
+}
+
+.play6 {
+	position: absolute;
+	top: 40%;
+	left: 45%;
+}
+
+.margin-right8 {
+	margin-right: 6%;
+}
+
+.padding_top_bottom1 {
+	padding-bottom: 13px;
+}
+
+.StudentWorks_bg {
+	background: url(../img/StudentWorks_bg.png);
+	height: 100%;
+	background-size: 100% 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 1920px;
+}
+
+.marginleft8_2 {
+	margin-left: 8.2%;
+}
+
+.SeeMore1 {
+	margin-top: 73px;
+	font-size: 18px;
+	font-weight: 400;
+	margin-left: 2.7%;
+}
+
+.SeeMore1 a {
+	text-decoration: none;
+	color: rgba(255, 255, 255, 1);
+}
+
+.paddingleftright15 {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.TeacherTeam_bg {
+	background: url(../img/TeacherTeam.png) no-repeat;
+	height: 100%;
+	background-size: 100% 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 1920px;
+}
+
+.teachName {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	padding: 10px 0px 10px 0px;
+	font-size: 24px;
+	font-weight: 500;
+	color: rgba(255, 255, 255, 1);
+	border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+
+.teachCount {
+	overflow: hidden;
+	padding-right:14.5px;
+	padding-top: 20px;
+	font-size: 14px;
+	font-weight: 300;
+	color: rgba(255, 255, 255, 1);
+}
+@-moz-document url-prefix() {
+	body{
+		width:100%;
+	}
+	.teachName{
+		font-size: 20px;
+	}
+	.teachCount{
+		display: block;
+		position: relative;
+		line-height: 21px;
+		max-height: 70px;
+		overflow: hidden;
+		font-size: 14px;
+	}
+	.teachCount::after{
+		content: "";
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		padding-left: 40px;
+		background: -webkit-gradient(linear, 0 0, 100% 0, from(transparent), color-stop(0.55, #fff));
+		background: -webkit-linear-gradient(left, transparent, #fff 55%);
+		background: -moz-linear-gradient(left, transparent, #fff 55%);
+		background: -o-linear-gradient(left, transparent, #fff 55%);
+		background: linear-gradient(left, transparent, #fff 55%);
+	}
+
+	.DynamicsDescribe{
+		display: block;
+		position: relative;
+		line-height: 25px;
+		max-height: 50px;
+		overflow: hidden;
+	}
+	.DynamicsDescribe::after{
+		content: "";
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		padding-left: 40px;
+		background: -webkit-gradient(linear, 0 0, 100% 0, from(transparent), color-stop(0.55, #fff));
+		background: -webkit-linear-gradient(left, transparent, #fff 55%);
+		background: -moz-linear-gradient(left, transparent, #fff 55%);
+		background: -o-linear-gradient(left, transparent, #fff 55%);
+		background: linear-gradient(left, transparent, #fff 55%);
+	}
+	.indexBanner{
+		height:74.6%;
+	}
+	.indexBanners{
+		width:100%;
+	}
+}
+.myrelative{
+	position: relative;
+	height: 183px;
+}
+.myCreatTime{
+	position: absolute;
+	right:0;
+	bottom:0;
+}
+
+.bgteach {
+	padding-top: 2.5%;
+	width: 48%;
+	margin: 1%;
+	height: 230px;
+	background: rgba(91, 90, 90, 0.8);
+}
+
+.dynamics_bg {
+	background: url(../img/dynamics_bg.png) no-repeat;
+	height: 100%;
+	background-size: 100% 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width:100%;
+}
+
+.indexVidMb_s {
+	width: 757.08px;
+	cursor: pointer;
+	position: absolute;
+	bottom: 0;
+	left: 20px;
+	background: rgba(0,0,0,0.5);
+	padding: 20px 0 20px 20px;
+}
+
+.indexVidMb_s .indexVidMbs {
+	font-size: 18px;
+	font-weight: 400;
+	color: rgba(255,255,255,1);
+}
+.bgDynamics {
+	width: 48%;
+	height: 183px;
+	margin: 1%;
+	background: rgba(155, 155, 155, 0.6);
+}
+
+.DynamicsCover{
+	width: 100%;
+	height: 183px;
+}
+.myarticle{
+	position: relative;
+	height: 183px;
+}
+.myTime{
+	position: absolute;
+	right: 15px;
+	bottom: 0px;
+}
+.DynamicsTitle {
+	overflow: hidden;/*溢出隐藏*/
+	text-overflow: ellipsis;/*文本溢出省略号*/
+	white-space: nowrap;/*不换行*/
+	width: 100%;
+	line-height: 50px;
+	font-size: 16px;
+	font-weight: 400;
+	color: rgba(255, 255, 255, 1);
+
+}
+
+.DynamicsDescribe {
+	display: -webkit-box;
+	-webkit-line-clamp: 3;/*规定超过两行的部分截断*/
+	-webkit-box-orient: vertical;
+	overflow : hidden;
+	word-break: break-all;/*在任何地方换行*/
+	font-size: 14px;
+	font-weight: 300;
+	color: rgba(255, 255, 255, 0.5);
+	line-height: 30px;
+	text-overflow: ellipsis; /*有些示例里需要定义该属性，实际可省略*/
+}
+
+.CreatTime {
+	font-size: 14px;
+	font-weight: 300;
+	color: rgba(255, 255, 255, 0.6);
+	line-height: 30px;
+}
+
+.SeeMore2 {
+	padding: 15px 0;
+	font-size: 18px;
+	font-weight: 400;
+	margin-left: 2.7%;
+}
+.address p{
+	padding-top: 25px;
+}
+.SeeMore2 a {
+	text-decoration: none;
+	color: rgba(255, 255, 255, 1);
+}
+
+.introduce {
+	padding-bottom: 51px;
+
+	background: rgba(0, 0, 0, 1);
+}
+
+.introduce .address p {
+	font-size: 14px;
+	font-weight: 300;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.item a img{
+	height: 541.16px;
+}
+
+.carousel-inner>.item>a>img, .carousel-inner>.item>img{
+	height: 510px;
+}
+.index_bg {
+	background: url(../img/index_bg.png) no-repeat;
+	height: 100%;
+	background-size: 100% 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.myxycfs{
+	width: 1273.33px;
+}
+.height541_16{
+	height: 541.16px;
+}
+
+
+.numberthreeImg {
+	width: 100%;
+	height: 262px;
+}
+.videoplay .numberthree2:nth-of-type(2){
+	margin-top: 15px;
+}
+
+.InterviewCover1 {
+	width: 100%;
+	height: 540px;
+}
+
+.padding20 {
+	padding: 0;
+}
+
+.carousel-inner .item {
+	text-align: center;
+}
+
+.carousel-indicators {
+	z-index: 999;
+}
+
+.index_banner {
+	margin-bottom: 3.5%;
+}
+
+.paddingtop10 {
+	padding-top: 10px;
+}
+
+.paddingbottom10 {
+	padding-bottom: 10px;
+}
+
+.WorksCover3 {
+	height: 527.66px;
+	margin-left: 20px;
+}
+
+
+.WorksCover {
+	width: 100%;
+	height: 253.84px;
+}
+
+
+.My4_5 {
+	width: 37.5%;
+}
+
+.bgteach div img{
+	width: 95px;
+	height: 95px;
+	border-radius: 50%;
+}
+
+.My8_5 {
+	width: 62.5%;
+}
+
+.custSer {
+	width: 70px;
+	height: 70px;
+	z-index: 999;
+	position: fixed;
+	top: 45%;
+	left: 3%;
+}
+
+.cutScr {
+	position: fixed;
+	height: 24px;
+	width: 12px;
+	z-index: 999;
+	right: 3%;
+	top: 40%;
+}
+
+.cutScr .rightRadius li .smallRad {
+	text-decoration: none;
+}
+.smallRad li {
+	margin: 11.5px 0;
+	width: 12px;
+	height: 12px;
+	background: rgba(255, 255, 255, 0.5);
+	border-radius: 50%;
+}
+.cutScr .rightRadius .smallRad li.myactive{
+	height: 20px;
+	border-radius: 40%;
+	background: rgba(255, 255, 255, 1);
+}
+
+@media only screen and (max-width: 1366px) {
+	.iconcount .icons div .introduces{
+		font-size: 12px;
+	}
+	.Honor .HonorTitle {
+		font-size: 24px;
+		font-weight: 400;
+		color: rgba(51, 51, 51, 1);
+	}
+	.Honor .Honorintroduces{
+		font-size: 12px;
+	}
+	.indexVidMb .indexVidMbs{
+		font-size: 14px;
+	}
+	.courseimgTitle{
+		font-size: 15px;
+	}
+	.teachName{
+		font-size: 18px;
+	}
+	.indexVidMb_s .indexVidMbs{
+		font-size: 14px;
+	}
+	.teachCount{
+		font-size: 12px;
+	}
+	.DynamicsTitle{
+		font-size: 14px;
+	}
+	.DynamicsDescribe{
+		font-size: 12px;
+	}
+	.indexVidMb2 .indexVidMbs2{
+		font-size: 14px;
+	}
+	.NavigationBar .listUl{
+		width: 507px;
+	}
+	.header{
+		width: 100%;
+	}
+	myindexImg{
+		height:100%;
+	}
+	indexBgEq0{
+		height:100%;
+	}
+	.address{
+		padding-bottom: 20px;
+	}
+	.myrelative{
+		position: relative;
+		height: 109.18px;
+	}
+	.myCreatTime{
+		position: absolute;
+		right:0;
+		bottom:0;
+	}
+	@-moz-document url-prefix() {
+		.teachCount{
+			display: block;
+			position: relative;
+			line-height: 30px;
+			max-height: 60px;
+			overflow: hidden;
+		}
+		.teachCount::after{
+			content: "";
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			padding-left: 40px;
+			background: -webkit-gradient(linear, 0 0, 100% 0, from(transparent), color-stop(0.55, #fff));
+			background: -webkit-linear-gradient(left, transparent, #fff 55%);
+			background: -moz-linear-gradient(left, transparent, #fff 55%);
+			background: -o-linear-gradient(left, transparent, #fff 55%);
+			background: linear-gradient(left, transparent, #fff 55%);
+		}
+		.DynamicsDescribe{
+			display: block;
+			position: relative;
+			line-height: 30px;
+			max-height: 50px;
+			overflow: hidden;
+		}
+		.DynamicsDescribe::after{
+			content: ""; position: absolute; bottom: 0; right: 0; padding-left: 40px;
+			background: -webkit-gradient(linear, 0 0, 100% 0, from(transparent), color-stop(0.55, #fff));
+			background: -webkit-linear-gradient(left, transparent, #fff 55%);
+			background: -moz-linear-gradient(left, transparent, #fff 55%);
+			background: -o-linear-gradient(left, transparent, #fff 55%);
+			background: linear-gradient(left, transparent, #fff 55%);
+		}
+	}
+
+	.iconcount {
+		position: absolute;
+		bottom: -67.155px;
+		left: 16.6666667%;
+	}
+	.DynamicsDescribe {
+		font-size: 12px;
+		font-weight: 300;
+		color: rgba(255, 255, 255, 0.5);
+		line-height: 30px;
+		overflow:hidden;  /*超过部分不显示*/
+		　text-overflow:ellipsis;  /*超过部分用点点表示*/
+		　white-space:nowrap;/*不换行*/
+	}
+	.DynamicsTitle {
+		line-height: 40px;
+		font-size: 14px;
+		font-weight: 400;
+		color: rgba(255, 255, 255, 1);
+		text-overflow: ellipsis; /*有些示例里需要定义该属性，实际可省略*/
+		display: -webkit-box;
+		-webkit-line-clamp: 3;/*规定超过两行的部分截断*/
+		-webkit-box-orient: vertical;
+		overflow : hidden;
+		word-break: break-all;/*在任何地方换行*/
+	}
+
+	.numberthree1{
+		width: 66.6666666%;
+	}
+
+	.indexVidMb3 {
+		cursor: pointer;
+		width: 100%;
+		position: absolute;
+		bottom: 0px;
+		left: 0;
+		background: rgba(0,0,0,0.5);
+		padding: 20px 0 20px 20px;
+	}
+	.play2 {
+		position: absolute;
+		top: 37%;
+		left: 43%;
+	}
+	.play3 {
+		position: absolute;
+		top: 37%;
+		left: 43%;
+	}
+	.header div ul li a{
+		font-size: 14px;
+	}
+	.NavigationBar .listUl{
+		margin-left: 4%;
+	}
+	.iconcount .icons div .iconTitle {
+		font-size: 16px;
+		font-weight: 300;
+		color: rgba(51, 51, 51, 1);
+	}
+	.Honor .HonorTitle {
+		font-size: 26px;
+		font-weight: 400;
+		color: rgba(51, 51, 51, 1);
+	}
+	.WorksCover {
+		width: 100%;
+		/*height: 258.84px;*/
+	}
+	.Honor .HonorTitle {
+		font-size: 25px;
+		font-weight: 400;
+		color: rgba(51, 51, 51, 1);
+	}
+	.dynamics_bg{
+		height: 100%;
+	}
+	.teachCount {
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		word-break: break-all;
+		padding-right: 14.5px;
+		padding-top: 20px;
+		font-size: 14px;
+		font-weight: 300;
+		color: rgba(255, 255, 255, 1);
+	}
+}
+@media only screen and (max-width: 1440px) and (min-width: 1367px) {
+	.header{
+		width:100%;
+	}
+	.bgteach div img{
+		width: 75px;
+		height: 75px;
+	}
+	.courseimgTitle{
+		font-size: 15px;
+	}
+	.iconcount .icons div .introduces{
+		font-size: 12px;
+	}
+	.Honor .HonorTitle {
+		font-size: 24px;
+		font-weight: 400;
+		color: rgba(51, 51, 51, 1);
+	}
+	.Honor .Honorintroduces{
+		font-size: 12px;
+	}
+	.indexVidMb .indexVidMbs{
+		font-size: 14px;
+	}
+	.teachName{
+		font-size: 18px;
+	}
+	.indexVidMb_s .indexVidMbs{
+		font-size: 14px;
+	}
+	.teachCount{
+		font-size: 12px;
+	}
+	.DynamicsTitle{
+		font-size: 14px;
+	}
+	.DynamicsDescribe{
+		font-size: 12px;
+	}
+	.indexVidMb2 .indexVidMbs2{
+		font-size: 14px;
+	}
+	.myxycfs{
+		width: 66.66666667%;
+	}
+	.myxyzps{
+		width: 66.66666667%;
+	}
+	.mysztds{
+		width: 66.66666667%;
+	}
+	.myxydts{
+		width: 66.66666667%;
+	}
+	.bgteach{
+		height: 165px;
+	}
+	.teachCount{
+		display: -webkit-box;
+		-webkit-line-clamp: 4;
+		-webkit-box-orient: vertical;
+	}
+	.DynamicsCover{
+		height: 145px;
+	}
+	.bgDynamics{
+		height: 145px;
+	}
+	.myarticle{
+		height: 145px;
+	}
+	.DynamicsDescribe {
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		word-break: break-all;
+	}
+	.indexVidMb_s{
+		width:97.1%;
+	}
+	.indexBgEq0{
+		height:100%;
+	}
+	.myindexImg{
+		height:100%;
+	}
+	.teachName{
+		margin-left: 15px;
+	}
+	.teachCount{
+		padding-left: 15px;
+	}
+	.padding20{
+		padding-left: 0px;
+	}
+	.iconcount {
+		position: absolute;
+		bottom: -67.155px;
+		left: 16.6666667%;
+		width:66.66666667%;
+	}
+
+	.index_banner{
+		width:66.666666667%;
+	}
+	.item .myTrans .mytranstion{
+		width:100%;
+	}
+	.QRCode1 {
+		position: absolute;
+		bottom: 100%;
+		left: 0%;
+	}
+	.QRCode3 {
+		position: absolute;
+		bottom: 100%;
+		left: 0%;
+	}
+	.QRCode2 {
+		position: absolute;
+		bottom: 100%;
+		left: 0%;
+	}
+	.Telephone {
+		position: absolute;
+		bottom: 100%;
+		left: -1%;
+	}
+	@-moz-document url-prefix() {
+		.QRCode1{
+			left:0;
+		}
+		.QRCode3 {
+			position: absolute;
+			bottom: 100%;
+			left: 0%;
+		}
+		.QRCode2 {
+			position: absolute;
+			bottom: 100%;
+			left: 0%;
+		}
+		.Telephone {
+			position: absolute;
+			bottom: 100%;
+			left: -1%;
+		}
+	}
+}
+@media only screen and (min-width: 1280px) and (max-width: 1365px) {
+	indexBgEq0{
+		height:100%;
+	}
+	.numberthreeImg {
+		width: 100%;
+		height: 262.5px;
+	}
+	myindexImg{
+		height:100%;
+	}
+	.iconcount {
+		position: absolute;
+		bottom: -67.155px;
+		left: 16.6666667%;
+	}
+	.padding20{
+		padding-left: 35px;
+	}
+	.address{
+		padding-bottom: 20px;
+	}
+}
+
+@media only screen and (max-height: 768px){
+	.header{
+		width:100%;
+	}
+	body{
+		/*width: 1366px;*/
+		width: 100%;
+	}
+	myindexImg{
+		height:100%;
+	}
+	indexBgEq0{
+		height:100%;
+	}
+	.logosImg{
+		width: 177.22px;
+	}
+	.item .myTrans .mytranstion{
+		width: 905.33px;
+	}
+	.Honors{
+		/*width: 1366px;*/
+		width:100%;
+		height: 191.22px;
+	}
+	.index_bg{
+		/*width: 1366px;*/
+		width: 100%;
+	}
+	.Course_bg{
+		/*width: 1366px;*/
+		width: 100%;
+	}
+	.Interview_bg{
+		/*width: 1366px;*/
+		width: 100%;
+	}
+	.StudentWorks_bg{
+		/*width: 1366px;*/
+		width: 100%;
+	}
+	.TeacherTeam_bg{
+		/*width: 1366px;*/
+		width: 100%;
+	}
+	.dynamics_bg{
+		/*width: 1366px;*/
+		width: 100%;
+	}
+	.mybo{
+		width:0;
+	}
+	.bottoms{
+		/*width: 1366px;*/
+		width:100%;
+	}
+	.numberthreeImg{
+		width:120%;
+	}
+	.indexVidMb_s{
+		width: 527.078px;
+	}
+	.myxycfs{
+		width: 905.33px;
+	}
+	.myxyzps{
+		width: 905.33px;
+	}
+	.mysztds{
+		width: 905.33px;
+	}
+	.myxydts{
+		width: 905.33px;
+	}
+	.numbertwo{
+		width: 437.656px;
+	}
+	.index_banner{
+		width: 905.33px;
+	}
+	.icon #bottomNav li a span{
+		font-size: 12px;
+	}
+
+	.bottoms{
+		padding-top: 7px;
+	}
+	.bottoms .icon ul{
+		padding-bottom: 7px;
+	}
+	.bgDynamics{
+		height:136px;
+	}
+	.DynamicsCover{
+		height: 136px;
+	}
+	.myarticle{
+		position: relative;
+		height: 136px;
+	}
+	.myTime{
+		position: absolute;
+		right: 8px;
+		bottom: 0px;
+	}
+	.introduce .address p{
+		padding-top: 7px;
+	}
+	.marginbottom50{
+		margin-bottom: 0px;
+	}
+	.Courseimg img{
+		height: 145.75px;
+	}
+	.numbertwo{
+		font-size: 116px;
+	}
+	.introduce{
+		padding:0px 0;
+	}
+	.bottoms .icon{
+		margin-bottom: 0px;
+	}
+	.SeeMore2{
+		margin-left: 4%;
+	}
+	.WorksCover3{
+		height: 340px;
+	}
+	.InterviewCover1{
+		height: 340px;
+	}
+	.paddingtopbottom10_ {
+		padding: 10% 0 2% 2%;
+	}
+	.SeeMore{
+		margin-top: 0px;
+	}
+	.WorksCover {
+		width: 100%;
+		height: 160px;
+	}
+	.SeeMores {
+		margin-top: 0px;
+		font-size: 18px;
+		font-weight: 400;
+	}
+	.bgteach {
+		padding-top: 2.5%;
+		width: 48%;
+		margin: 1%;
+		height: 160px;
+		background: rgba(91, 90, 90, 0.8);
+	}
+	.SeeMore1 {
+		margin-top: 0px;
+		font-size: 18px;
+		font-weight: 400;
+		margin-left: 2.7%;
+	}
+	.numberthreeImg{
+		width: 100%;
+		height: 162.5px;
+	}
+	.indexVidMb2{
+		cursor: pointer;
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		background: rgba(0,0,0,0.5);
+		padding: 10px 10px 10px 10px;
+	}
+	.bgteach div img{
+		width: 72px;
+		height: 72px;
+	}
+	.teachName{
+		padding: 5px 0;
+		margin-left: 5px;
+	}
+	.teachCount{
+		padding-left: 5px;
+		padding-top: 5px;
+		overflow: hidden;
+	}
+	.DynamicsDescribe {
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		word-break: break-all;
+	}
+	.carousel-inner>.item>a>img, .carousel-inner>.item>img{
+		height: 350px;
+	}
+	#myvideo{
+		height:70%;
+	}
+	.SeeMore2{
+		padding: 0px;
+	}
+	.introduce{
+		padding: 0px 0px;
+		background:rgba(0,0,0,1);
+	}
+	.DynamicsTitle{
+		line-height: 30px;
+		width:95%;
+	}
+	.DynamicsDescribe{
+		line-height: 25px;
+	}
+	.SeeMore{
+		margin-top: 23px;
+		font-size: 18px;
+	}
+	.address{
+		padding-bottom: 20px;
+	}
+}
+@media only screen and (max-height: 900px) and (min-height: 769px) {
+	.courseimgTitle{
+		font-size: 15px;
+	}
+
+	.iconcount .icons div .iconTitle{
+		font-size: 15px;
+	}
+	indexBgEq0{
+		height:100%;
+	}
+	myindexImg{
+		height:100%;
+	}
+	body{
+		width: 100%;
+	}
+	.bottoms{
+		width:100%;
+	}
+	.Honors{
+		width: 100%;
+		height: 191.22px;
+	}
+	.index_bg{
+		width: 100%;
+	}
+	.Course_bg{
+		width: 100%;
+	}
+	.Interview_bg{
+		width: 100%;
+	}
+	.StudentWorks_bg{
+		width: 100%;
+	}
+	.TeacherTeam_bg{
+		width: 100%;
+	}
+	.dynamics_bg{
+		width: 100%;
+	}
+	.teachName{
+		margin-left: 20px;
+		padding-left: 20px;
+	}
+	.address{
+		padding-bottom: 20px;
+	}
+	.dynamics_bg{
+		height:85.3%;
+	}
+	.QRCode1 {
+		position: absolute;
+		bottom: 100%;
+		left: 0%;
+	}
+	.QRCode3 {
+		position: absolute;
+		bottom: 100%;
+		left: 3%;
+	}
+	.QRCode2 {
+		position: absolute;
+		bottom: 100%;
+		left: 0%;
+	}
+	.Telephone {
+		position: absolute;
+		bottom: 100%;
+		left: 6%;
+	}
+	.myrelative{
+		position: relative;
+		height: 109.18px;
+	}
+	.myCreatTime{
+		position: absolute;
+		right:0;
+		bottom:0;
+	}
+	@-moz-document url-prefix() {
+		.teachCount{
+			display: block;
+			position: relative;
+			line-height: 30px;
+			max-height: 60px;
+			overflow: hidden;
+		}
+		.teachCount::after{
+			content: ""; position: absolute;
+			bottom: 0;
+			right: 0;
+			padding-left: 40px;
+			background: -webkit-gradient(linear, 0 0, 100% 0, from(transparent), color-stop(0.55, #fff));
+			background: -webkit-linear-gradient(left, transparent, #fff 55%);
+			background: -moz-linear-gradient(left, transparent, #fff 55%);
+			background: -o-linear-gradient(left, transparent, #fff 55%);
+			background: linear-gradient(left, transparent, #fff 55%);
+		}
+		.DynamicsDescribe{
+			display: block;
+			position: relative;
+			line-height: 30px;
+			max-height: 80px;
+			overflow: hidden;
+		}
+		.DynamicsDescribe::after{
+			content: ""; position: absolute; bottom: 0; right: 0; padding-left: 40px;
+			background: -webkit-gradient(linear, 0 0, 100% 0, from(transparent), color-stop(0.55, #fff));
+			background: -webkit-linear-gradient(left, transparent, #fff 55%);
+			background: -moz-linear-gradient(left, transparent, #fff 55%);
+			background: -o-linear-gradient(left, transparent, #fff 55%);
+			background: linear-gradient(left, transparent, #fff 55%);
+		}
+	}
+	.SeeMore{
+		margin-top: 23px;
+		font-size: 18px;
+	}
+	.dynamics_bg{
+		height:86.3%;
+	}
+	.bottoms{
+		padding-top: 7px;
+	}
+	.bottoms .icon ul{
+		padding-bottom: 7px;
+	}
+	.icon ul li a img{
+		width:100%;
+	}
+	.icon ul li a span{
+		font-size: 13px;
+	}
+	/*.bgDynamics{*/
+		/*height:126px;*/
+	/*}*/
+	/*.DynamicsCover{*/
+		/*height: 126px;*/
+	/*}*/
+	/*.myarticle{*/
+		/*position: relative;*/
+		/*height: 126px;*/
+	/*}*/
+	.myTime{
+		position: absolute;
+		right: 10px;
+		bottom: 0px;
+	}
+	.introduce .address p{
+		padding-top: 7px;
+	}
+	.marginbottom50{
+		margin-bottom: 0px;
+	}
+	.Courseimg img{
+		height: 155.75px;
+	}
+	.numbertwo{
+		font-size: 126px;
+	}
+	.introduce{
+		padding:0px 0;
+	}
+	.bottoms .icon{
+		margin-bottom: 0px;
+	}
+	.SeeMore2{
+		margin-left: 4%;
+	}
+	.WorksCover3{
+		height: 380px;
+	}
+	.InterviewCover1{
+		height: 380px;
+	}
+	.paddingtopbottom10_ {
+		padding: 10% 0 2% 0%;
+	}
+	.SeeMore{
+		margin-top: 26px;
+	}
+	.WorksCover {
+		width: 100%;
+		height: 180px;
+	}
+	.SeeMores {
+		margin-top: 23px;
+		font-size: 18px;
+		font-weight: 400;
+	}
+	.bgteach {
+		padding-top: 2.5%;
+		width: 48%;
+		margin: 1%;
+		height: 170px;
+		background: rgba(91, 90, 90, 0.8);
+	}
+	.SeeMore1 {
+		margin-top: 0px;
+		font-size: 18px;
+		font-weight: 400;
+		margin-left: 2.7%;
+	}
+	.numberthreeImg{
+		width: 100%;
+		height: 182.5px;
+	}
+	.indexVidMb2{
+		cursor: pointer;
+		width: 100%;
+		position: absolute;
+		bottom: 0px;
+		left: 0;
+		background: rgba(0,0,0,0.5);
+		padding: 10px 10px 10px 10px;
+	}
+	.teachName{
+		padding: 5px 0;
+		margin-left: 25px;
+	}
+	.teachCount{
+		padding-left: 25px;
+		padding-top: 5px;
+		overflow: hidden;
+	}
+	.bgDynamics{
+		height: 145px;
+	}
+	.myarticle{
+		height: 145px;
+	}
+	.DynamicsDescribe {
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		word-break: break-all;
+	}
+	.carousel-inner>.item>a>img, .carousel-inner>.item>img{
+		height: 350px;
+	}
+	#myvideo{
+		height:74%;
+	}
+	.SeeMore2{
+		margin-top: 26px;
+	}
+	.introduce{
+		padding: 0px 0px;
+		background:rgba(0,0,0,1);
+	}
+	.DynamicsTitle{
+		line-height: 30px;
+		width:95%;
+	}
+	.DynamicsDescribe{
+		line-height: 25px;
+	}
+}

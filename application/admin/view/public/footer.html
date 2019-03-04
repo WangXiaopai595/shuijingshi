@@ -1,0 +1,21 @@
+<script type="text/javascript" src="__STYLE__/js/jquery.min.js"></script>
+<script type="text/javascript" src="__STYLE__/js/layer.js"></script>
+<!--<script type="text/javascript" src="__STYLE__/layui/layui.js"></script>-->
+<script type="text/javascript" src="__STYLE__/plugins/layui/layui.js"></script>
+<script type="text/javascript" src="//idm-su.baidu.com/su.js"></script>
+
+</body>
+</html>
+<script>
+	$(window).keydown(function(){
+		if ( event.keyCode==116){
+			event.keyCode = 0;
+			event.cancelBubble = true;
+			reload();
+			return  false;
+		}
+	})
+	function reload(){
+		location.reload();
+	}
+</script>

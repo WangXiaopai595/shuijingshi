@@ -1,0 +1,48 @@
+{include file="public/head" /}
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/topbottom.css"/>
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/FormeEnterprise.css" />
+{include file="public/nav" /}
+{include file="public/fiex" /}
+<!--内容-->
+<a href="{$article['banner'] && $article['banner']['url'] ?: 'javascript:;'}" target="_blank">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding text-center clearpadding forMeBg margin-top80" {$article['banner'] ? 'style="background: url('.$article['banner']['path'].') no-repeat"' : ''}></div>
+</a>
+		
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding text-center ExcellentCourseTitle clearpadding margin-top80">
+	<span class="StartStudent">公司介绍</span><br />
+	<span class="EnlishStar">cooperative enterprise</span><br />
+	<img src="__STYLE__/img/dowm.png"/>
+</div>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-top40 clearpadding">
+	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 marginleft16_67">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding ExcellentCounts">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding">
+				{volist name="$article['article']['list']" id="vo"}
+					<a href="{:url('about/detail',['article'=>$vo['id']])}" class="col-lg-6 col-md-6 ForMeCovers clearpadding" target="_blank">
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 clearpadding">
+							<img class="ForMeImg" src="{$vo.icon}" width="100%"/>
+						</div>
+						<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 ForMeCover clearpadding">
+							<span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding ForMeTitle margin-top15">{$vo.title}</span><br />
+							<span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding ForMeDs margin-top15">{$vo.brief}</span>
+						</div>
+					</a>
+				{/volist}
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 marginleft25">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center KcCount">
+			<span>总共{$article.count}篇文章</span>
+		</div>
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+			{$article['article']['page']}
+		</div>
+	</div>
+</div>
+{include file="public/foot" /}
+<script type="text/javascript" src="__STYLE__/js/jQuery-2.1.0.js" ></script>
+<script type="text/javascript" src="__STYLE__/js/topHover.js" ></script>
+<script type="text/javascript" src="__STYLE__/js/fixedRight.js" ></script>
+<script type="text/javascript" src="__STYLE__/js/qrCodeAndPage.js" ></script>

@@ -1,0 +1,107 @@
+{include file="public/header" /}
+
+
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+	<legend>
+		<div class="layui-inline">
+			<a href="{:url('group/index')}" class="layui-btn layui-btn-normal">返回列表</a>
+		</div>
+	</legend>
+</fieldset>
+
+<form class="layui-form" id="form">
+	<input type="hidden" name="id" value="{$group.id}" />
+	<div class="layui-form-item">
+		<label class="layui-form-label">图标菜单</label>
+		<div class="layui-input-block">
+			{volist name="icon" id="vo"}
+				<div class="layui-inline">
+					<div class="layui-input-inline">
+						{if condition="$vo['icon'] eq $group['icon']"}
+							<input type="radio" name="icon" value="{$vo.icon}" title="<i class='{$vo.icon}'></i>" checked="">
+						{else/}
+							<input type="radio" name="icon" value="{$vo.icon}" title="<i class='{$vo.icon}'></i>">
+						{/if}
+					</div>
+				</div>
+			{/volist}
+		</div>
+	</div>
+	
+	<div class="layui-form-item">
+		<label class="layui-form-label">菜单名</label>
+		<div class="layui-input-block" style="width: 50%;">
+			<input type="text" name="name" lay-verify="title" autocomplete="off" placeholder="请输入菜单名" class="layui-input" value="{$group.name}" />
+		</div>
+		<div class="layui-form-mid layui-word-aux"></div>
+	</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">排序</label>
+		<div class="layui-input-block" style="width: 50%;">
+			<input type="number" name="sort" lay-verify="required" placeholder="" autocomplete="off" class="layui-input" value="{$group.sort}" />
+		</div>
+		<div class="layui-form-mid layui-word-aux"></div>
+	</div>
+	
+	<div class="layui-form-item">
+		<label class="layui-form-label">启用状态</label>
+		<div class="layui-input-block">
+			{if condition="$group['status'] eq 1"}
+				<input type="checkbox" checked="" name="status" lay-skin="switch" lay-text="ON|OFF" value="1" />
+			{else/}
+				<input type="checkbox" name="status" lay-skin="switch" lay-text="ON|OFF" value="1" />
+			{/if}
+		</div>
+	</div>
+	
+	<div class="layui-form-item">
+		<div class="layui-input-block">
+			<button type="button" class="layui-btn" id="button" data-url='{:url("group/editgroup")}' data-succ='{:url("group/index")}'>立即提交</button>
+		</div>
+	</div>
+	
+</form>
+{include file="public/footer" /}
+
+<script>
+	$(function(){
+		
+		function checkForm(){
+			var name = $("input[name='name']").val();
+			
+			if(name == ''){
+				layer.msg('菜单名不能为空',{icon:0,time:1000});
+				return false;
+			}
+			return true;
+		}
+		/**
+		 * ajax序列化提交表单
+		 */
+		$("#button").click(function(){
+			var succ = $(this).attr("data-succ");
+			var url = $(this).attr("data-url");
+			var data = $("#form").serialize();
+			if(checkForm()){
+				$.ajax({
+					type:"post",
+					dataType:"json",
+					url:url,
+					data:data,
+					success:function(date){
+						if(date.status == 1){
+							layer.msg(date.msg,{icon:1,time:1000});
+							setTimeout(function(){
+								location.href = succ;
+							},700)
+						}else{
+							layer.msg(date.msg,{icon:2,time:1000});
+						}
+					}
+				})
+			}
+		})
+	})
+	
+	layui.use(['form', 'layedit'], function() {});
+</script>

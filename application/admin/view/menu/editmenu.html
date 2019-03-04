@@ -1,0 +1,98 @@
+{include file="public/header" /}
+
+
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+	<legend>
+		<div class="layui-inline">
+			<a href="{:url('menu/index')}" class="layui-btn layui-btn-normal">返回列表</a>
+		</div>
+	</legend>
+</fieldset>
+
+<form class="layui-form" id="form">
+	<div class="layui-form-item">
+		<label class="layui-form-label">菜单名称:</label>
+		<div class="layui-input-block" style="width: 50%;">
+			<input type="text" name="name" placeholder="请输入菜单名" class="layui-input" value="{$menu.name}">
+			<input type="hidden" name="id" value="{$menu.id}">
+		</div>
+		<!--<div class="layui-form-mid layui-word-aux">字母、数字、下划线组成，字母或数字开头，4-16位</div>-->
+	</div>
+
+	<div class="layui-form-item">
+		<label class="layui-form-label">跳转路由:</label>
+		<div class="layui-input-block" style="width: 50%;">
+			<input type="text" name="url" placeholder="请输入跳转路由" class="layui-input" value="{$menu.url}">
+		</div>
+		<!--<div class="layui-form-mid layui-word-aux">字母、数字、下划线组成，字母或数字开头，4-16位</div>-->
+	</div>
+
+	<div class="layui-form-item">
+		<label class="layui-form-label">排序:</label>
+		<div class="layui-input-block" style="width: 50%;">
+			<input type="text" name="sort" class="layui-input" value="{$menu.sort}">
+		</div>
+		<div class="layui-form-mid layui-word-aux">从小到大排序</div>
+	</div>
+
+	<div class="layui-form-item">
+		<label class="layui-form-label">显示状态:</label>
+		<div class="layui-input-block">
+			<input type="checkbox" checked="" name="is_show" lay-skin="switch" lay-text="ON|OFF" value="1" />
+		</div>
+	</div>
+	
+	<div class="layui-form-item">
+		<div class="layui-input-block">
+			<button type="button" class="layui-btn" id="button" data-url='{:url("menu/editmenu")}' data-succ='{:url("menu/index")}'>立即提交</button>
+		</div>
+	</div>
+	
+</form>
+{include file="public/footer" /}
+
+<script>
+	$(function(){
+		function checkForm(){
+			var name = $("input[name='name']").val();
+			
+			if(!name){
+				layer.msg('请输入菜单名',{icon:0,time:1000});
+				return false;
+			}
+			return true;
+		}
+		/**
+		 * ajax序列化提交表单
+		 */
+		$("#button").click(function(){
+			var succ = $(this).attr("data-succ");
+			var url = $(this).attr("data-url");
+			var data = new FormData($("#form")[0]);
+			if(checkForm()){
+				$.ajax({
+					url: url,
+					type: 'POST',
+					data: data,
+					dataType:'json',
+					async: false,
+					cache: false,
+					contentType: false,
+					processData: false,
+					success:function(date){
+						if(date.status == 1){
+							layer.msg(date.msg,{icon:1,time:1000});
+							setTimeout(function(){
+								location.href = succ;
+							},700)
+						}else{
+							layer.msg(date.msg,{icon:2,time:1000});
+						}
+					}
+				});
+			}
+		})
+	})
+	
+	layui.use(['form', 'layedit'], function() {});
+</script>

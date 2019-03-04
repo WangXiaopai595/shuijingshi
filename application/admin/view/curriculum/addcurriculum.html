@@ -1,0 +1,281 @@
+{include file="public/header" /}
+
+
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+	<legend>
+		<div class="layui-inline">
+			<a href="{:url('curriculum/index')}" class="layui-btn layui-btn-normal">返回列表</a>
+		</div>
+	</legend>
+</fieldset>
+
+<form class="layui-form" id="form">
+	<div class="layui-form-item">
+		<label class="layui-form-label">标题<span style="color: #FF5722;">*</span>:</label>
+		<div class="layui-input-block" style="width: 50%;">
+			<input type="text" name="title" placeholder="请输入标题" class="layui-input">
+		</div>
+		<!--<div class="layui-form-mid layui-word-aux">字母、数字、下划线组成，字母或数字开头，4-16位</div>-->
+	</div>
+
+	<div class="layui-form-item">
+		<label class="layui-form-label">封面图<span style="color: #FF5722;">*</span>:</label>
+		<div class="layui-input-block">
+			<img id="cover" style="width: 70px;height: 70px;" src="__STYLE__/img/upload.png" />
+			<input id="img" type="file" accept="image/gif, image/jpeg, image/png, image/jpg" style="display: none;" name="icon" />
+		</div>
+		<label class="layui-form-label"></label>
+		<div class="layui-form-mid layui-word-aux"></div>
+	</div>
+
+	<div class="layui-form-item">
+		<label class="layui-form-label">视频链接<span style="color: #FF5722;">*</span>:</label>
+		<div class="layui-input-block" style="width: 50%;">
+			<input type="text" name="video" placeholder="请输入视频链接" class="layui-input">
+		</div>
+		<div class="layui-form-mid layui-word-aux">课程详情页试看视频链接</div>
+	</div>
+
+	<div class="layui-form-item">
+		<div class="layui-inline">
+			<label class="layui-form-label">所属板块<span style="color: #FF5722;">*</span></label>
+			<div class="layui-input-inline">
+				<select name="type_id" lay-filter="type_id">
+					<option value="">请选择板块</option>
+					{volist name="type['parent']" id="vo"}
+						<option value="{$vo.id}">{$vo.name}</option>
+					{/volist}
+				</select>
+			</div>
+		</div>
+		<div class="layui-inline">
+			<label class="layui-form-label">所属科目<span style="color: #FF5722;">*</span></label>
+			<div class="layui-input-inline">
+				<select name="child_id" lay-filter="child_id">
+					<option value="">请选科目</option>
+					{volist name="type['child']" id="vo"}
+					<option value="{$vo.id}">{$vo.name}</option>
+					{/volist}
+				</select>
+			</div>
+		</div>
+	</div>
+
+	<div class="layui-form-item">
+		<label class="layui-form-label">课程简介</label>
+		<div class="layui-input-block" style="width: 50%">
+			<textarea class="layui-textarea" name="brief"></textarea>
+		</div>
+	</div>
+
+	<div class="layui-form-item">
+		<div class="layui-inline">
+			<label class="layui-form-label">发布日期</label>
+			<div class="layui-input-inline">
+				<input type="text" name="time" id="date" lay-verify="date" placeholder="yyyy-MM-dd HH:mm" autocomplete="off" class="layui-input">
+			</div>
+			<div class="layui-form-mid layui-word-aux">若为空则默认当前时间</div>
+		</div>
+	</div>
+
+	<div class="layui-form-item">
+		<div class="layui-inline">
+			<label class="layui-form-label">讲师<span style="color: #FF5722;">*</span></label>
+			<div class="layui-input-inline">
+				<input type="text" name="teacher" placeholder="请输入讲师名称" class="layui-input">
+			</div>
+		</div>
+	</div>
+
+	<div class="layui-form-item">
+		<label class="layui-form-label">讲师头像<span style="color: #FF5722;">*</span>:</label>
+		<div class="layui-input-block">
+			<img id="teacher" style="width: 70px;height: 70px;" src="__STYLE__/img/upload.png" />
+			<input id="icon" type="file" accept="image/gif, image/jpeg, image/png, image/jpg" style="display: none;" name="teacher_icon" />
+		</div>
+		<label class="layui-form-label"></label>
+		<div class="layui-form-mid layui-word-aux"></div>
+	</div>
+
+	<div class="layui-form-item">
+		<div class="layui-inline">
+			<label class="layui-form-label">讲师签名</label>
+			<div class="layui-input-inline">
+				<textarea class="layui-textarea" name="teacher_sign"></textarea>
+			</div>
+		</div>
+		<div class="layui-inline">
+			<label class="layui-form-label">讲师简介</label>
+			<div class="layui-input-inline">
+				<textarea class="layui-textarea" name="teacher_brief"></textarea>
+			</div>
+		</div>
+	</div>
+
+	<div class="layui-form-item">
+		<label class="layui-form-label">是否显示<span style="color: #FF5722;">*</span></label>
+		<div class="layui-input-block">
+			<input type="checkbox" checked="" name="is_show" lay-skin="switch" lay-text="ON|OFF" value="1" />
+		</div>
+	</div>
+
+	<div class="layui-form-item">
+		<label class="layui-form-label">浏览人数:</label>
+		<div class="layui-input-block" style="width: 50%">
+			<input type="number" name="people" class="layui-input" value="0" />
+		</div>
+	</div>
+	
+	<div class="layui-form-item">
+		<div class="layui-input-block">
+			<button type="button" class="layui-btn" id="button" data-url='{:url("curriculum/addcurriculum")}' data-succ='{:url('curriculum/index')}'>立即提交</button>
+		</div>
+	</div>
+	
+</form>
+{include file="public/footer" /}
+<script>
+	$(function(){
+
+		$("#cover").click(function(){
+			$("#img").click();
+		})
+		$('#img').change(function() {
+			var html = '';
+			for(var i=0;i<(this.files).length;i++){
+				var file = this.files[i];
+				var r = new FileReader();
+				r.readAsDataURL(file);
+				$(r).load(function() {
+					$("#cover").attr('src',this.result);
+				})
+			}
+		})
+
+		$("#teacher").click(function(){
+			$("#icon").click();
+		})
+		$('#icon').change(function() {
+			var html = '';
+			for(var i=0;i<(this.files).length;i++){
+				var file = this.files[i];
+				var r = new FileReader();
+				r.readAsDataURL(file);
+				$(r).load(function() {
+					$("#teacher").attr('src',this.result);
+				})
+			}
+		})
+		
+		function checkForm(){
+			var title = $("input[name='title']").val();
+			var icon = $("input[name='icon']").val();
+			var teacher = $("input[name='teacher']").val();
+			var teacher_icon = $("input[name='teacher_icon']").val();
+			var type_id = $("select[name='type_id']").val();
+			var child_id = $("select[name='child_id']").val();
+			var video = $("input[name='video']").val();
+
+			if(!title){
+				layer.msg('请输入标题',{icon:0,time:1000});
+				return false;
+			}
+			if(!video){
+				layer.msg('请输入视频链接',{icon:0,time:1000});
+				return false;
+			}
+			if(!icon){
+				layer.msg('请上传封面图',{icon:0,time:1000});
+				return false;
+			}
+			if(!type_id){
+				layer.msg('请选择课程',{icon:0,time:1000});
+				return false;
+			}
+			if(!child_id){
+				layer.msg('请选择科目',{icon:0,time:1000});
+				return false;
+			}
+			if(!teacher){
+				layer.msg('请输入讲师名称',{icon:0,time:1000});
+				return false;
+			}
+			if(!teacher_icon){
+				layer.msg('请上传讲师头像',{icon:0,time:1000});
+				return false;
+			}
+			return true;
+		}
+		/**
+		 * ajax序列化提交表单
+		 */
+		$("#button").click(function(){
+			var succ = $(this).attr("data-succ");
+			var url = $(this).attr("data-url");
+			var data = new FormData($("#form")[0]);
+			if(checkForm()){
+				var index = layer.load(2,{time:10000});
+				$.ajax({
+					url: url,
+					type: 'POST',
+					data: data,
+					dataType:'json',
+					async: true,
+					cache: false,
+					contentType: false,
+					processData: false,
+					success:function(date){
+						layer.close(index);
+						if(date.status == 1){
+							layer.msg(date.msg,{icon:1,time:1000});
+							setTimeout(function(){
+								location.href = succ;
+							},700)
+						}else{
+							layer.msg(date.msg,{icon:2,time:1000});
+						}
+					}
+				});
+			}
+		})
+	})
+
+	layui.use(['form', 'layedit', 'laydate'], function() {
+		var laydate = layui.laydate;
+		var form = layui.form;
+
+		//日期
+		laydate.render({
+			elem: '#date',
+			type: 'datetime'
+		});
+
+		form.on('select(type_id)', function(data){
+			var type_id = data.value;
+			if(!type_id){
+				$('select[name=child_id]').append('<option value="">请选择科目</option>');
+				form.render();
+				return '';
+			}
+			$.ajax({
+				type:"post",
+				dataType:"json",
+				url:'{:url("index/getType")}',
+				data:{
+					parent_id:type_id
+				},
+				success:function(date){
+					if(date.status == 1){
+						$('select[name=child_id]').html('');
+						var data = date.data;
+						for(var val in data){
+							var ctn = '<option value="'+data[val]['id']+'">'+data[val]['name']+'</option>';
+							$('select[name=child_id]').append(ctn);
+						}
+						form.render();
+					}
+				}
+			})
+		});
+	});
+</script>

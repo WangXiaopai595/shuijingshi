@@ -1,0 +1,138 @@
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/usercenter.css" />
+<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 header navbar-fixed-top clearpadding' id="header">
+	<div class='col-lg-8 col-md-8 col-sm-8 col-xs-8 clearpadding marginleft16_67'>
+		<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 displayflex'>
+			<div class='col-lg-2 col-md-2 col-sm-2 col-xs-2 clearpadding lineheight80 text-center logos'>
+				<a href="/"><img class="logosImg" src='{$site.icon}' width='100%'></a>
+			</div>
+			<div class='col-lg-7 col-md-7 col-sm-7 col-xs-7 NavigationBar'>
+				<ul class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding listUl'>
+					{volist name="menu" id="vo"}
+						{if condition="$vo['id'] eq 1"}
+							<li class='ExcellentCourse'>
+								<a class="{$reuest_url == 'course/index' ? 'myactive' : ''}" href='{$vo['url'] ? url($vo["url"]) :'javascript:;'}'>{$vo.name}</a>
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding bg_hover">
+									<ul class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding text-center'>
+										{volist name="$vo['child']" id="item"}
+											<li class='col-lg-1 col-md-1 col-sm-1 col-xs-1'>
+												<a href='{:url('course/index',['course'=>$item['id']])}'><img src='{$item.icon}' width='100%'><span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding">{$item.name}</span></a>
+											</li>
+										{/volist}
+									</ul>
+								</div>
+							</li>
+						{elseif condition="$vo['id'] eq 5" /}
+							<li class='AboutUs'>
+								<a class="{$reuest_url == 'about/index' ? 'myactive' : ''}" href='{$vo['url'] ? url($vo["url"]) :'javascript:;'}'>{$vo.name}</a>
+								<!--关于我们下拉-->
+								<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding About'>
+									<div class='col-lg-8 col-md-8 col-sm-8 col-xs-8 clearpadding margintop1_2 lineheight25 marginleft15 myabout'>
+										{volist name="$vo['child']" id="item"}
+											<div class='col-lg-2 col-lg-2 col-sm-2 col-xs-2 Abouts'>
+												<span class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding fontMbTitle'><a href='{$item['url'] ?:'javascript:;'}'>{$item['name']}</a></span>
+												<ul class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding paddingtop3'>
+													{volist name="$item['child']" id="items"}
+														{if condition="$items['id'] eq 12"}
+															<li class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding'><a class='aboutFont' target="_blank" href='{$site.customer_link}'>{$items['name']}</a></li>
+														{else/}
+															<li class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding'><a class='aboutFont' href='{$items['url']?:'javascript:;'}'>{$items['name']}</a></li>
+														{/if}
+													{/volist}
+												</ul>
+											</div>
+										{/volist}
+										<div class='col-lg-2 col-lg-2 col-sm-2 col-xs-2 Abouts clearpadding'>
+											<span class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding fontMbTitle'><a href='#'>联系我们</a></span>
+											<ul class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding paddingtop3'>
+												<li class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding'><a class='aboutFont' href='#'>课程咨询：{$site.mobile}</a></li>
+												<li class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding'><a class='aboutFont' href='#'>企业合作：{$site.joint_mobile}</a></li>
+											</ul>
+										</div>
+										<div class='col-lg-2 col-lg-2 col-sm-2 col-xs-2 Abouts clearpadding forMeIcon'>
+											<span class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding fontMbTitle'><a href='#'>关注我们</a></span>
+											<ul class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding forMeIconUl paddingtop3'>
+												<li class='col-lg-3 col-md-3 col-sm-3 col-xs-3 clearpadding topIcons'>
+													<img src='__STYLE__/img/wWechat.png' width='90%' />
+													<img class="qRCode hide" src="{$site.wx}"/>
+												</li>
+												<li class='col-lg-3 col-md-3 col-sm-3 col-xs-3 clearpadding topIcons'>
+													<img src='__STYLE__/img/qq.png' width='90%' />
+													<img class="qRCode hide" src="{$site.qq}"/>
+												</li>
+												<li class='col-lg-3 col-md-3 col-sm-3 col-xs-3 clearpadding topIcons'>
+													<img src='__STYLE__/img/wMicro-blog.png' width='90%' />
+													<img class="qRCode hide" src="{$site.weibo}"/>
+												</li>
+												<li class='col-lg-3 col-md-3 col-sm-3 col-xs-3 clearpadding topIcons'>
+													<img src='__STYLE__/img/wPostBar.png' width='90%' />
+													<img class="qRCode hide" src="{$site.tieba}"/>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</li>
+						{else/}
+							<li>
+								<a class="{$reuest_url == $vo["url"] ? 'myactive' : ''}" href='{$vo['url'] ? url($vo["url"]) :'javascript:;'}'>{$vo.name}</a>
+							</li>
+						{/if}
+					{/volist}
+
+				</ul>
+			</div>
+			</ul>
+			<div class='col-lg-3 col-md-3 col-sm-3 col-xs-3 RecRegLogin'>
+			<ul class="col-lg-12 col-md-12 col-sm-12 col-xs-12 logReg">
+				<li class='li1'>
+					<a href='{$site.recruit_link}' target="_blank">招聘</a>
+				</li>
+				<div class="borderlogin"></div>
+				{if condition="$user"}
+					<li class="li2">
+						<a href="javascript:void(0)"><img class="myhead" src="{$user['icon'] ?: '/static/web/img/SmallHead.png'}" width="25%" style="border-radius: 50%;"></a><span class="myName">{$user['name'] ?: $user['phone']}</span>
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding meXl hide">
+							<img class="meXlimg" src="__STYLE__/img/meXl.png"/>
+							<div class="userC col-lg-2 col-md-2 col-sm-2 col-xs-2 clearpadding ">
+								<span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding userC1" >
+									<a class="clearpadding userCa usercenters" href="{:url('user/index')}">个人中心</a>
+									<a class="clearpadding userCa outlogin" id="loginOut" href="javascript:;">退出登录</a>
+								</span>
+							</div>
+						</div>
+					</li>
+				{else/}
+					<li class='li2'>
+						<a class="login_nav" href='{:url('login/index')}?top_url={:urlencode(getUrl())}'>登录</a>
+					</li>
+					<div class="borderlogin"></div>
+					<li class='li3'>
+						<a class="register_nav" href='{:url('login/register')}'>注册</a>
+					</li>
+				{/if}
+			</ul>
+		</div>
+		</div>
+	</div>
+</div>
+<script>
+	window.onload=function (){
+		$('.li2').mouseenter(function(){
+			$('.meXl').removeClass('hide').addClass('show');
+		});
+		$('.li2').mouseleave(function(){
+			$('.meXl').removeClass('show').addClass('hide');
+		});
+		$('#loginOut').click(function(){
+			$.ajax({
+				type:'POST',
+				dataType:'json',
+				url:'{:url("index/loginOut")}',
+				data:{},
+				success:function(data){
+					location.reload();
+				}
+			});
+		})
+	}
+</script>

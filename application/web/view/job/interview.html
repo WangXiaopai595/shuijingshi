@@ -1,0 +1,79 @@
+{include file="public/head" /}
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/StudentInterview.css" />
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/topbottom.css"/>
+{include file="public/nav" /}
+{include file="public/fiex" /}
+<!--视频播放器-->
+
+<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding CollegeMb1 hide'>
+	<div class='col-lg-8 col-md-8 col-sm-8 col-xs-8 clearpadding marginleft16_67 Vid' style="position: relative;">
+		<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding' id="player">
+
+		</div>
+		<img class='closeVideo1' src='__STYLE__/img/closeVideo.png' width='3%' />
+	</div>
+</div>
+<!--内容-->
+<a href="{$interview['banner'] && $interview['banner']['url'] ?: 'javascript:;'}" target="_blank">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding text-center clearpadding stuInterBg margin-top80  setBannerHeight" {$interview['banner'] ? 'style="background: url('.$interview['banner']['path'].') no-repeat;background-size:100% 100%;"' : ''}></div>
+</a>
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding text-center ExcellentCourseTitle clearpadding margintop140">
+	<span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding StartStudent margin-top20">学员采访</span>
+	<span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding EnlishStar">Student interview</span>
+	<img src="__STYLE__/img/dowm.png"/>
+</div>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center margin-top40">
+	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 marginleft16_67">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding ExcellentCounts">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 StarCovers">
+				{volist name="$interview['video']['list']" id="vo"}
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 clearpadding StarCover">
+						<img class="StarImage" src="{$vo.icon}" width="94%" />
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding show StarCoverMb text-center">
+							<span>{$vo.title}</span>
+						</div>
+						<img class="play playMb" data-srcVideo="{$vo.playcode}" data-srcImg="{$vo.icon}" src="__STYLE__/img/Play.png" width="15%"/>
+					</div>
+				{/volist}
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 bottomfenye marginleft25">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center KcCount">
+			<span>总共{$interview['count']}个课程</span>
+		</div>
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+			{$interview['video']['page']}
+		</div>
+	</div>
+</div>
+{include file="public/foot" /}
+<script type="text/javascript" src="__STYLE__/js/jQuery-2.1.0.js" ></script>
+<script type="text/javascript" src="__STYLE__/js/topHover.js" ></script>
+<script type="text/javascript" src="__STYLE__/js/fixedRight.js" ></script>
+<script type="text/javascript" src="__STYLE__/js/ckplayer.js" ></script>
+<script type="text/javascript" src="__STYLE__/js/qrCodeAndPage.js" ></script>
+<script>
+	$(function() {
+		$('.playMb').each(function() {
+			$(this).bind('click', function() {
+				$(".CollegeMb1").removeClass("hide").addClass("show");
+				var urlVideo = $(this).attr('data-srcVideo');
+				var urlImg = $(this).attr('data-srcImg');
+				//	填充 url
+				new ckplayer({
+					container: '#player', //“#”代表容器的ID，“.”或“”代表容器的class
+					variable: 'player1', //该属性必需设置，值等于下面的new chplayer()的对象
+					poster: urlImg, //封面图片
+					video: urlVideo, //视频地址
+					autoplay: true //是否自动播放
+				});
+			});
+		});
+		$('.closeVideo1').click(function(){
+			$('.CollegeMb1').removeClass('show').addClass('hide');
+		});
+	})
+</script>

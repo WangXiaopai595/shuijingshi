@@ -1,0 +1,141 @@
+{include file="public/header" /}
+
+
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+	<legend>
+		<div class="layui-inline">
+			<a href="{:url('role/index')}" class="layui-btn layui-btn-normal">返回列表</a>
+		</div>
+	</legend>
+</fieldset>
+
+<form class="layui-form" id="form">
+	<input type="hidden" name="id" value="{$roleID}" />
+	
+	<div class="layui-form-item" pane="">
+		<label class="layui-form-label"></label>
+		<div class="layui-input-block">
+			<span id="check" style="display: inline-block;">
+				<input type="checkbox" lay-skin="primary" title="全选">
+			</span>
+		</div>
+	</div>
+	
+	{volist name="node" id="vo"}
+		<div class="layui-form-item" pane="">
+			<label class="layui-form-label">{$vo.ptitle}:</label>
+			<span class="parentCheck" style="display: inline-block;">
+				<input type="checkbox" class="check" lay-skin="primary" title="全选">
+			</span>
+			<div class="layui-input-block">
+				{volist name="vo['node']" id="item"}
+					<span style="display: inline-block;" class="childCheck">
+						{if condition="in_array($item['id'],$nodeID)"}
+						 	<input type="checkbox" checked="" name="node_id[]" lay-skin="primary" title="{$item.title}" value="{$item.id}">
+						{else/}
+							<input type="checkbox" name="node_id[]" lay-skin="primary" title="{$item.title}" value="{$item.id}">
+						{/if}
+						
+					</span>
+				{/volist}
+			</div>
+		</div>
+	{/volist}
+		
+	
+	<div class="layui-form-item">
+		<div class="layui-input-block">
+			<button type="button" class="layui-btn" id="button" data-url='{:url("role/rolenode")}' data-succ='{:url("role/index")}'>立即提交</button>
+		</div>
+	</div>
+	
+</form>
+{include file="public/footer" /}
+
+<script>
+	
+	$(function(){
+		/**
+		 * 当子选项取消时，关闭全部选择和父级全选
+		 */
+		$(".childCheck").click(function(){
+			var ischeck = $(this).children('input').is(":checked");
+			if(!ischeck){
+				$("#check").children('input').prop("checked",false);
+				$(".parentCheck").children('input').prop("checked",false);
+			}
+			form.render();
+		})
+		/**
+		 * 全选
+		 */
+		$("#check").click(function(){
+			var ischeck = $(this).children('input').is(":checked");
+			if(ischeck){
+				$('input[type="checkbox"]').prop("checked",true);
+			}else{
+				$('input[type="checkbox"]').prop("checked",false);
+			}
+			form.render();
+		})
+		
+		/**
+		 * 块级全选
+		 */
+		$(".parentCheck").click(function(){
+			var ischeck = $(this).children('input').is(":checked");
+			var prcv = $(this).next();
+			if(ischeck){
+				prcv.children('span').children('input').prop("checked",true);
+			}else{
+				$("#check").children('span').children('input').prop("checked",false);
+				prcv.children('span').children('input').prop("checked",false);
+			}
+			form.render();
+		})
+		/**
+		 * 检测表单
+		 */
+		function checkForm(){
+			var name = $("input[name='name']").val();
+			
+			if(name == ''){
+				layer.msg('角色名不能为空',{icon:0,time:1000});
+				return false;
+			}
+			return true;
+		}
+		/**
+		 * ajax序列化提交表单
+		 */
+		$("#button").click(function(){
+			var succ = $(this).attr("data-succ");
+			var url = $(this).attr("data-url");
+			var data = $("#form").serialize();
+			if(checkForm()){
+				$.ajax({
+					type:"post",
+					dataType:"json",
+					url:url,
+					data:data,
+					success:function(date){
+						if(date.status == 1){
+							layer.msg(date.msg,{icon:1,time:1000});
+							setTimeout(function(){
+								location.href = succ;
+							},700)
+						}else{
+							layer.msg(date.msg,{icon:2,time:1000});
+						}
+					}
+				})
+			}
+		})
+	})
+	
+	layui.use(['form'], function() {
+		form = layui.form;
+		form.render();
+	});
+	
+</script>

@@ -1,0 +1,114 @@
+{include file="public/head" /}
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/leftrightTab.css"/>
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/index.css" />
+<style type="text/css">
+	body{
+		background: rgba(255,255,255,1);
+	}
+</style>
+{include file="public/nav" /}
+
+
+<!--内容-->
+<div class="closeIconMore">
+	<div class="col-xs-12 col-sm-12 clearpadding margin-top60">
+		<img src="__STYLE__/img/collegeNewsBg.png" width="100%"/>
+	</div>
+	<div class="wrapper editWrapper" id="editWrapper">
+		<div class="scroller">
+			<ul class="clearfix ">
+				<li>
+					<a class="{$param['class_id'] ? '' : 'myactive'}" href="{:url('news/index')}">全部</a>
+				</li>
+				{volist name="$new['class']" id="vo"}
+					<li>
+						<a class="{$param['class_id'] == $vo['id'] ? 'myactive' : ''}" href="{:url('news/index',['class_id' => $vo['id']])}">{$vo.name}</a>
+					</li>
+				{/volist}
+			</ul>
+		</div>
+	</div>
+	<div class="news">
+		{volist name="$new['article']['list']" id="vo"}
+			<a href="{:url('news/detail',['article' => $vo['id']])}" class="col-xs-12 col-sm-12 clearpadding paddingleftright5 colleHorImg">
+				<div class="col-xs-3 col-sm-3 clearpadding">
+					<img class="collNewsCover" src="{$vo.icon}" width="100%">
+				</div>
+				<div class="col-xs-9 col-sm-9 clearpadding collNews">
+					<span class="col-sm-12 col-xs-12 clearpadding collNewsTitle">{$vo.title}</span>
+					<span class="col-sm-12 col-xs-12 clearpadding collNewsdesribe">{$vo.brief}</span>
+					<span class="col-sm-7 col-xs-7 clearpadding nowTime"><img class="iconTime" src="__STYLE__/img/iconTime.png" width="11%">{$vo.time|date="Y-m-d H:i:s",###}</span>
+				</div>
+				<div class="col-xs-12 col-md-12 clearpadding margin-top15 myNewsbor">
+					<div class="col-xs-9 col-md-9 clearpadding border1News marginleft25"></div>
+				</div>
+			</a>
+		{/volist}
+	</div>
+	<div class="col-xs-12 col-sm-12 clearpadding"style="height: 100px;"></div>
+</div>
+{include file="public/fiex" /}
+{include file="public/foot" /}
+<script type="text/javascript" src="__STYLE__/js/mx-plugin.js" ></script>
+<script type="text/javascript" src="/static/admin/js/layer.js" ></script>
+<script type="text/javascript">
+	$(function(){
+		$('.onRoomNav li').each(function(){
+			$(this).click(function(){
+				$(this).addClass('myactive').parent().siblings().children().removeClass('myactive');
+			});
+		});
+		$('.editWrapper').mxPlugin();
+		$('.scroller .clearfix li a').each(function(){
+			$(this).click(function(){
+				$(this).addClass('myactive').parent().siblings().children().removeClass('myactive');
+			});
+		})
+		$('.myNewsbor div').last().removeClass('border1News')
+		var class_id = "{$param['class_id'] ?: ''}";
+		var is_request = true;
+		var page = 2;
+		var url = "{:url('news/index')}";
+		$(window).scroll(function () {
+			if ($(window).scrollTop() >= $(document).height() - $(window).height() - 100) {
+				if(is_request){
+					is_request = false;
+					var index = layer.load(3,{time:10000});
+					$.ajax({
+						type:'GET',
+						dataType:'json',
+						url:url,
+						data:{
+							page:page,
+							class_id:class_id
+						},
+						success:function(data){
+							layer.close(index);
+							var res = data.data;
+							if(page < res.last_page){
+								is_request = true;
+							}
+							content(res.data);
+						}
+					});
+				}
+			}
+		});
+
+		function content(arr){
+			for(var item in arr){
+				html = '<a href="{:url("news/detail")}?article='+arr[item]['id']+'" class="col-xs-12 col-sm-12 clearpadding paddingleftright5 colleHorImg">'
+				+'<div class="col-xs-3 col-sm-3 clearpadding">'
+				+'<img class="collNewsCover" src="'+arr[item]['icon']+'" width="100%">'
+				+'</div>'
+				+'<div class="col-xs-9 col-sm-9 clearpadding collNews">'
+				+'<span class="col-sm-12 col-xs-12 clearpadding collNewsTitle">'+arr[item]['title']+'</span>'
+				+'<span class="col-sm-12 col-xs-12 clearpadding collNewsdesribe">'+arr[item]['brief']+'</span>'
+				+'<span class="col-sm-7 col-xs-7 clearpadding nowTime"><img class="iconTime" src="__STYLE__/img/iconTime.png" width="11%">'+arr[item]['time']+'</span>'
+				+'</div>'
+				+'</a>';
+				$('.news').append(html);
+			}
+		}
+	})
+</script>

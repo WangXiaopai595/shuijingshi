@@ -1,0 +1,226 @@
+{include file="public/header" /}
+<section class="layui-larry-box">
+	<div class="larry-personal">
+		<div class="layui-tab">
+			<blockquote class="layui-elem-quote news_search">
+
+				{if condition="in_array('undergo/addstory',$operable)"}
+				<div class="layui-inline">
+					<a href="{:url('undergo/addstory')}" class="layui-btn layui-btn-normal newsAdd_btn">添加历程</a>
+				</div>
+				{/if}
+				{if condition="in_array('undergo/delete',$operable)"}
+				<div class="layui-inline">
+					<a data-url="{:url('undergo/delete')}" class="layui-btn layui-btn-danger batchDel">批量删除</a>
+				</div>
+				{/if}
+					
+			</blockquote>
+
+			<!-- 操作日志 -->
+			<div class="layui-form news_list">
+				<table class="layui-table">
+					<thead>
+						<tr>
+							<th>
+								<input id="check" type="checkbox" style="display: block;">
+							</th>
+							<th>年份</th>
+							<th>内容</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody class="news_content">
+						{volist name="story" id="vo"}
+							<tr>
+								<td>
+									<input name="check" type="checkbox" value="{$vo.id}" style="display: block;">
+								</td>
+								<td>{$vo.time|date='Y',###}年</td>
+								<td>
+									<div style="height: 3em;overflow: auto">
+										{:nl2br($vo.brief)}
+									</div>
+								</td>
+								<td>
+									{if condition="in_array('undergo/editstory',$operable)"}
+										<a href="{:url('undergo/editstory',array('id'=>$vo['id']))}" class="layui-btn layui-btn-mini "><i class="iconfont icon-edit"></i> 编辑</a>
+									{/if}
+									{if condition="in_array('undergo/delete',$operable)"}
+										<a data-url="{:url('undergo/delete')}" data-id="{$vo.id}" class="layui-btn layui-btn-danger layui-btn-mini delete"><i class="layui-icon"></i> 删除</a>
+									{/if}
+								</td>
+							</tr>
+						{/volist}
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+	</div>
+</section>
+{include file="public/footer" /}
+<script>
+	$(function(){
+
+		/**
+		 * 更新排序
+		 */
+		$("#edit").click(function(){
+			var index = layer.load(0, {time: 10000});
+			var url = $(this).attr("data-url");
+			var gid = $("input[name='id']");
+			var sort = $("input[name='sort']");
+			var id = '';
+			var sor = '';
+			for(var i=0;i<gid.length;i++){
+				if(i == 0){
+					id = gid.eq(i).val();
+					sor = sort.eq(i).val();
+				}else{
+					id += ','+gid.eq(i).val();
+					sor += ','+sort.eq(i).val();
+				}
+			}
+			$.ajax({
+				type:"post",
+				dataType:"json",
+				url:url,
+				data:{
+					id:id,
+					sort:sor
+				},
+				success:function(date){
+					if(date.status == 1){
+						layer.msg(date.msg,{icon:1,time:1000});
+						setTimeout(function(){
+							location.reload();
+						},400)
+					}else{
+						layer.msg(date.msg,{icon:2,time:1000});
+					}
+				}
+			});
+		})
+
+		/**
+		 * 多条删除
+		 */
+		$(".batchDel").click(function(){
+			var checkedList = new Array();   
+			$("input[name='check']:checked").each(function() {   
+			    checkedList.push($(this).val());   
+			})
+			var id = checkedList.join(',');
+			var url = $(this).attr("data-url");
+			layer.open({
+				content: '删除分类后，分类下作品将会一同删除，且不可恢复，是否确认?',
+				icon : 3,
+				yes: function(layero, index){
+				    $.ajax({
+						type:"post",
+						dataType:"json",
+						url:url,
+						data:{
+							id:id
+						},
+						success:function(date){
+							if(date.status == 1){
+								layer.msg(date.msg,{icon:1,time:1000});
+								setTimeout(function(){
+									location.reload();
+								},400)
+							}else{
+								layer.msg(date.msg,{icon:2,time:1000});
+							}
+						}
+					});
+			  	}
+			});
+		})
+		
+		/**
+		 * 全选、全不选
+		 */
+		$("#check").click(function(){
+			var check = $(this).is(":checked");
+			if(check){
+				$('input[name="check"]').each(function(){
+                    $(this).prop("checked",true);  
+                }); 
+			}else{
+				$('input[name="check"]').each(function(){
+                    $(this).prop("checked",false);  
+                }); 
+			}
+		})
+		
+		/**
+		 * 单条删除
+		 */
+		$(".delete").click(function(){
+			var status = $(this).prev().val();
+			var url = $(this).attr("data-url");
+			var id = $(this).attr("data-id");
+			layer.open({
+				content:'删除分类后，分类下作品将会一同删除，且不可恢复，是否确认?',
+				icon : 3,
+				yes: function(layero, index){
+				    $.ajax({
+						type:"post",
+						dataType:"json",
+						url:url,
+						data:{
+							id:id
+						},
+						success:function(date){
+							if(date.status == 1){
+								layer.msg(date.msg,{icon:1,time:1000});
+								setTimeout(function(){
+									location.reload();
+								},400)
+							}else{
+								layer.msg(date.msg,{icon:2,time:1000});
+							}
+						}
+					});
+			  	}
+			});
+		})
+		$(".status div").click(function(){
+			var index = layer.load(0, {time: 100});
+			var status = $(this).prev().val();
+			var url = $(this).attr("data-url");
+			var id = $(this).attr("data-id");
+			if(status == 1){
+				status = 0;
+			}else{
+				status = 1;
+			}
+			if(!url){
+				layer.msg('无权限操作此项',{icon:1,time:1000});
+			}else{
+				$.ajax({
+					type:"post",
+					dataType:"json",
+					url:url,
+					data:{
+						id:id,
+						is_show:status
+					},
+					success:function(date){
+						layer.close(index);
+						if(date.status == 1){
+							layer.msg(date.msg,{icon:1,time:1000});
+							setTimeout(function(){
+								location.reload();
+							},400)
+						}else{
+							layer.msg(date.msg,{icon:2,time:1000});
+						}
+					}
+				})
+			}
+		})
+	})
+</script>

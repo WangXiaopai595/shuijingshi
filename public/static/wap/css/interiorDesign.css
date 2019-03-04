@@ -1,0 +1,55 @@
+.interDesBanner{
+	padding: 1.5%;
+}
+.interDesBanner .interDestitle{
+	padding-top: 8px;
+}
+.interDesBanner .interDestitle a{
+	text-decoration: none;
+	font-size: 14px;
+	color: #f67d0e;
+}
+.videoTitle{
+	font-size:17px;
+	font-family:PingFang-SC-Medium;
+	font-weight:550;
+	color:rgba(51,51,51,1);
+}
+.swiper-slide a{
+	text-decoration: none;
+	color: #f67d0e;
+}
+.interDesfont{
+	padding-top: 10px;
+	font-size: 15px;
+}
+.videoDes{
+	padding-top: 21.5px;
+	font-size:14px;
+	font-family:PingFang-SC-Regular;
+	font-weight:400;
+	color:rgba(51,51,51,0.6);
+}
+.videoCvs{
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.videoCv{
+	padding:1.5% 1%;
+	cursor: pointer;
+}
+@media only screen and (max-width: 1024px) and (min-width:769px) {
+	.videoTitle {
+    font-size: 34px;
+    font-family: PingFang-SC-Medium;
+    font-weight: 550;
+    color: rgba(51,51,51,1);
+}
+.videoDes {
+    padding-top: 42px;
+    font-size: 28px;
+    font-family: PingFang-SC-Regular;
+    font-weight: 400;
+    color: rgba(51,51,51,0.6);
+}
+}

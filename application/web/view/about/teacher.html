@@ -1,0 +1,77 @@
+{include file="public/head" /}
+		<link rel="stylesheet" type="text/css" href="__STYLE__/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="__STYLE__/css/topbottom.css"/>
+		<link rel="stylesheet" type="text/css" href="__STYLE__/css/TeacherTeam.css"/>
+{include file="public/nav" /}
+{include file="public/fiex" /}
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding margin-top80" >
+			<a href="{$teacher['banner'] && $teacher['banner']['url'] ?$teacher['banner']['url']: 'javascript:;'}" target="_blank">
+				<img src="{$teacher['banner']['path'] ?: '/static/web/img/TeachBanner.png'}" width="100%"/>
+			</a>
+		</div>
+		<!--豪华的师资阵容-->
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center clearpadding margintop140">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<span class="goodwork">豪华的师资阵容，丰富的教学经验</span>
+			</div>
+		</div>
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding text-center margin-top20">
+			<div class="border3"></div>
+		</div>
+		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 clearpadding text-center margin-top20 marginleft16_67">
+			<span class="alonework">水晶石教育重视教师团队的建设，汇聚一群高素质的专业教师，他们都是视觉创意领域的顶级高手和技术精英，拥有丰富的项目经验与教学经验。</span>
+		</div>
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 Medals margin-top60"style="margin-bottom: 60px">
+			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 marginleft16_67">
+				{volist name="teacher['teacher_1']" id="vo"}
+					<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 margintop1_ TeachTitle clearpadding">
+						<img src="{$vo.icon}" width="96%" height="344.69px" />
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center TeachTitles clearpadding">{$vo.job}：{$vo.name}</div>
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 TeachTitleDs clearpadding">
+							<span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding teacherName text-center">
+								<span class="">【{$vo.name}】</span>
+							</span>
+							<span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding text-center">
+								<span class="teachNc">{$vo.job}</span>
+							</span>
+							<span class="col-lg-8 col-md-8 col-sm-8 col-xs-8 clearpadding marginleft16_67 text-center teachJy">{$vo.brief}</span>
+							<span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 teachDs">
+								参与项目：{$vo.project}
+							</span>
+						</div>
+					</div>
+				{/volist}
+			</div>
+		</div>
+		<!--卓越的专家顾问团队，分享国际化项目经验-->
+		<!--<div class="col-lg-12 col-md-12  text-center clearpadding margintop140">-->
+			<!--<div class="col-lg-12 col-md-12 margin-top60">-->
+				<!--<span class="goodwork">卓越的专家顾问团队，分享国际化项目经验</span>-->
+			<!--</div>-->
+		<!--</div>-->
+		<!--<div class="col-lg-12 col-md-12 clearpadding text-center margin-top20">-->
+			<!--<div class="border3"></div>-->
+		<!--</div>-->
+		<!--<div class="col-lg-8 col-md-8 clearpadding text-center margin-top20 marginleft16_67">-->
+			<!--<span class="alonework">水晶石教育定期邀请国内专家顾问前来，分享国际化项目经验，传授最前沿的知识和技能，他们都是视觉创意领域的灵魂人物。</span>-->
+		<!--</div>-->
+		<!--<div class="col-lg-12 col-md-12 Medals margin-top60" style="margin-bottom: 70px">-->
+			<!--<div class="col-lg-8 col-md-8 marginleft16_67">-->
+				<!--{volist name="teacher['teacher_2']" id="vo"}-->
+					<!--<div class="col-lg-3 col-md-3 margintop1_ Advisor clearpadding">-->
+						<!--<img class="teachCover" src="{$vo.icon}" width="96%" />-->
+						<!--<div class="col-lg-12 col-md-12 text-center Advisors">-->
+							<!--<span class="col-lg-8 col-md-8 clearpadding marginleft16_67 Advisorspan text-center ">{$vo.name}</span>-->
+							<!--<span class="col-lg-12 col-md-12 clearpadding Advisorspan1">-->
+								<!--{$vo.brief}-->
+							<!--</span>-->
+						<!--</div>-->
+					<!--</div>-->
+				<!--{/volist}-->
+			<!--</div>-->
+		<!--</div>-->
+{include file="public/foot" /}
+	<script type="text/javascript" src="__STYLE__/js/jQuery-2.1.0.js" ></script>
+	<script type="text/javascript" src="__STYLE__/js/topHover.js" ></script>
+	<script type="text/javascript" src="__STYLE__/js/fixedRight.js" ></script>
+	<script type="text/javascript" src="__STYLE__/js/qrCodeAndPage.js" ></script>

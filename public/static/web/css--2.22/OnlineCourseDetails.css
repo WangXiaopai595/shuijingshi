@@ -1,0 +1,308 @@
+.CourseDetailsTitle{
+	padding-left: 5px;
+	line-height: 50px;
+	font-size:24px;
+	font-weight:400;
+	color:rgba(51,51,51,1);
+}
+.CourseDetailsIcon{
+	font-size: 24px;
+}
+.paddingbottom10{
+	padding-bottom: 10px;
+}
+.glyphicon{
+	position: relative;
+    top: 3px;
+    display: inline-block;
+    font-style: normal;
+    font-weight: 100;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased
+}
+.kcTable{
+	background:rgba(51,51,51,1);
+}
+.clearpadding a{
+	text-decoration: none;
+}
+.kcTable span{
+	font-size:20px;
+	font-weight:300;
+	color:rgba(255,255,255,1);
+}
+.time img{
+	padding-right: 3px;
+	padding-bottom: 3px;
+}
+.kcdetailsTitle{
+	font-size:16px;
+	font-weight:300;
+	color:rgba(51,51,51,1);
+}
+.time{
+	font-size:14px;
+	font-weight:300;
+	color:rgba(246,125,14,1);
+}
+.xiazai img{
+	padding-right: 10px;
+	padding-bottom: 2.5px;
+}
+.xiazai{
+	font-size:14px;
+	font-weight:300;
+	color:rgba(102,102,102,1);
+}
+.kcspPassword{
+	font-size:14px;
+	font-weight:300;
+	color:rgba(102,102,102,1);
+}
+.liuyan img{
+	padding-right: 5px;
+	padding-bottom: 1px;
+}
+.shoucang img{
+	padding-bottom: 3px;
+	padding-right: 5px;
+}
+.liuyan{
+	font-size:16px;
+	font-weight:300;
+	color:rgba(51,51,51,1);
+}
+.shoucang{
+	font-size:16px;
+	font-weight:300;
+	color:rgba(51,51,51,1);
+}
+#player{
+	height: 476.81px;
+}
+.detailwork{
+	position: relative;
+}
+.scll{
+	position: absolute;
+	right:0;
+	bottom: 10px;
+}
+.CourseTable{
+	position: relative;
+	overflow-y: auto;
+	height: 430px;
+}
+::-webkit-scrollbar{
+	width:10px;
+	background-color: #e1e5ea;
+}
+::-webkit-scrollbar-thumb
+{
+	background-color:gray;
+}
+.Coursebottom{
+	position: absolute;
+	top: -20px;
+	left: 0;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.height50{
+	height: 50px;
+}
+.bfzt{
+	position: relative;
+}
+.bfzt .img1:nth-of-type(2){
+	position: absolute;
+	top: 45%;
+	left: 45%;
+}
+.bfzt .img2:nth-of-type(3){
+	position: absolute;
+	top: 45%;
+	left: 45%;
+}
+/* .bfzt img:nth-of-type(4){
+	z-index: 999;
+	position: absolute;
+	bottom: 2%;
+	left: 3%;
+}
+.bfzt img:nth-of-type(5){
+	z-index: 999;
+	position: absolute;
+	bottom: 2%;
+	left: 3%;
+} */
+.CoursePlayBottom{
+	height:50px;
+	background:rgba(0,0,0,1);
+	line-height: 50px;
+	/* position: absolute;
+	bottom: 0;
+	left: 0; */
+}
+.ProgressBar{
+	position: relative;
+}
+.ProgressBar1{
+	border: 5px solid rgba(255, 255, 255, 1);
+	margin-top: 22.5px;
+}
+.ProgressBar2{
+	border: 5px solid rgba(246, 125, 14, 1);
+	margin-top: 22.5px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.VideoTime{
+	line-height: 55px;
+}
+.VideoTime span{
+	font-size:14px;
+	font-weight:400;
+	color:rgba(255,255,255,1);
+}
+.Lecturer{
+	margin-top: 3%;
+}
+.Lecturer span{
+	font-size:20px;
+	font-weight:400;
+	color:rgba(51,51,51,1);
+}
+.TeacherDes{
+	margin-top: 5%;
+}
+.TeacherDes span{
+	font-size:16px;
+	font-weight:300;
+	color:rgba(51,51,51,1);
+}
+.TrainerTalk span{
+	padding-left: 7px;
+	font-size:16px;
+	font-weight:300;
+	color:rgba(51,51,51,1);
+	line-height:28px;
+	border-left:3px solid rgba(246,125,14,1);
+}
+.TrainerTalk1 span{
+	font-size:16px;
+	font-weight:300;
+	color:rgba(51,51,51,1);
+	line-height:28px;
+}
+.Introduction span{
+	font-size:20px;
+	font-weight:300;
+	color:rgba(51,51,51,1);
+	line-height:28px;
+}
+.introCount span{
+	font-size:14px;
+	font-weight:300;
+	color:rgba(51,51,51,1);
+	line-height:28px;
+	word-break: break-all
+}
+.cur{
+	cursor: pointer;
+}
+.playMb{
+	cursor: pointer;
+}
+.download{
+	margin-bottom: 3px;
+	width: 14px;
+	height: 14px;
+}
+.xiazai{
+	padding-left: 6px;
+}
+.BigBrowse{
+	width: 27px;
+	height: 16px;
+	margin-bottom: 2px;
+}
+.Collections{
+	cursor: pointer;
+	position: relative;
+}
+.Collection{
+	width: 20px;
+	height: 19px;
+	margin-bottom: 4px;
+}
+.CollectionIcon{
+	position: absolute;
+	width: 20px;
+	height: 19px;
+	bottom: 4px;
+	right: 20%;
+	display: none;
+}
+.oneliDe{
+	background:rgba(255,255,255,1);
+}
+
+@media only screen and (max-width: 1366px) {
+	.paddingbottom10{
+		padding-bottom: 4px;
+	}
+	.CourseDetailsTitle{
+		font-size: 18px;
+	}
+	.margin-top20{
+		margin-top: 5px;
+	}
+	.marginbottom10{
+		margin-bottom: 5px;
+	}
+	.xiazai {
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(102,102,102,1);
+}
+.kcTable span {
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(255,255,255,1);
+}
+.paddingtopbottom10{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.Coursebottom {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.margin-top25{
+	margin: 0;
+}
+.CollectionIcon {
+    position: absolute;
+    width: 20px;
+    height: 19px;
+    bottom: 4px;
+    right: 30.5%;
+    display: none;
+}
+}
+@media only screen and (max-width: 1440px) and (min-width: 1367px){
+	.CollectionIcon{
+		right:28%;
+	}
+	.CourseDetailsTitle{
+		font-size: 20px;
+	}
+	.paddingbottom10{
+		padding-bottom: 5px;
+	}
+}

@@ -1,0 +1,93 @@
+{include file="public/head" /}
+		<link rel="stylesheet" type="text/css" href="__STYLE__/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="__STYLE__/css/topbottom.css" />
+		<link rel="stylesheet" type="text/css" href="__STYLE__/css/usercenter.css"/>
+{include file="public/nav" /}
+
+		<!--内容-->
+		<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 clearpadding usercenter margin-top80">
+			<div class="col-lg-2 col-md-2 col-xs-2 col-sm-2 marginleft16_67 margin-top80">
+				<ul class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding text-center userTitle">
+					<li class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding text-center ">
+						<a class="" href="{:url('user/index')}" target="_blank">个人信息</a>
+					</li>
+					<li class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding text-center myactive">
+						<a class="myactives" href="{:url('user/setting')}" target="_blank">安全设置</a>
+					</li>
+					<li class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding text-center">
+						<a class="" href="{:url('user/collection')}" target="_blank">收藏课程</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 userCount show margin-top80">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 userinformation">
+					<span>安全设置</span>
+				</div>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 height40"></div>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 OldPasswordfont">
+					<span>原密码</span>
+				</div>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 height15"></div>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 OldPassword">
+					<input type="password" name="pwd" value="" />
+				</div>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 height20"></div>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 OldPasswordfont">
+					<span>新密码</span>
+				</div>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 height15"></div>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 OldPassword">
+					<input type="password" name="password" value="" />
+				</div>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 height20"></div>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 OldPasswordfont">
+					<span>确认密码</span>
+				</div>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 height15"></div>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 OldPassword">
+					<input type="password" name="pwd_copy" value="" />
+				</div>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 btnYesNewPassword">
+					<input class="text-center btn" type="button" value="提交新密码"/>
+				</div>
+			</div>
+		</div>
+{include file="public/foot" /}
+	<script type="text/javascript" src="__STYLE__/js/jQuery-2.1.0.js" ></script>
+	<script type="text/javascript" src="__STYLE__/js/topHover.js" ></script>
+	<script type="text/javascript" src="__STYLE__/js/qrCodeAndPage.js" ></script>
+<script type="text/javascript" src="/static/admin/js/layer.js" ></script>
+<script>
+	$(function(){
+		$('.btn').click(function(){
+			var pwd = $('input[name=pwd]').val();
+			var password = $('input[name=password]').val();
+			var pwd_copy = $('input[name=pwd_copy]').val();
+			if(!pwd || !password || !pwd_copy){
+				return layer.msg('请输入密码',{icon:0,time:1000});
+			}
+			if(password != pwd_copy){
+				return layer.msg('两次密码不一致',{icon:0,time:1000});
+			}
+			$.ajax({
+				type:'POST',
+				dataType:'json',
+				url:'{:url("user/setPwd")}',
+				data:{
+					pwd:pwd,
+					password:password
+				},
+				success:function(data){
+					if(data.status){
+						layer.msg(data.msg,{icon:1,time:1000});
+						setTimeout(function(){
+							location.reload();
+						},700)
+					}else{
+						layer.msg(data.msg,{icon:0,time:1000});
+					}
+				}
+			});
+		})
+	})
+</script>

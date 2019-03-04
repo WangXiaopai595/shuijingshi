@@ -1,0 +1,24 @@
+{include file="public/head" /}
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/Introduction.css"/>
+
+{include file="public/nav" /}
+<!--内容-->
+<div class="closeIconMore">
+	<div class="col-xs-12 col-sm-12 clearpadding margin-top60">
+		<img src="__STYLE__/img/introBanner.png" width="100%"/>
+	</div>
+	<div class="col-xs-12 col-sm-12 clearpadding colleHor" style="margin-bottom: 100px">
+			<span class="col-xs-12 col-sm-12 clearpadding colleHorTitle paddleft10">
+				课程介绍
+			</span>
+		<div class="col-xs-12 col-sm-12 clearpadding">
+			{volist name="course" id="vo"}
+			<a href="{:url('course/index',['course'=>$vo['id']])}" class="col-xs-6 col-sm-6 clearpadding introCover">
+				<img src="__STYLE__/img/course/introCover{$vo.id}.png" width="100%"/>
+			</a>
+			{/volist}
+		</div>
+	</div>
+</div>
+{include file="public/fiex" /}
+{include file="public/foot" /}

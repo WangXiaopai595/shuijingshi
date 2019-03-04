@@ -1,0 +1,52 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.CitySchool{
+	font-size:40px;
+	font-weight:400;
+	color:rgba(246,125,14,1);
+}
+.marginleft16_67 p img{
+	width:100%;
+}
+.Address{
+	font-size:24px;
+	font-weight:300;
+	color:rgba(153,153,153,0.99);
+}
+.City{
+	font-size:30px;
+	font-weight:400;
+	color:rgba(246,125,14,1);
+	line-height: 30px;
+}
+.CityDetails{
+	padding-top: 15px;
+	font-size:18px;
+	font-weight:300;
+	color:rgba(102,102,102,1);
+}
+.dashed{
+	border: 1px dashed rgba(0,0,0,1);
+}
+@media only screen and (max-width:1366px ) {
+	.City {
+    font-size: 26px;
+    font-weight: 400;
+    color: rgba(246,125,14,1);
+    line-height: 30px;
+}
+.CityDetails {
+    padding-top: 15px;
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(102,102,102,1);
+}
+.margintop100{
+	margin-top: 50px;
+}
+.CnMap{
+	height: 411px;
+}
+}

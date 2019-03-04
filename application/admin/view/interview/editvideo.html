@@ -1,0 +1,157 @@
+{include file="public/header" /}
+
+
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+	<legend>
+		<div class="layui-inline">
+			<a href="{:url('interview/index')}" class="layui-btn layui-btn-normal">返回列表</a>
+		</div>
+	</legend>
+</fieldset>
+
+<form class="layui-form" id="form">
+	<input type="hidden" name="id" value="{$video.id}" />
+	<div class="layui-form-item">
+		<label class="layui-form-label">标题<span style="color: #FF5722;">*</span>:</label>
+		<div class="layui-input-block" style="width: 50%;">
+			<input type="text" name="title" placeholder="请输入标题" class="layui-input" value="{$video.title}">
+		</div>
+		<!--<div class="layui-form-mid layui-word-aux">字母、数字、下划线组成，字母或数字开头，4-16位</div>-->
+	</div>
+
+	<div class="layui-form-item" id="video">
+		<label class="layui-form-label">视频链接<span style="color: #FF5722;">*</span>:</label>
+		<div class="layui-input-block" style="width: 50%;">
+			<input type="text" name="video_id" placeholder="请输入视频链接" class="layui-input" value="{$video.video_id}">
+		</div>
+		<!--<div class="layui-form-mid layui-word-aux">字母、数字、下划线组成，字母或数字开头，4-16位</div>-->
+	</div>
+
+	<div class="layui-form-item">
+		<label class="layui-form-label">图片<span style="color: #FF5722;">*</span>:</label>
+		<div class="layui-input-block">
+			<img id="cover" style="width: 70px;height: 70px;" src="{$video.icon}" />
+			<input id="img" type="file" accept="image/gif, image/jpeg, image/png, image/jpg" style="display: none;" name="icon" />
+		</div>
+		<label class="layui-form-label"></label>
+		<div class="layui-form-mid layui-word-aux"> </div>
+	</div>
+
+	<div class="layui-form-item">
+		<div class="layui-inline">
+			<label class="layui-form-label">发布日期:</label>
+			<div class="layui-input-inline">
+				<input type="text" name="time" id="date" lay-verify="date" placeholder="yyyy-MM-dd HH:mm:ss" autocomplete="off" class="layui-input" value="{$video.time|date='Y-m-d H:i:s',###}">
+			</div>
+			<div class="layui-form-mid layui-word-aux">若为空则默认当前时间</div>
+		</div>
+	</div>
+
+	<div class="layui-form-item">
+		<label class="layui-form-label">是否显示<span style="color: #FF5722;">*</span>:</label>
+		<div class="layui-input-block">
+			<input type="checkbox" {if condition="$video.is_show"}checked=""{/if} name="is_show" lay-skin="switch" lay-text="ON|OFF" value="1" />
+		</div>
+	</div>
+
+	<div class="layui-form-item">
+		<label class="layui-form-label">是否推荐<span style="color: #FF5722;">*</span>:</label>
+		<div class="layui-input-block">
+			<input type="checkbox" name="is_recommend" {if condition="$video.is_recommend"}checked=""{/if} lay-skin="switch" lay-text="ON|OFF" value="1" />
+		</div>
+		<div class="layui-form-mid layui-word-aux">推荐内容优先排在前列,其次按照发布时间先后顺序排列</div>
+	</div>
+	
+	<div class="layui-form-item">
+		<div class="layui-input-block">
+			<button type="button" class="layui-btn" id="button" data-url='{:url("interview/editvideo")}' data-succ='{:url("interview/index")}'>立即提交</button>
+		</div>
+	</div>
+	
+</form>
+{include file="public/footer" /}
+<script>
+	$(function(){
+
+		$("#cover").click(function(){
+			$("#img").click();
+		})
+		$('#img').change(function() {
+			var html = '';
+			for(var i=0;i<(this.files).length;i++){
+				var file = this.files[i];
+				var r = new FileReader();
+				r.readAsDataURL(file);
+				$(r).load(function() {
+					$("#cover").attr('src',this.result);
+				})
+			}
+		})
+
+		$('#type').on('click','div',function(){
+			var val =$('input[name=type]:checked').val();
+			if(val == 2){
+				$('#video').show();
+			}else{
+				$('#video').hide();
+			}
+		})
+		
+		function checkForm(){
+			var title = $("input[name='title']").val();
+			var video = $("input[name='video_id']").val();
+
+			if(!title){
+				layer.msg('请输入标题',{icon:0,time:1000});
+				return false;
+			}
+			if(!video){
+				layer.msg('请输入视频链接',{icon:0,time:1000});
+				return false;
+			}
+			return true;
+		}
+		/**
+		 * ajax序列化提交表单
+		 */
+		$("#button").click(function(){
+			var succ = $(this).attr("data-succ");
+			var url = $(this).attr("data-url");
+			var data = new FormData($("#form")[0]);
+			if(checkForm()){
+				var index = layer.load(2,{time:10000});
+				$.ajax({
+					url: url,
+					type: 'POST',
+					data: data,
+					dataType:'json',
+					async: true,
+					cache: false,
+					contentType: false,
+					processData: false,
+					success:function(date){
+						layer.close(index);
+						if(date.status == 1){
+							layer.msg(date.msg,{icon:1,time:1000});
+							setTimeout(function(){
+								location.href = succ;
+							},700)
+						}else{
+							layer.msg(date.msg,{icon:2,time:1000});
+						}
+					}
+				});
+			}
+		})
+	})
+
+	layui.use(['form', 'layedit', 'laydate'], function() {
+		var laydate = layui.laydate;
+
+		//日期
+		laydate.render({
+			elem: '#date',
+			type:'datetime'
+		});
+	});
+</script>

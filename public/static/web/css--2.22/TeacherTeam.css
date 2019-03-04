@@ -1,0 +1,368 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.goodwork{
+	font-size:40px;
+	font-weight:400;
+	color:rgba(0,0,0,1);
+}
+.border3{
+	width:70px;
+	border:3px solid rgba(51,51,51,1);
+	margin: 0 auto;
+}
+.alonework{
+	font-size:16px;
+	font-weight:300;
+	color:rgba(153,153,153,1);
+}
+.Advisor {
+	cursor: pointer;
+}
+.TeachTitle{
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+}
+.TeachTitles{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	line-height: 60px;
+	width: 96%;
+	height:60px;
+	background:rgba(27,27,29,0.5);
+	font-size:18px;
+	font-weight:500;
+	color:rgba(255,255,255,1);
+	transition: 1s bottom;
+}
+.TeachTitleDs{
+	position: absolute;
+	left: 0;
+	bottom:-344.69px;
+	width: 96%;
+	height: 344.69px;
+	font-size:18px;
+	font-weight:500;
+	color:rgba(255,255,255,1);
+	background:rgba(0,0,0,0.5);
+	transition: 1s bottom;
+}
+.TeachTitle:hover .TeachTitles{
+	bottom: 344.69px;
+}
+.TeachTitle:hover .TeachTitleDs{
+	bottom: 0;
+}
+.teachJy{
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	padding-top: 10%;
+	font-size:12px;
+	font-weight:300;
+	color:rgba(255,255,255,1);
+}
+.teachNc{
+	padding-top: 2%;
+	font-size:18px;
+	font-weight:300;
+	border-bottom:1.5px solid rgba(255,255,255,0.7) ;
+	color:rgba(255,255,255,1);
+	padding-bottom: 8px;
+}
+.teacherName{
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	font-size:18px;
+	font-weight:300;
+	color:rgba(255,255,255,1);
+	padding-top: 14.5%;
+}
+.teachDs{
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 5;
+	overflow: hidden;
+	padding-top:10% ;
+	padding-left: 29px;
+	padding-right:29px ;
+	font-size:12px;
+	font-weight:300;
+	color:rgba(255,255,255,1);
+	line-height: 25px;
+}
+
+@-moz-document url-prefix() {
+	.teachDs{
+		display: block;
+		position: relative;
+		line-height: 30px;
+		max-height: 150px;
+		overflow: hidden;
+	}
+	.teachDs::after{
+		content: ""; position: absolute;
+		bottom: 0;
+		right: 0;
+		padding-left: 40px;
+		background: -webkit-gradient(linear, 0 0, 100% 0, from(transparent), color-stop(0.55, #fff));
+		background: -webkit-linear-gradient(left, transparent, #fff 55%);
+		background: -moz-linear-gradient(left, transparent, #fff 55%);
+		background: -o-linear-gradient(left, transparent, #fff 55%);
+		background: linear-gradient(left, transparent, #fff 55%);
+	}
+}
+.Advisor{
+	position: relative;
+	height:331px;
+	overflow: hidden;
+}
+.teachCover{
+	height:331px;
+}
+
+.Advisors{
+	width: 96%;
+	height: 100%;
+	position: absolute;
+	bottom: -331px;
+	left: 0;
+	border:1px solid rgba(255,255,255,0.5);
+	background: RGBA(44, 38, 35, 0.5);
+	transition: bottom 0.7s; 
+}
+.Advisor:hover .Advisors{
+	bottom: 0;
+}
+.Advisorspan{
+	padding-top: 48%;
+	padding-bottom: 3%;
+	font-size:20px;
+	font-weight:500;
+	color:rgba(255,255,255,1);
+	border-bottom: 1px solid rgba(255,255,255,1);;
+}
+.Advisorspan1{
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	padding-top: 6%;
+	padding-bottom: 55%;
+	font-size:16px;
+	font-weight:300;
+	color:rgba(255,255,255,1);
+}
+@media only screen and (max-width:1366px ) {
+	@-moz-document url-prefix() {
+		.teachDs{
+			display: block;
+			position: relative;
+			line-height: 30px;
+			max-height: 120px;
+			overflow: hidden;
+		}
+		.teachDs::after{
+			content: ""; position: absolute;
+			bottom: 0;
+			right: 0;
+			padding-left: 40px;
+			background: -webkit-gradient(linear, 0 0, 100% 0, from(transparent), color-stop(0.55, #fff));
+			background: -webkit-linear-gradient(left, transparent, #fff 55%);
+			background: -moz-linear-gradient(left, transparent, #fff 55%);
+			background: -o-linear-gradient(left, transparent, #fff 55%);
+			background: linear-gradient(left, transparent, #fff 55%);
+		}
+	}
+	.Advisor {
+	cursor: pointer;
+    position: relative;
+    height: 231.48px;
+    overflow: hidden;
+}
+.Advisors {
+    width: 96%;
+    height: 100%;
+    position: absolute;
+    bottom: -231.48px;
+    left: 0;
+    border: 1px solid rgba(255,255,255,0.5);
+    background: RGBA(44, 38, 35, 0.5);
+    transition: bottom 0.7s;
+}
+.teachCover{
+	height: 231.48px;
+}
+.Advisorspan {
+    padding-top: 50%;
+    padding-bottom: 3%;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(255,255,255,1);
+    border-bottom: 1px solid rgba(255,255,255,1);
+}
+.TeachTitleDs {
+    position: absolute;
+    left: 0;
+    bottom: -275.8px;
+    width: 96%;
+    height: 275.8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255,255,255,1);
+    background: rgba(0,0,0,0.5);
+    border-radius: 5px;
+    transition: 0.7s bottom;
+}
+.teacherName {
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(255,255,255,1);
+    padding-top: 30%;
+}
+.teachDs {
+    padding-top: 10%;
+    padding-left: 29px;
+    padding-right: 29px;
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(255,255,255,1);
+    line-height: 25px;
+}
+.teachJy {
+    padding-top: 10%;
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(255,255,255,1);
+}
+.teachNc {
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+    padding-top: 0%;
+    font-size: 12px;
+    font-weight: 300;
+    border-bottom: 1.5px solid rgba(255,255,255,0.7);
+    color: rgba(255,255,255,1);
+}
+.TeachTitles {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    line-height: 60px;
+    width: 96%;
+    height: 60px;
+    background: rgba(27,27,29,0.5);
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba(255,255,255,1);
+    transition: 0.7s bottom;
+}
+.TeachTitle:hover .TeachTitles{
+	bottom: 275.8px;
+}
+.TeachTitle img{
+	height: 275.8px;
+}
+}
+@media only screen and (min-width: 1440px) and (max-height: 900px) {
+	.teachDs {
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 4;
+		overflow: hidden;
+	}
+	.Advisor {
+		cursor: pointer;
+		position: relative;
+		height: 231.48px;
+		overflow: hidden;
+	}
+	.Advisors {
+		width: 96%;
+		height: 100%;
+		position: absolute;
+		bottom: -231.48px;
+		left: 0;
+		border: 1px solid rgba(255,255,255,0.5);
+		background: RGBA(44, 38, 35, 0.5);
+		transition: bottom 0.7s;
+	}
+	.teachCover{
+		height: 231.48px;
+	}
+	.Advisorspan {
+		padding-top: 50%;
+		padding-bottom: 3%;
+		font-size: 16px;
+		font-weight: 500;
+		color: rgba(255,255,255,1);
+		border-bottom: 1px solid rgba(255,255,255,1);
+	}
+	.TeachTitleDs {
+		position: absolute;
+		left: 0;
+		bottom: -275.8px;
+		width: 96%;
+		height: 275.8px;
+		font-size: 14px;
+		font-weight: 500;
+		color: rgba(255,255,255,1);
+		background: rgba(0,0,0,0.5);
+		border-radius: 5px;
+		transition: 0.7s bottom;
+	}
+	.teacherName {
+		font-size: 12px;
+		font-weight: 300;
+		color: rgba(255,255,255,1);
+		padding-top: 30%;
+	}
+	.teachDs {
+		padding-top: 10%;
+		padding-left: 29px;
+		padding-right: 29px;
+		font-size: 12px;
+		font-weight: 300;
+		color: rgba(255,255,255,1);
+		line-height: 25px;
+	}
+	.teachJy {
+		padding-top: 10%;
+		font-size: 12px;
+		font-weight: 300;
+		color: rgba(255,255,255,1);
+	}
+	.teachNc {
+		overflow: hidden;
+		text-overflow:ellipsis;
+		white-space: nowrap;
+		padding-top: 0%;
+		font-size: 12px;
+		font-weight: 300;
+		border-bottom: 1.5px solid rgba(255,255,255,0.7);
+		color: rgba(255,255,255,1);
+	}
+	.TeachTitles {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		line-height: 60px;
+		width: 96%;
+		height: 60px;
+		background: rgba(27,27,29,0.5);
+		font-size: 15px;
+		font-weight: 500;
+		color: rgba(255,255,255,1);
+		transition: 0.7s bottom;
+	}
+	.TeachTitle:hover .TeachTitles{
+		bottom: 275.8px;
+	}
+	.TeachTitle img{
+		height: 275.8px;
+	}
+}

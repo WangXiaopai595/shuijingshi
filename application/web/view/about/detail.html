@@ -1,0 +1,70 @@
+{include file="public/head" /}
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/topbottom.css" />
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/NewsCount.css" />
+{include file="public/nav" /}
+{include file="public/fiex" /}
+<!--内容-->
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margintop140" style="margin-bottom: 20px;">
+	<span class="col-lg-8 col-md-8 col-sm-8 col-xs-8 clearpadding backgroundNews marginleft16_67 text-left">
+		<span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 backgroundTitle">
+			{$article['article']['title']}
+		</span>
+		<span class="col-lg-2 col-md-2 col-sm-2 col-xs-2 NewsIconTitle">
+			<img class="col-lg-1 col-md-1 col-sm-1 col-xs-1 clearpadding TimeIconimg" src="__STYLE__/img/PeopleIcon.png"/>
+			<span class="col-lg-10 col-md-10 col-sm-10 col-xs-10 clearpadding TimeIcon">水晶石教育</span>
+		</span>
+		<span class="col-lg-2 col-md-2 col-sm-2 col-xs-2 NewsIconTitle">
+			<img class="col-lg-1 col-md-1 col-sm-1 col-xs-1 clearpadding TimeIconimg" src="__STYLE__/img/TimeIcon.png"/>
+			<span class="col-lg-10 col-md-10 col-sm-10 col-xs-10 clearpadding TimeIcon">{$article['article']['time']|date="Y-m-d H:i:s",###}</span>
+		</span>
+		<span class="col-lg-2 col-md-2 col-sm-2 col-xs-2 NewsIconTitle">
+			<img class="col-lg-1 col-md-1 col-sm-1 col-xs-1 clearpadding TimeIconimg" src="__STYLE__/img/browseIcon.png"/>
+			<span class="col-lg-10 col-md-10 col-sm-10 col-xs-10 clearpadding TimeIcon">{$article['article']['people']}</span>
+		</span>
+		<span class="col-lg-2 col-md-2 col-sm-2 col-xs-2 NewsIconTitle">
+			<img class="col-lg-1 col-md-1 col-sm-1 col-xs-1 clearpadding TimeIconimg" src="__STYLE__/img/VideoIcon.png"/>
+			<span class="col-lg-10 col-md-10 col-sm-10 col-xs-10 clearpadding TimeIcon">
+				{if condition="$article['article']['type'] eq 'honor'"}
+					学院荣誉
+				{elseif condition="$article['article']['type'] eq 'media'"/}
+					媒体采访
+				{elseif condition="$article['article']['type'] eq 'record'"/}
+					学生战绩
+				{elseif condition="$article['article']['type'] eq 'grant'"/}
+					授权认证
+				{elseif condition="$article['article']['type'] eq 'recruit'"/}
+					招聘会回顾
+				{elseif condition="$article['article']['type'] eq 'cg'"/}
+					CG交流活动
+				{/if}
+			</span>
+		</span>
+		<span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding NewsCountDs">
+			{:htmlspecialchars_decode($article['article']['content'])}
+		</span>
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding_top35 clearpadding">
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left curp clearpadding">
+				{if condition="$article['per']"}
+					<a href="{:url('about/detail',['article'=>$article['per']['id']])}" target="_blank">
+						<img class="Gray" src="__STYLE__/img/PrevGray.png" width="2.5%"/>
+						<span class="prevNext">上一篇&emsp;{$article['per']['title']}</span>
+					</a>
+				{/if}
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right curp clearpadding">
+				{if condition="$article['nex']"}
+					<a href="{:url('about/detail',['article'=>$article['nex']['id']])}" target="_blank">
+						<span class="prevNext">{$article['nex']['title']}&emsp;下一篇
+						<img class="Gray" src="__STYLE__/img/NextGray.png" width="2.5%"/></span>
+					</a>
+				{/if}
+			</div>
+		</div>
+	</div>
+</div>
+{include file="public/foot" /}
+	<script type="text/javascript" src="__STYLE__/js/jQuery-2.1.0.js" ></script>
+	<script type="text/javascript" src="__STYLE__/js/topHover.js" ></script>
+	<script type="text/javascript" src="__STYLE__/js/fixedRight.js" ></script>
+	<script type="text/javascript" src="__STYLE__/js/qrCodeAndPage.js" ></script>

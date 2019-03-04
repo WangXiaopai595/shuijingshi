@@ -1,0 +1,609 @@
+{include file="public/head" /}
+
+<link rel='stylesheet' type='text/css' href='__STYLE__/css/bootstrap.min.css' />
+<link rel='stylesheet' type='text/css' href='__STYLE__/css/topbottom.css' />
+<link rel='stylesheet' type='text/css' href='__STYLE__/css/index.css' />
+<link rel='stylesheet' type='text/css' href='__STYLE__/css/animate.css' />
+<!--视频播放器-->
+
+<div class='col-lg-12 col-md-12 clearpadding CollegeMb1 hide'>
+	<div class='col-lg-8 col-md-8 clearpadding marginleft16_67 Vid' style="position: relative;">
+		<div class='col-lg-12 col-md-12 clearpadding' id="player">
+
+		</div>
+		<img class='closeVideo1' src='__STYLE__/img/closeVideo.png' width='3%' />
+	</div>
+</div>
+
+{include file="public/nav" /}
+
+<!--客服Icon-->
+<div class='col-lg-1 col-md-1 custSer clearpadding'>
+	<a href="{$site['customer_link']}" target="_blank"><img src='__STYLE__/img/custSer.png' width='100%' /></a>
+</div>
+<!--切换屏幕-->
+<style type="text/css">
+	#menu {
+		margin: 0;
+		padding: 0;
+		position: fixed;
+		right: 10px;
+		top: 30%;
+		list-style-type: none;
+		z-index: 70;
+	}
+
+	#menu li {
+		float: left;
+		margin: 0 10px 0 0;
+		font-size: 14px;
+	}
+
+	#menu a {
+		margin: 5% 0;
+		float: left;
+		background-color: rgba(255, 255, 255, 0.5);
+		text-decoration: none;
+		width: 12px;
+		height: 12px;
+		border-radius: 50%;
+	}
+
+	#menu .active a {
+		margin: 15% 0;
+		height: 20px;
+		border-radius: 40%;
+		background-color: rgba(255, 255, 255, 1);
+	}
+
+	body,
+	html {
+		/*width: 100%;*/
+		height: 100%;
+	}
+	.indexBanner{
+		height:68%;
+	}
+	.myindexImg{
+		height:100%;
+	}
+	html {
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+</style>
+<ul class="col-lg-1 col-md-1 col-sm-1 col-xs-1 clearpadding" id="menu">
+	<li data-menuanchor="page1" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding active">
+		<a href="#page1"></a>
+	</li>
+	<li data-menuanchor="page2" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding">
+		<a href="#page2"></a>
+	</li>
+	<li data-menuanchor="page3" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding">
+		<a href="#page3"></a>
+	</li>
+	<li data-menuanchor="page4" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding">
+		<a href="#page4"></a>
+	</li>
+	<li data-menuanchor="page5" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding">
+		<a href="#page5"></a>
+	</li>
+	<li data-menuanchor="page6" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding">
+		<a href="#page6"></a>
+	</li>
+	<li data-menuanchor="page7" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding">
+		<a href="#page7"></a>
+	</li>
+</ul>
+<!--内容-->
+
+<div id="dowebok">
+	<div class="section">
+		{if condition="$site['top_type'] eq 1"}
+			<video class="myeqvideo" data-video="{$site['top_type']}" data-keepplaying="" id="myvideo" width="100%" loop="loop" muted="muted" style="z-index: 99999;object-fit: fill;" autoplay="autoplay" preload="none" width="100%">
+				<!--视频地址-->
+				<source class="indexBanners" src="{$site.index_video}">
+			</video>
+		{else/}
+			<div class="myeqvideo" data-video="top_type" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding indexImg indexBanner indexBanners">
+				<!--图片地址-->
+				<img class="myindexImg" src="{$site.index_img}" width="100%">
+			</div>
+		{/if}
+		<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding indexTitle'>
+			<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+				<div class='col-lg-8 col-md-8 col-sm-8 col-xs-8 iconcount text-center clickCustSer'>
+					<div class='col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center icons'>
+						<a href="{$site.customer_link}" target="_blank">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding text-center">
+								<img class="LearnFast" src='__STYLE__/img/LearnFast.png'>
+							</div>
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding text-center">
+								<span class='iconTitle'>快速了解水晶石</span><br />
+								<span class='introduces'>全球视觉创意专家</span>
+							</div>
+						</a>
+					</div>
+					<div class='col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center icons'>
+						<a href="{$site.customer_link}" target="_blank">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding text-center">
+								<img class="JointVenture" src='__STYLE__/img/JointVenture.png'>
+							</div>
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding text-center">
+								<span class='iconTitle'>企业战略联合</span><br />
+								<span class='introduces'>专业人才定制推送</span>
+							</div>
+						</a>
+					</div>
+					<div class='col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center icons'>
+						<a href="{$site.customer_link}" target="_blank">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding text-center">
+								<img class="designersSay" src='__STYLE__/img/DesignersSay.png'>
+							</div>
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding text-center">
+								<span class='iconTitle'>设计师讲堂</span><br />
+								<span class='introduces'>在线课程学习</span>
+							</div>
+						</a>
+					</div>
+					<div class='col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center icons'>
+						<a href="{$site.customer_link}" target="_blank">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding text-center">
+								<img class="AmentIsEment" src='__STYLE__/img/AmentIsEment.png'>
+							</div>
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding text-center">
+								<span class='iconTitle'>结业即就业</span><br />
+								<span class='introduces'>解决就业问题</span>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class='col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center Honors clearpadding displayflex'>
+				<div class='col-lg-2_4 col-md-2_4 Honor'>
+					<span class='HonorTitle'>Houdini授权培训中心</span><br />
+					<span class='Honorintroduces'>Side Effects亚太区官方认证</span>
+				</div>
+				<div class='col-lg-2_4 col-md-2_4 Honor'>
+					<span class='HonorTitle'>数字可视化认证</span><br />
+					<span class='Honorintroduces'>中国室内装饰协会授权</span>
+				</div>
+				<div class='col-lg-2_4 col-md-2_4 Honor'>
+					<span class='HonorTitle'>Discreet授权培训中心</span><br />
+					<span class='Honorintroduces'>Autodesk公司授予</span>
+				</div>
+				<div class='col-lg-2_4 col-md-2_4 Honor'>
+					<span class='HonorTitle'>Avid授权教育学院</span><br />
+					<span class='Honorintroduces'>Avid在中国区最大的用户</span>
+				</div>
+				<div class='col-lg-2_4 col-md-2_4 Honor Noborder'>
+					<span class='HonorTitle'>留澳直通车</span><br />
+					<span class='Honorintroduces'>悉尼AIT科技设计学院合作推出</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="section">
+		<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding index_bg'>
+			<div class='col-lg-8 col-md-8 col-sm-8 col-xs-8 clearpadding index_banner indexImgBanner hide'>
+				<div id='carousel-example-generic' class='carousel slide' data-ride='carousel'>
+					<!-- Indicators -->
+					<ol class='carousel-indicators'>
+						{volist name="data['banner']" id="vo" key="k"}
+						<li data-target='#carousel-example-generic' data-slide-to='{$k-1}' class='{if condition="$k eq 1"}active{/if}'></li>
+						{/volist}
+					</ol>
+
+					<!-- Wrapper for slides -->
+					<div class='carousel-inner' role='listbox'>
+						{volist name="data['banner']" id="vo" key="k"}
+						<div class='item {if condition="$k eq 1"}active{/if}'>
+							<a target="_blank" class="myTrans" href='{$vo['url'] ?: 'javascript:; '}' ><img class="mytranstion" src='{$vo.path}' width='100%' height="510px" alt='...'></a>
+							<div class='carousel-caption'>
+							</div>
+						</div>
+						{/volist}
+					</div>
+
+					<!-- Controls -->
+					<a class='left carousel-control' href='#carousel-example-generic' target="_blank" role='button' data-slide='prev'>
+						<span class='glyphicon glyphicon-chevron-left' aria-hidden='true'></span>
+						<span class='sr-only'>Previous</span>
+					</a>
+					<a class='right carousel-control' href='#carousel-example-generic'  target="_blank" role='button' data-slide='next'>
+						<span class='glyphicon glyphicon-chevron-right' aria-hidden='true'></span>
+						<span class='sr-only'>Next</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--精品课程-->
+	<div class="section">
+		<!--精品课程-->
+		<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding Course_bg'>
+			<div class='col-lg-8 col-md-8 col-sm-8 col-xs-8'>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 displayflex clearpadding">
+					<div class='col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left numbertwo marginbottom50 courseimgLeft clearpadding'>02</div>
+					<div class='col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right marginbottom50 myjpkcs courseimgRight'>
+						<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 ExcellentCourse1 text-right'>
+							<span class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding coursechina'>精品课程</span><br />
+							<span class='course'>Excellent Course</span><br />
+							<div class='border3_ pull-right'></div>
+						</div>
+					</div>
+				</div>
+				<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center clearpadding'>
+					{volist name="$data['course']" id="vo" key="k"}
+						{if condition="$k >= 1 AND $k <= 4"}
+						<a target="_blank" href='{:url('course/index',['course'=>$vo['id']])}' class='col-lg-3 col-md-3 col-sm-3 col-xs-3 Courseimg clearpadding courseimgLeft hide'>
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding myjpkc">
+								<img src='{$vo.icon}' width='100%'>
+							</div>
+							<p class='col-lg-12 col-md-12 col-sm-12 col-xs-12 courseimgTitle'>{$vo.name}</p>
+						</a>
+						{/if}
+					{/volist}
+				</div>
+				<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center clearpadding'>
+					{volist name="$data['course']" id="vo" key="k"}
+						{if condition="$k >= 5"}
+							<a target="_blank" href='{:url('course/index',['course'=>$vo['id']])}' class='col-lg-3 col-md-3 col-sm-3 col-xs-3 Courseimg clearpadding courseimgRight hide'>
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding myjpkc">
+									<img src='{$vo.icon}' width='100%'>
+								</div>
+								<p class='col-lg-12 col-md-12 col-sm-12 col-xs-12 courseimgTitle'>{$vo.name}</p>
+							</a>
+						{/if}
+					{/volist}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="section">
+		<!--学员采访-->
+		<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 Interview_bg'>
+			<div class='col-lg-8 col-md-8 col-sm-8 col-xs-8 myxycfs'>
+				<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding displayflex'>
+				<div class='col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center interviewLeft hide'>
+					<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left pull-left paddingtopbottom10_'>
+						<span class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding coursechina'>学员采访</span><br />
+						<span class='course'>College Interview</span><br />
+						<div class='border3_ text-center'></div>
+					</div>
+				</div>
+				<div class='col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right numbertwo interviewRight hide'><span>03</span></div>
+			</div>
+				{if condition="$data['video']"}
+				<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 College'>
+					<div class='col-lg-8 col-md-8 col-sm-8 col-xs-8 videoplay clearpadding numberthree1 interviewLeft hide'>
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding myxycf">
+							<img class='InterviewCover1' src='{$data['video'][0]['icon']}'>
+							<!--视频播放、封面路径-->
+							<img class='play1 cur playMb' data-srcVideo="{$data['video'][0]['playcode']}" data-srcImg="{$data['video'][0]['icon']}" src='__STYLE__/img/Play.png' width='10%' />
+						</div>
+
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding indexVidMb">
+							<span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding indexVidMbs">{$data['video'][0]['title']}</span>
+						</div>
+					</div>
+					<div class='col-lg-4 col-md-4 col-sm-4 col-xs-4 videoplay interviewRight hide'>
+						{volist name="$data['video']" id="vo" key="k"}
+						{if condition="$k gt 1"}
+						<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding numberthree2'>
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding mystuinv">
+								<img class='numberthreeImg' src='{$vo.icon}'>
+								<img class='play2 cur playMb' data-srcVideo="{$vo.playcode}" data-srcImg="{$vo.icon}" src='__STYLE__/img/Play.png' width='20%' />
+							</div>
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding indexVidMb2">
+								<span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding indexVidMbs2">{$vo.title}</span>
+							</div>
+						</div>
+						{/if}
+						{/volist}
+					</div>
+				</div>
+				<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center SeeMore'>
+					<a target="_blank" href='{:url('job/interview')}'><span>查看更多</span></a>
+				</div>
+				{/if}
+			</div>
+		</div>
+	</div>
+	<div class="section">
+		<!--学员作品-->
+		<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 StudentWorks_bg'>
+			<div class='col-lg-8 col-md-8 col-sm-8 col-xs-8 myxyzps'>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding displayflex">
+					<div class='col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left numbertwo clearpadding stuWorksLeft hide'>04</div>
+					<div class='col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center clearpadding stuWorksRight hide'>
+						<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right pull-right paddingtopbottom10_'>
+							<span class='col-md-12 col-lg-12 col-sm-12 col-xs-12 clearpadding coursechina'>学员作品</span>
+							<span class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding course'>Students Work</span>
+							<div class='col-md-12 col-lg-12 col-sm-12 col-xs-12 clearpadding border3_ text-right pull-right'></div>
+						</div>
+					</div>
+				</div>
+				{if condition="$data['work']"}
+				<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding displayflex'>
+					<div class='col-lg-5 col-md-5 My4_5 clearpadding stuWorksLeft hide'>
+						{volist name="$data['work']" id="vo" key="k"}
+						{if condition="$k gt 1"}
+						<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding WorksCovers'>
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding mystuworks">
+								<img class='WorksCover' src='{$vo['icon']}' width='100%'>
+								<!--视频播放、封面路径-->
+								<img class='play4 playMb cur' data-srcVideo="{$vo['playcode']}" data-srcImg="{$vo['icon']}" src='__STYLE__/img/Play.png' width='15%' />
+							</div>
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding indexVidMb">
+								<span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding indexVidMbs">{$vo['title']}</span>
+							</div>
+
+						</div>
+						{/if}
+						{/volist}
+					</div>
+					<div class='col-lg-7 col-md-7 My8_5 clearpadding worksCovers stuWorksRight hide'>
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding mystuworks1">
+							<img class='WorksCover3' src='{$data['work'][0]['icon']}' width='100%'>
+							<img class='play6 playMb cur' data-srcVideo="{$data['work'][0]['playcode']}" data-srcImg="{$data['work'][0]['icon']}" src='__STYLE__/img/Play.png' width='10%' />
+						</div>
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding indexVidMb_s">
+							<span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding indexVidMbs">{$data['work'][0]['title']}</span>
+						</div>
+					</div>
+				</div>
+				<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center SeeMores'>
+					<a target="_blank" href='{:url('work/index')}'><span>查看更多</span></a>
+				</div>
+				{/if}
+			</div>
+		</div>
+	</div>
+	<div class="section">
+		<!--师资团队-->
+		<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 TeacherTeam_bg'>
+			<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 TeacherTeam_bg' id='TeacherTeam_bg'>
+				<div class='col-lg-8 col-md-8 col-sm-8 col-xs-8 mysztds'>
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding displayflex">
+						<div class='col-lg-6 col-md-6 col-sm-6 col-xs-6 clearpadding teacherLeft hide'>
+							<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left paddingtopbottom10_'>
+								<span class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding coursechina'>师资团队</span><br />
+								<span class='course'>Teacher Group</span><br />
+								<div class='border3_ pull-left'></div>
+							</div>
+						</div>
+						<div class='col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right numbertwo clearpadding teacherRight hide'>
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding"><span>05</span></div>
+						</div>
+					</div>
+					<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding'>
+						{volist name="$data['teacher']" id="vo" key="k"}
+							{if condition="$k eq 1 OR $k eq 3"}
+								<div class='col-lg-6 col-md-6 col-sm-6 col-xs-6 clearpadding bgteach teacherLeft hide'>
+									<div class='col-lg-3 col-md-3 col-sm-3 col-xs-3 '>
+										<img src='{$vo.icon}' width='100%'>
+									</div>
+									<div class='col-lg-9 col-md-9 col-sm-9 col-xs-9  padding20'>
+										<span class="col-lg-5 col-md-5 col-sm-5 col-xs-5 clearpadding teachName">{$vo.name}</span>
+										<span class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding teachCount'>{$vo.brief}参与项目:{$vo.project}</span>
+									</div>
+								</div>
+							{/if}
+						{/volist}
+					</div>
+					<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding'>
+						{volist name="$data['teacher']" id="vo" key="k"}
+						{if condition="$k eq 2 OR $k eq 4"}
+						<div class='col-lg-6 col-md-6 col-sm-6 col-xs-6 clearpadding bgteach teacherRight hide'>
+							<div class='col-lg-3 col-md-3 col-sm-3 col-xs-3 '>
+								<img src='{$vo.icon}' width='100%'>
+							</div>
+							<div class='col-lg-9 col-md-9 col-sm-9 col-xs-9  padding20'>
+								<span class="col-lg-5 col-md-5 col-sm-5 col-xs-5 clearpadding teachName">{$vo.name}</span>
+								<span class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding teachCount'>{$vo.brief}参与项目:{$vo.project}</span>
+							</div>
+						</div>
+						{/if}
+						{/volist}
+					</div>
+					<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center SeeMores'>
+						<a target="_blank" href='{:url('about/teacher')}'><span>查看更多</span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--学院动态-->
+	<div class="section" style="overflow: auto">
+		<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 dynamics_bg clearpadding'>
+			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 clearpadding"></div>
+			<div class='col-lg-8 col-md-8 col-sm-8 col-xs-8 clearpadding myxydts'>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding displayflex">
+					<div class='col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left clearpadding numbertwo dynamicsLeft hide'>06</div>
+					<div class='col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right clearpadding dynamicsRight hide'>
+						<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-right paddingtopbottom10_'>
+							<span class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding coursechina'>学院动态</span>
+							<span class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding course'>Student Dynamics</span>
+							<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding border3_ pull-right'></div>
+						</div>
+					</div>
+				</div>
+				<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding margintop5'>
+					{volist name="$data['news']" id="vo" key="k"}
+						{if condition="$k eq 1 OR $k eq 3"}
+							<a target="_blank" href="{:url('about/article',['article' => $vo['id']])}" class='col-lg-6 col-md-6 col-sm-6 col-xs-6 clearpadding bgDynamics dynamicsLeft hide'>
+								<div class='col-lg-4 col-md-4 col-sm-4 col-xs-4 clearpadding '>
+									<img class="DynamicsCover" src='{$vo.icon}' width='125%'>
+								</div>
+								<div class='col-lg-8 col-md-8 col-sm-8 col-xs-8 clearpadding myarticle'>
+									<span class='col-lg-12 col-md-12 col-sm-12 col-xs-12 DynamicsTitle'>{$vo.title}</span>
+									<span class='col-lg-12 col-md-12 col-sm-12 col-xs-12 DynamicsDescribe'>{$vo.brief}</span><br />
+									<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right myTime'>
+										<span class='CreatTime'>{$vo.time|date="Y-m-d H:i:s",###}</span>
+									</div>
+								</div>
+							</a>
+						{/if}
+					{/volist}
+				</div>
+				<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding margintop5' style="overflow-y:auto ">
+					{volist name="$data['news']" id="vo" key="k"}
+						{if condition="$k eq 2 OR $k eq 4"}
+						<a target="_blank" href="{:url('about/article',['article' => $vo['id']])}" class='col-lg-6 col-md-6 col-sm-6 col-xs-6 clearpadding bgDynamics dynamicsRight hide'>
+							<div class='col-lg-4 col-md-4 col-sm-4 col-xs-4 clearpadding '>
+								<img class="DynamicsCover" src='{$vo.icon}' width='125%'>
+							</div>
+							<div class='col-lg-8 col-md-8 col-sm-8 col-xs-8 clearpadding myarticle'>
+								<span class='col-lg-12 col-md-12 col-sm-12 col-xs-12 DynamicsTitle'>{$vo.title}</span>
+								<span class='col-lg-12 col-md-12 col-sm-12 col-xs-12 DynamicsDescribe'>{$vo.brief}</span><br />
+								<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right myTime'>
+									<span class='CreatTime'>{$vo.time|date="Y-m-d H:i:s",###}</span>
+								</div>
+							</div>
+						</a>
+						{/if}
+					{/volist}
+				</div>
+				<div class='col-lg-11 col-md-11 col-sm-11 col-xs-11 text-center SeeMore2'>
+					<a target="_blank" href='{:url('about/news')}'><span>查看更多</span></a>
+				</div>
+			</div>
+			<div class='col-lg-2 col-md-2 col-sm-2'></div>
+		</div>
+		<!--底部-->
+		<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 bottoms hide'>
+			<div class='col-lg-4 col-md-4 col-sm-4 col-xs-4'></div>
+			<div class='col-lg-4 col-md-4 col-sm-4 col-xs-4 icon'>
+				<ul id='bottomNav' class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mybo"></div>
+					<li class='col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center microBlog'>
+						<a href='javascript:void(0)'>
+							<img src='/static/web/img/micro-blog.png' width='100%'><br>
+							<span>微博</span>
+							<img class='code QRCode1 hide' src='{$site.weibo}' />
+						</a>
+					</li>
+					<li class='col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center Wechat'>
+						<a href='javascript:void(0)'>
+							<img src='/static/web/img/Wechat.png' width='100%'><br>
+							<span>微信</span>
+							<img class='code QRCode2 hide' src='{$site.wx}' />
+						</a>
+					</li>
+					<li class='col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center PostBar'>
+						<a href='javascript:void(0)'>
+							<img src='/static/web/img/PostBar.png' width='100%'><br>
+							<span>贴吧</span>
+							<img class='code QRCode3 hide' src='{$site.tieba}' />
+						</a>
+					</li>
+					<li class='col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center Phone'>
+						<a href='javascript:void(0)'>
+							<img src='/static/web/img/Phone.png' width='100%'><br>
+							<span>电话</span>
+							<img class='code Telephone hide' src='{$site.phone_img}' />
+						</a>
+					</li>
+					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+				</ul>
+			</div>
+			<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 introduce'>
+				<div class='col-lg-3 col-md-3 col-sm-3 col-xs-3'></div>
+				<div class='col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center clearpadding address'>
+					<p>@2003 - 2018 北京水晶石技术培训有限公司 版权所有 {$site.record}</p>
+				</div>
+				<div class='col-lg-3 col-md-3 col-sm-3 col-xs-3'></div>
+			</div>
+		</div>
+	</div>
+
+</div>
+{include file="public/foot" /}
+
+<script type="text/javascript" src="__STYLE__/js/jQuery-2.1.0.js"></script>
+<script type="text/javascript" src="__STYLE__/js/topHover.js"></script>
+<script type='text/javascript' src='__STYLE__/js/bootstrap.min.js'></script>
+<script type="text/javascript" src="__STYLE__/js/qrCodeAndPage.js"></script>
+<script type="text/javascript" src="__STYLE__/js/ckplayer.js"></script>
+<script type="text/javascript" src="__STYLE__/js/fullPage.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        var url = window.location.href;
+        var indexUrl = url.split('#');
+        if(indexUrl[1] == '' || indexUrl[1] == undefined || indexUrl[1] == 'page1' || indexUrl[1] == null){
+			$('.indexImg').removeClass('hide fadeIn animated').addClass('show fadeIn animated');
+            $('.indexTitle').removeClass('hide fadeIn animated').addClass('show fadeIn animated');
+		}
+        $('.clickCustSer').click(function () {
+			
+        })
+        $('#dowebok').fullpage({
+            sectionsColor: [],
+            anchors: ['page1', 'page2', 'page3', 'page4', 'page5', 'page6', 'page7'],
+            menu: '#menu',
+            'onLeave':function(index,nextIndex,direction){
+                var url = window.location.href;
+                var indexUrl = url.split('#');
+                if(indexUrl[1] == 'page1'){
+                    $('.indexImg').removeClass('hide fadeIn animated').addClass('show fadeIn animated');
+                    $('.indexTitle').removeClass('hide fadeIn animated').addClass('show fadeIn animated');
+				}
+				else if(indexUrl[1] == 'page2'){
+                    $('.indexImgBanner').removeClass('hide fadeIn animated').addClass('show fadeIn animated');
+				}
+                else if(indexUrl[1] == 'page3'){
+                    $('.courseimgLeft').removeClass('hide fadeInLeft animated').addClass('show fadeInLeft animated');
+                    $('.courseimgRight').removeClass('hide fadeInRight animated').addClass('show fadeInRight animated');
+                }
+                else if(indexUrl[1] == 'page4'){
+                    $('.interviewLeft').removeClass('hide fadeInLeft animated').addClass('show fadeInLeft animated');
+                    $('.interviewRight').removeClass('hide fadeInRight animated').addClass('show fadeInRight animated');
+                }
+                else if(indexUrl[1] == 'page5'){
+                    $('.stuWorksLeft').removeClass('hide fadeInLeft animated').addClass('show fadeInLeft animated');
+                    $('.stuWorksRight').removeClass('hide fadeInRight animated').addClass('show fadeInRight animated');
+                }
+                else if(indexUrl[1] == 'page6'){
+                    $('.teacherLeft').removeClass('hide fadeInLeft animated').addClass('show fadeInLeft animated');
+                    $('.teacherRight').removeClass('hide fadeInRight animated').addClass('show fadeInRight animated');
+                }
+                else if(indexUrl[1] == 'page7'){
+                    $('.dynamicsLeft').removeClass('hide fadeIn animated').addClass('show fadeIn animated');
+                    $('.dynamicsRight').removeClass('hide fadeIn animated').addClass('show fadeIn animated');
+                    $('.bottoms').removeClass('hide fadeIn animated').addClass('show fadeIn animated');
+                }
+            },
+            afterRender: function() {
+                //playing the video
+				var data_type = $('.myeqvideo').attr('data-video');
+				if(data_type === '1'){
+                    $('video').get(0).play();
+				}
+            }
+        });
+
+
+
+        $('.playMb').each(function() {
+            $(this).bind('click', function() {
+                $(".CollegeMb1").removeClass("hide").addClass("show");
+                var urlVideo = $(this).attr('data-srcVideo');
+                var urlImg = $(this).attr('data-srcImg');
+                for(var i = 0; i > urlVideo.length; i++) {}
+                //	填充 url
+                new ckplayer({
+                    container: '#player', //“#”代表容器的ID，“.”或“”代表容器的class
+                    variable: 'player1', //该属性必需设置，值等于下面的new chplayer()的对象
+                    poster: urlImg, //封面图片
+                    video: urlVideo, //视频地址
+                    autoplay: true //是否自动播放
+                });
+            });
+        });
+        $('.closeVideo1').click(function() {
+            $('.CollegeMb1').removeClass('show').addClass('hide');
+            $('#player').html('');
+        });
+    })
+</script>

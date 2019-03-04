@@ -1,0 +1,127 @@
+{include file="public/header" /}
+
+
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+	<legend>
+		<div class="layui-inline">
+			<a href="{:url('banner/index')}" class="layui-btn layui-btn-normal">返回列表</a>
+		</div>
+	</legend>
+</fieldset>
+
+<form class="layui-form" id="form">
+	<div class="layui-form-item">
+		<label class="layui-form-label">跳转地址</label>
+		<div class="layui-input-block" style="width: 50%;">
+			<input type="text" name="url" placeholder="请输入跳转网址" class="layui-input" value="{$banner.url}">
+			<input type="hidden" name="id" value="{$banner.id}"/>
+		</div>
+		<!--<div class="layui-form-mid layui-word-aux">字母、数字、下划线组成，字母或数字开头，4-16位</div>-->
+	</div>
+
+	<div class="layui-form-item">
+		<label class="layui-form-label">图片<span style="color: #FF5722;">*</span></label>
+		<div class="layui-input-block">
+			<img id="cover" style="width: 70px;height: 70px;" src="{$banner.path}" />
+			<input id="img" type="file" accept="image/gif, image/jpeg, image/png, image/jpg" style="display: none;" name="path" />
+		</div>
+		<label class="layui-form-label"></label>
+		<div class="layui-form-mid layui-word-aux">注:不是轮播图的板块只展示排序后第一张</div>
+	</div>
+
+	<div class="layui-form-item">
+		<div class="layui-inline">
+			<label class="layui-form-label">排序</label>
+			<div class="layui-input-inline">
+				<input type="text" name="sort" class="layui-input" value="{$banner.sort}">
+			</div>
+		</div>
+	</div>
+	
+	<div class="layui-form-item">
+		<label class="layui-form-label">所属板块<span style="color: #FF5722;">*</span></label>
+		<div class="layui-input-block" style="width: 50%;">
+			<select name="mode" lay-filter="aihao">
+				<option value="">选择板块</option>
+				{foreach ['首页','学员作品','就业中心','明星学员','学员采访','合作企业','关于我们','品牌故事','公司介绍','师资团队','学院环境','宿舍环境','开班时间','付款方式','来校路线'] as $vo}
+					{if condition="$banner['mode'] eq $vo"}
+						<option value="{$vo}" selected>{$vo}</option>
+					{else/}
+						<option value="{$vo}">{$vo}</option>
+					{/if}
+				{/foreach}
+			</select>
+		</div>
+	</div>
+	
+	<div class="layui-form-item">
+		<div class="layui-input-block">
+			<button type="button" class="layui-btn" id="button" data-url='{:url("banner/bannerdetail")}' data-succ='{:url("banner/index")}'>立即提交</button>
+		</div>
+	</div>
+	
+</form>
+{include file="public/footer" /}
+
+<script>
+	$(function(){
+		$("#cover").click(function(){
+			$("#img").click();
+		})
+		$('#img').change(function() {
+			var html = '';
+			for(var i=0;i<(this.files).length;i++){
+				var file = this.files[i];
+				var r = new FileReader();
+				r.readAsDataURL(file);
+				$(r).load(function() {
+					$("#cover").attr('src',this.result);
+				})
+			}
+		})
+
+		function checkForm(){
+			var mode = $("select[name='mode']").val();
+			
+			if(!mode){
+				layer.msg('请选择所属板块',{icon:0,time:1000});
+				return false;
+			}
+			return true;
+		}
+		/**
+		 * ajax序列化提交表单
+		 */
+		$("#button").click(function(){
+			var succ = $(this).attr("data-succ");
+			var url = $(this).attr("data-url");
+			var data = new FormData($("#form")[0]);
+			if(checkForm()){
+				var index = layer.load(2,{time:10000});
+				$.ajax({
+					url: url,
+					type: 'POST',
+					data: data,
+					dataType:'json',
+					async: true,
+					cache: false,
+					contentType: false,
+					processData: false,
+					success:function(date){
+						layer.close(index);
+						if(date.status == 1){
+							layer.msg(date.msg,{icon:1,time:1000});
+							setTimeout(function(){
+								location.href = succ;
+							},700)
+						}else{
+							layer.msg(date.msg,{icon:2,time:1000});
+						}
+					}
+				});
+			}
+		})
+	})
+	
+	layui.use(['form', 'layedit'], function() {});
+</script>

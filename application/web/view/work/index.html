@@ -1,0 +1,129 @@
+{include file="public/head" /}
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/ExcellentCourse.css" />
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/topbottom.css" />
+<link rel='stylesheet' type='text/css' href='__STYLE__/css/animate.css' />
+{include file="public/nav" /}
+{include file="public/fiex" /}
+
+
+
+		<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding CollegeMb1 hide'>
+			<div  class='col-lg-8 col-md-8 col-sm-8 col-xs-8 clearpadding marginleft16_67 Vid' style="position: relative;">
+				<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding' id="player">
+				
+				</div>
+				<img class='closeVideo1' src='__STYLE__/img/closeVideo.png' width='3%'/>
+			</div>
+		</div>
+		<a href="{$work['banner']['url'] ?: 'javascript:;'}" target="_blank">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding ExcellentCourseHover text-center clearpadding StudentWorks_bn margin-top80" style="background:url('{$work['banner']['path']}') no-repeat;background-size: 100% 100%">
+
+			</div>
+		</a>
+
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding text-center ExcellentCourseTitle clearpadding">
+			<ul class="col-lg-8 col-md-8 col-sm-8 col-xs-8 text-center clearpadding show marginleft16_67">
+				{volist name="work['class']" id="vo"}
+					<li class="col-lg-2 col-md-2 col-sm-2 col-xs-2 clearpadding">
+						<a href="{:url('work/index',['class_id'=>$vo['id']])}" class="{$vo['id'] == $param['class_id'] ? 'myactive' : '' }" target="_blank">{$vo.name}</a>
+					</li>
+				{/volist}
+			</ul>
+		</div>
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-250">
+			<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 marginleft16_67">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding ExcellentCounts">
+					{volist name="work['work']['list']" id="vo"}
+						{if condition="$vo['type'] eq 2"}
+							<div class="col-md-3 col-lg-3 col-sm-3 col-xs-3 text-center clearpadding ExcellentCount hide">
+								<a href="#"><img class="myExceImg" src="{$vo.icon}" width="100%"></a>
+								<a class="stuWfont col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding" href="javascript:;">{$vo.title}</a>
+								<img class="playMb" data-srcVideo="{$vo.playcode}" data-srcImg="{$vo.icon}" src="__STYLE__/img/SmallPlayWhite.png" width="25%" />
+							</div>
+						{else/}
+							<div class="col-md-3 col-lg-3 col-sm-3 col-xs-3 text-center clearpadding ExcellentCount hide">
+								<a href="#"><img class="Ccourse1" src="{$vo.icon}" width="100%"></a>
+								<a class="stuWfonts col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding" href="javascript:;">{$vo.title}</a>
+								<img class="enlarge" src="__STYLE__/img/enlarge.png" />
+
+									<div class="BigPic hide">
+										<div class="col-lg-6 col-md-6 clearpadding "style="margin-left: 25%;position: relative;margin-top: 9.5%;">
+											<img class="BigPics" src="{$vo.icon}"/>
+											<img class="BigPicClose" src="__STYLE__/img/BigPicClose.png"/>
+										</div>
+									</div>
+								</div>
+
+						{/if}
+					{/volist}
+				</div>
+			</div>
+
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 bottomfenye marginleft25">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center KcCount">
+					<span>总共{$work.count}个作品</span>
+				</div>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+					{$work['work']['page']}
+				</div>
+			</div>
+		</div>
+
+{include file="public/foot" /}
+	<script type="text/javascript" src="__STYLE__/js/jQuery-2.1.0.js"></script>
+	<script type="text/javascript" src="__STYLE__/js/topHover.js"></script>
+	<script type="text/javascript" src="__STYLE__/js/fixedRight.js"></script>
+	<script type="text/javascript" src="__STYLE__/js/qrCodeAndPage.js"></script>
+	<script type="text/javascript" src="__STYLE__/js/ckplayer.js"></script>
+	<script>
+		$(function() {
+			$('.playMb').each(function() {
+				$(this).bind('click', function() {
+					$(".CollegeMb1").removeClass("hide fadeIn animated").addClass("show fadeIn animated");
+					var urlVideo = $(this).attr('data-srcVideo');
+					var urlImg = $(this).attr('data-srcImg');
+					//	填充 url
+					new ckplayer({
+						container: '#player', //“#”代表容器的ID，“.”或“”代表容器的class
+						variable: 'player1', //该属性必需设置，值等于下面的new chplayer()的对象
+						poster: urlImg, //封面图片
+						video: urlVideo, //视频地址
+						autoplay: true //是否自动播放
+					});
+				});
+			});
+
+            $('.ExcellentCount').addClass('show').removeClass('hide');
+//            $('.ExcellentCount').addClass('fadeIn animated');
+			$('.closeVideo1').click(function() {
+				$('.CollegeMb1').removeClass('show').addClass('hide');
+				$('#player').html('');
+			});
+			$(".ExcellentCourseTitle ul li a").each(function() {
+				$(this).click(function() {
+					$(this).addClass("myactive").parent("li").siblings().children().removeClass("myactive");
+				});
+			});
+
+			$(".enlarge").each(function() {
+				$(this).click(function() {
+					$(this).siblings(".BigPic").removeClass("hide fadeIn animated").addClass("show fadeIn animated");
+				});
+			});
+			$(".BigPicClose").click(function() {
+				$(".BigPic").removeClass("show").addClass("hide");
+			});
+			
+			$(".stuWfonts").each(function() {
+				$(this).click(function() {
+					$(this).siblings(".BigPic").removeClass("hide").addClass("show");
+				});
+			});
+			$(".Ccourse1").each(function() {
+				$(this).click(function() {
+					$(this).parent().siblings(".BigPic").removeClass("hide").addClass("show");
+				});
+			});
+		})
+	</script>

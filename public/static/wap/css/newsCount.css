@@ -1,0 +1,141 @@
+.newsTitle{
+	margin-top: 20px;
+	font-size:16px;
+	font-family:PingFang-SC-Medium;
+	font-weight:500;
+	color:rgba(51,51,51,1);
+	line-height:24px;
+}
+.newsZs{
+	font-size:12px;
+	font-family:PingFang-SC-Regular;
+	font-weight:400;
+	color:rgba(153,153,153,1);
+	line-height:30px;
+}
+.newsWidth1{
+	width: 37%;
+}
+.newsWidth2{
+	width: 42%;
+}
+.newsWidth3{
+	width: 19%;
+}
+.newsZs{
+	margin-bottom: 3px;
+}
+.newsBg{
+	margin-top: 15px;
+}
+.newsDetails{
+	padding-top: 15px;
+	font-size:14px;
+	font-family:PingFang-SC-Regular;
+	font-weight:bold;
+	color:rgba(102,102,102,1);
+	line-height:24px;
+}
+@media only screen and (max-width: 320px) {
+	.headRet{
+		width: 150%;
+	}
+	.newsWidth1{
+		width: 50%;
+	}
+	.newsWidth1 img{
+		margin-bottom: 3px;
+		width: 12%;
+	}
+	.newsWidth2{
+		width: 50%;
+	}
+	.newsWidth3{
+		width: 50%;
+		padding-left: 10px;
+	}
+	.newsWidth3 img{
+		width: 13%;
+	}
+}
+@media only screen and (max-width: 768px) and (min-width: 415px) {
+	.newsTitle {
+    margin-top: 40px;
+    font-size: 32px;
+    font-family: PingFang-SC-Medium;
+    font-weight: 500;
+    color: rgba(51,51,51,1);
+    line-height: 48px;
+}
+.newsZs {
+    font-size: 24px;
+    font-family: PingFang-SC-Regular;
+    font-weight: 400;
+    color: rgba(153,153,153,1);
+    line-height: 40px;
+}
+.newsWidth1 img{
+	margin-bottom: 5px;
+}
+.newsWidth2 img{
+	margin-bottom: 5px;
+}
+.newsWidth3 img{
+	margin-bottom: 5px;
+}
+.newsDetails {
+    padding-top: 30px;
+    font-size: 28px;
+    font-family: PingFang-SC-Regular;
+    font-weight: bold;
+    color: rgba(102,102,102,1);
+    line-height: 40px;
+}
+}
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+	.newsZs {
+		
+    font-size: 24px;
+    font-family: PingFang-SC-Regular;
+    font-weight: 400;
+    color: rgba(153,153,153,1);
+    line-height: 30px;
+}
+.newsWidth1{
+	margin-top: 10px;
+}
+.newsWidth1 img{
+	width: 9%;
+	margin-bottom: 5px;
+}
+.newsWidth2{
+	margin-top: 10px;
+}
+.newsWidth2 img{
+	width: 9%;
+	margin-bottom: 5px;
+}
+.newsWidth3{
+	margin-top: 10px;
+}
+.newsWidth3 img{
+	width: 25%;
+	margin-bottom: 5px;
+}
+.newsDetails {
+    padding-top: 30px;
+    font-size: 28px;
+    font-family: PingFang-SC-Regular;
+    font-weight: bold;
+    color: rgba(102,102,102,1);
+    line-height: 48px;
+}
+.newsTitle {
+    margin-top: 20px;
+    font-size: 32px;
+    font-family: PingFang-SC-Medium;
+    font-weight: 500;
+    color: rgba(51,51,51,1);
+    line-height: 48px;
+}
+}

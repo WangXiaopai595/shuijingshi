@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>{$site['content']['title']} - 后台管理系统</title>
+    <link rel="stylesheet" href="__STYLE__/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" type="text/css" href="__STYLE__/css/boot.css">
+    <link rel="stylesheet" href="__STYLE__/build/css/app.css" media="all">
+</head>
+
+<body>
+    <div class="layui-layout layui-layout-admin kit-layout-admin">
+        <div class="layui-header">
+            <a href="{:url('index/main')}" target="myFrameName">
+                <div class="layui-logo">KIT ADMIN</div>
+                <div class="layui-logo kit-logo-mobile">K</div>
+            </a>
+            <ul class="layui-nav layui-layout-left kit-nav">
+                <!--<li class="layui-nav-item"><a href="javascript:;">控制台</a></li>
+                <li class="layui-nav-item"><a href="javascript:;">商品管理</a></li>
+                <li class="layui-nav-item"><a href="javascript:;" id="pay"><i class="fa fa-gratipay" aria-hidden="true"></i> 其他</a></li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">其它系统</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">邮件管理</a></dd>
+                        <dd><a href="javascript:;">消息管理</a></dd>
+                        <dd><a href="javascript:;">授权管理</a></dd>
+                    </dl>
+                </li>-->
+            </ul>
+            <ul class="layui-nav layui-layout-right kit-nav">
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <img src="http://m.zhengjinfan.cn/images/0.jpg" class="layui-nav-img"> {$member.user}
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">{$member.realname}</a></dd>
+                        <!--<dd><a href="javascript:;">安全设置</a></dd>-->
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="{:url('index/loginOut')}"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</a></li>
+            </ul>
+        </div>
+
+        <div class="layui-side layui-bg-black kit-side">
+            <div class="layui-side-scroll">
+                <div class="kit-side-fold"><i class="fa fa-navicon" aria-hidden="true"></i></div>
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree" lay-filter="kitNavbar" kit-navbar>
+                	{volist name="menu" id="vo" key='k'}
+                            {if condition="$k eq 1"}
+                                <li class="layui-nav-item layui-nav-itemed">
+                            {else/}
+                                <li class="layui-nav-item">
+                            {/if}
+                                <a class="" href="javascript:;"><i class="{$vo.micon}" aria-hidden="true"></i><span> {$vo.mname}</span></a>
+                                <dl class="layui-nav-child">
+                                    {volist name="vo['menu']" id="item" key='key'}
+                                    <dd>
+                                        <a href="{:url($item['url'])}" target="myFrameName"  data-icon="{$item.cicon}" data-title="{$item.title}" kit-target data-id='{$k}{$key}'>
+                                            <i class="{$item.icon}" aria-hidden="true"></i>
+                                            <span> {$item.title}</span>
+                                        </a>
+                                    </dd>
+                                    {/volist}
+                                </dl>
+                            </li>
+                	{/volist}
+                    <!--<li class="layui-nav-item">
+                        <a href="javascript:;" data-url="/components/table/table.html" data-name="table" kit-loader><i class="fa fa-plug" aria-hidden="true"></i><span> 表格(page)</span></a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;" data-url="/views/form.html" data-name="form" kit-loader><i class="fa fa-plug" aria-hidden="true"></i><span> 表单(page)</span></a>
+                    </li>-->
+                </ul>
+            </div>
+        </div>
+        <div class="layui-body" id="container">
+            <div class="layui-tab layui-tab-card kit-tab">
+                <div class="layui-tab-content" style="margin-top: 10px">
+                    <div class="layui-tab-item layui-show">
+                        <iframe src="/admin/index/main.html" style="height: 808px;" id="myFrame" name="myFrameName"> </iframe>
+                    </div>
+                </div>
+            </div>
+            <!-- 内容主体区域 -->
+            <!--<div style="padding: 15px;">主体内容加载中,请稍等...</div>-->
+        </div>
+
+        <div class="layui-footer">
+            <!-- 底部固定区域 -->
+            Copyright © {$site['content']['title']}版权所有 备案号：
+            <a href="http://www.miitbeian.gov.cn/">{$site['content']['record']}</a>
+
+        </div>
+    </div>
+    
+    <script src="__STYLE__/js/jquery.min.js"></script>
+    <script src="__STYLE__/plugins/layui/layui.js"></script>
+    <script>
+        var message;
+        layui.config({
+            base: '__STYLE__/build/js/'
+        }).use(['app', 'message'], function() {
+            var app = layui.app,
+                $ = layui.jquery,
+                layer = layui.layer;
+            //将message设置为全局以便子页面调用
+            message = layui.message;
+            //主入口
+            app.set({
+                type: 'iframe'
+            }).init();
+            $('#pay').on('click', function() {
+                layer.open({
+                    title: false,
+                    type: 1,
+                    content: '<img src="__STYLE__/build/images/pay.png" />',
+                    area: ['500px', '250px'],
+                    shadeClose: true
+                });
+            });
+        });
+
+        var height = document.documentElement.clientHeight;
+        var css_height = height - 50 - 35 - 20;
+        $('#myFrame').css('height',css_height);
+    </script>
+</body>
+
+</html>
+<script>
+//	$(window).keydown(function(){
+//		if ( event.keyCode==116){
+//			event.keyCode = 0;
+//			event.cancelBubble = true;
+//			return  false;
+//		}
+//	})
+</script>

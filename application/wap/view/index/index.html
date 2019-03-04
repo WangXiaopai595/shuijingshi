@@ -1,0 +1,229 @@
+{include file="public/head" /}
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/swiper.css"/>
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/index.css" />
+<style type="text/css">
+
+	html {
+		color: #000;
+		overflow-y: scroll;
+		-webkit-text-size-adjust: 100%;
+		-ms-text-size-adjust: 100%
+	}
+	.wrap {
+		min-width: 320px;
+		max-width: 1024px;
+		margin: 0 auto;
+		overflow: hidden;
+		position: relative;
+	}
+
+	.editWrapper {
+		position: relative;
+		height: 4rem;
+		width: 100%;
+		overflow: hidden;
+		margin: 0 auto;
+	}
+	.editWrapper .scroller {
+		position: absolute
+	}
+
+	.editWrapper .scroller ul {
+		display: flex;
+		flex-wrap: wrap;
+		list-style: none;
+	}
+
+	.editWrapper .scroller li {
+		height: 1rem;
+		color: #333;
+		line-height: 5rem;
+		font-size: .4rem;
+		text-align: center
+	}
+
+	.editWrapper .scroller li a {
+		text-decoration: none;
+		color: #333;
+		display: block;
+		margin: 0 .3rem;
+		padding: 0 .1rem
+	}
+</style>
+<!--视频播放器-->
+{include file="public/nav" /}
+<div class='col-xs-12 col-sm-12 clearpadding videoMb hide'>
+
+	<img class="return" src="__STYLE__/img/return.png" width="5%"/>
+	<span class="white">这个学生很牛逼！</span>
+	<div class='col-xs-12 col-sm-12 clearpadding video1' id="player" ondragstart="return false;">
+
+	</div>
+</div>
+<!--头部-->
+
+
+<!--内容-->
+<!-- Swiper -->
+<div class="closeIconMore">
+	<div class="col-xs-12 col-sm-12 clearpadding margin-top60 over">
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				{volist name="$data['banner']" id="vo"}
+					<div class="swiper-slide"><img src="{$vo.path}" width="100%" height="190px"/></div>
+				{/volist}
+			</div>
+			<!-- Add Pagination -->
+			<div class="swiper-pagination"></div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-12 clearpadding icons text-center">
+		{volist name="$data['course']" id="vo"}
+			<a href="{:url('course/index',['course'=>$vo['id']])}" class="col-xs-3 col-sm-3 icon clearpadding">
+				<img src="__STYLE__/img/index/index_Icon{$vo.id}.png"width="100%"/>
+				<span class="col-xs-12 col-sm-12 clearpadding text-center iconFont">{$vo.name}</span>
+			</a>
+		{/volist}
+	</div>
+	<div class="col-xs-12 col-sm-12 clearpadding colleHor margin-top10">
+			<span class="col-xs-12 col-sm-12 clearpadding colleHorTitle">
+				学院荣誉
+			</span>
+		<div class="col-xs-12 col-sm-12 clearpadding over">
+			<div class="swiper-container1">
+				<div class="swiper-wrapper">
+					{volist name="$data['honor']" id="vo"}
+						<div class="swiper-slide">
+							<a href="{:url('news/detail',['article' => $vo['id']])}">
+								<img class="indexImgbanner" src="{$vo.icon}" width="100%"/>
+							</a>
+						</div>
+					{/volist}
+				</div>
+				<!-- Add Pagination -->
+				<div class="swiper-pagination"></div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-12 clearpadding colleHor">
+			<span class="col-xs-6 col-sm-6 clearpadding colleHorTitle">
+				学生作品
+			</span>
+		<a href="{:url('work/index')}" class="col-xs-6 col-sm-6 clearpadding seeMore text-right">
+			更多 >
+		</a>
+		<div class="col-xs-12 col-sm-12 clearpadding">
+			{volist name="$data['work']" id="vo"}
+				<div class="col-xs-6 col-sm-6 clearpadding paddingright5 stuWorks">
+					<div class="playMb" data-srcVideo="{$vo.playcode}" data-srcImg="{$vo.icon}">
+						<img src="{$vo.icon}"  width="100%"/>
+						<span class="col-xs-12 col-md-12 clearpadding stuWorksTitle text-center paddingtopbottom10">{$vo.title}</span>
+						<img class="play" src="__STYLE__/img/play.png" width="20%"/>
+					</div>
+				</div>
+			{/volist}
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-12 clearpadding colleHor">
+			<span class="col-xs-6 col-sm-6 clearpadding colleHorTitle">
+				学生采访
+			</span>
+		<a href="{:url('Interview/index')}" class="col-xs-6 col-sm-6 clearpadding seeMore text-right">
+			更多 >
+		</a>
+		<div class="col-xs-12 col-sm-12 clearpadding paddingleftright5 colleHorImg playMb" data-srcVideo="{$data['video'][0]['playcode']}" data-srcImg="{$data['video'][0]['icon']}">
+			<img class="colleImage" src="{$data['video'][0]['icon']}" width="100%"/>
+			<img class="bigPlay" src="__STYLE__/img/play.png" width="11%"/>
+			<div class="col-xs-12 col-md-12 clearpadding colleHorDs">
+				<span>{$data['video'][0]['title']}</span>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-12 clearpadding colleHor">
+			<span class="col-xs-6 col-sm-6 clearpadding colleHorTitle">
+				学院新闻
+			</span>
+		<a href="{:url('news/index')}" class="col-xs-6 col-sm-6 clearpadding seeMore text-right">
+			更多 >
+		</a>
+		{volist name="$data['news']" id="vo"}
+			<a href="{:url('news/detail',['article'=>$vo['id']])}" class="col-xs-12 col-sm-12 clearpadding paddingleftright5 colleHorImg">
+				<div class="col-xs-4 col-sm-4 clearpadding">
+					<img class="collNewsCover" src="{$vo.icon}" width="100%"/>
+				</div>
+				<div class="col-xs-8 col-sm-8 clearpadding collNews">
+					<span class="col-sm-12 col-xs-12 clearpadding collNewsTitle">{$vo.title}</span>
+					<span class="col-sm-12 col-xs-12 clearpadding collNewsdesribe">{$vo.brief}</span>
+					<span class="col-sm-7 col-xs-7 clearpadding nowTime"><img class="iconTime" src="__STYLE__/img/iconTime.png" width="11%"/>{$vo.time|date="Y-m-d H:i:s",###}</span>
+				</div>
+				<div class="col-xs-12 col-md-12 clearpadding margin-top15 myNewsbor">
+					<div class="col-xs-9 col-md-9 clearpadding border1News marginleft25"></div>
+				</div>
+			</a>
+		{/volist}
+	</div>
+</div>
+{include file="public/fiex" /}
+{include file="public/soure" /}
+{include file="public/foot" /}
+<script type="text/javascript">
+	$(function(){
+		$('.playMb').each(function() {
+			$(this).bind('click', function() {
+				$(".videoMb").removeClass("hide").addClass("show");
+				var urlVideo = $(this).attr('data-srcVideo');
+				var urlImg = $(this).attr('data-srcImg');
+				//	填充 url
+				var myVideo = new ckplayer({
+					container: '#player', //“#”代表容器的ID，“.”或“”代表容器的class
+					variable: 'player1', //该属性必需设置，值等于下面的new chplayer()的对象
+					poster: urlImg, //封面图片
+					video: urlVideo, //视频地址
+					autoplay: true //是否自动播放
+				});
+			});
+		});
+		
+		$('.myNewsbor div').last().removeClass('border1News')
+
+		$('.return').click(function(){
+			$('.videoMb').removeClass('show').addClass('hide');
+		})
+	})
+
+	window.onload=function(){
+		var swiper = new Swiper('.swiper-container', {
+			spaceBetween: 30,
+			centeredSlides: true,
+			autoplay: {
+				delay: 2500,
+				disableOnInteraction: false,
+			},
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			},
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+		});
+		var swiper = new Swiper('.swiper-container1', {
+			spaceBetween: 30,
+			centeredSlides: true,
+			autoplay: {
+				delay: 2500,
+				disableOnInteraction: false,
+			},
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			},
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+		});
+	}
+
+</script>

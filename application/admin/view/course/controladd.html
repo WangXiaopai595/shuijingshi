@@ -1,0 +1,138 @@
+{include file="public/header" /}
+
+
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+	<legend>
+		<div class="layui-inline">
+			<a href="{:url('course/control',['class_id' => $param['class_id'],'control' => $param['control']])}" class="layui-btn layui-btn-normal">返回列表</a>
+		</div>
+	</legend>
+</fieldset>
+
+<form class="layui-form" id="form">
+
+	<input type="hidden" name="class_id" value="{$param.class_id}">
+	<div class="layui-form-item">
+		<label class="layui-form-label">{if condition="$param['control'] eq 2"}图片{else/}封面图{/if}<span style="color: #FF5722;">*</span>:</label>
+		<div class="layui-input-block">
+			<img id="cover" style="width: 70px;height: 70px;" src="__STYLE__/img/upload.png" />
+			<input id="img" type="file" accept="image/gif, image/jpeg, image/png, image/jpg" style="display: none;" name="path" />
+		</div>
+		<label class="layui-form-label"></label>
+		<!--<div class="layui-form-mid layui-word-aux">建议尺寸750:360，图片大小不得超过2M</div>-->
+	</div>
+
+	{if condition="$param['control'] eq 2"}
+		<div class="layui-form-item">
+			<label class="layui-form-label">跳转地址:</label>
+			<div class="layui-input-block" style="width: 30%;">
+				<input type="text" name="url" placeholder="请输入跳转网址" class="layui-input">
+				<input type="hidden" name="type" value="1">
+			</div>
+		</div>
+	{else/}
+		<div class="layui-form-item">
+			<label class="layui-form-label">视频链接<span style="color: #FF5722;">*</span>:</label>
+			<div class="layui-input-block" style="width: 30%;">
+				<input type="text" name="video_id" placeholder="请输入视频链接" class="layui-input">
+				<input type="hidden" name="type" value="2">
+			</div>
+			<div class="layui-form-mid layui-word-aux">控件只展示前4个，可设置排序控制</div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-inline">
+				<label class="layui-form-label">简介:</label>
+				<div class="layui-input-inline">
+					<textarea class="layui-textarea" name="brief"></textarea>
+				</div>
+			</div>
+		</div>
+	{/if}
+
+	<div class="layui-form-item">
+		<div class="layui-inline">
+			<label class="layui-form-label">排序:</label>
+			<div class="layui-input-inline">
+				<input type="text" name="sort" class="layui-input" value="10">
+			</div>
+		</div>
+	</div>
+	
+	<div class="layui-form-item">
+		<div class="layui-input-block">
+			<button type="button" class="layui-btn" id="button" data-url='{:url("course/controladd")}' data-succ='{:url('course/control',['class_id' => $param['class_id'],'control' => $param['control']])}'>立即提交</button>
+		</div>
+	</div>
+	
+</form>
+{include file="public/footer" /}
+
+<script>
+	$(function(){
+		$("#cover").click(function(){
+			$("#img").click();
+		})
+		$('#img').change(function() {
+			var html = '';
+			for(var i=0;i<(this.files).length;i++){
+				var file = this.files[i];
+				var r = new FileReader();
+				r.readAsDataURL(file);
+				$(r).load(function() {
+					$("#cover").attr('src',this.result);
+				})
+			}
+		})
+
+		function checkForm(){
+			var img = $("input[name='path']").val();
+			var type = $("input[name='type']").val();
+			var video = $("input[name='video_id']").val();
+
+			if(!img){
+				layer.msg('请上传图片',{icon:0,time:1000});
+				return false;
+			}
+
+			if(type == 2 && !video){
+				layer.msg('请输入视频ID',{icon:0,time:1000});
+				return false;
+			}
+			return true;
+		}
+		/**
+		 * ajax序列化提交表单
+		 */
+		$("#button").click(function(){
+			var succ = $(this).attr("data-succ");
+			var url = $(this).attr("data-url");
+			var data = new FormData($("#form")[0]);
+			if(checkForm()){
+				var index = layer.load(2,{time:10000});
+				$.ajax({
+					url: url,
+					type: 'POST',
+					data: data,
+					dataType:'json',
+					async: true,
+					cache: false,
+					contentType: false,
+					processData: false,
+					success:function(date){
+						layer.close(index);
+						if(date.status == 1){
+							layer.msg(date.msg,{icon:1,time:1000});
+							setTimeout(function(){
+								location.href = succ;
+							},700)
+						}else{
+							layer.msg(date.msg,{icon:2,time:1000});
+						}
+					}
+				});
+			}
+		})
+	})
+	
+	layui.use(['form', 'layedit'], function() {});
+</script>

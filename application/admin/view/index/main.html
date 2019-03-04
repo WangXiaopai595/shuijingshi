@@ -1,0 +1,120 @@
+{include file="public/header" /}
+		<div class="panel_box row">
+			<div class="panel col">
+				<a href="javascript:;" data-url="page/user/allUsers.html">
+					<div class="panel_icon" style="background-color:#009688;">
+						<i class="layui-icon" data-icon="&#xe613;">&#xe613;</i>
+					</div>
+					<div class="panel_word userAll">
+						<span>{$count.user}</span>
+						<cite>用户总数</cite>
+					</div>
+				</a>
+			</div>
+			<div class="panel col">
+				<a href="javascript:;" data-url="page/user/allUsers.html">
+					<div class="panel_icon" style="background-color:#FF5722;">
+						<i class="iconfont icon-dongtaifensishu" data-icon="icon-dongtaifensishu"></i>
+					</div>
+					<div class="panel_word userAll">
+						<span>{$count.user_7}</span>
+						<cite>7日新增用户</cite>
+					</div>
+				</a>
+			</div>
+			<div class="panel col">
+				<a href="javascript:;" data-url="page/message/message.html">
+					<div class="panel_icon">
+						<i class="layui-icon" data-icon="&#xe63a;">&#xe63a;</i>
+					</div>
+					<div class="panel_word newMessage">
+						<span>{$count.appoint}</span>
+						<cite>预约总数</cite>
+					</div>
+				</a>
+			</div>
+			<div class="panel col">
+				<a href="javascript:;" data-url="page/img/images.html">
+					<div class="panel_icon" style="background-color:#5FB878;">
+						<i class="layui-icon" data-icon="&#xe63a;">&#xe63a;</i>
+					</div>
+					<div class="panel_word imgAll">
+						<span>{$count.appoint_0}</span>
+						<cite>待处理预约</cite>
+					</div>
+				</a>
+			</div>
+			<div class="panel col">
+				<a href="javascript:;" data-url="page/news/newsList.html">
+					<div class="panel_icon" style="background-color:#F7B824;">
+						<i class="iconfont icon-wenben" data-icon="icon-wenben"></i>
+					</div>
+					<div class="panel_word waitNews">
+						<span>{$count.article}</span>
+						<cite>文章总数</cite>
+					</div>
+				</a>
+			</div>
+			<div class="panel col max_panel">
+				<a href="javascript:;" data-url="page/news/newsList.html">
+					<div class="panel_icon" style="background-color:#2F4056;">
+						<i class="layui-icon" data-icon="&#xe6ed;">&#xe6ed;</i>
+					</div>
+					<div class="panel_word allNews">
+						<span>{$count.video}</span>
+						<em>视频总数</em>
+						<cite>视频总数</cite>
+					</div>
+				</a>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="sysNotice col">
+				<blockquote class="layui-elem-quote title">系统基本参数</blockquote>
+				<table class="layui-table">
+					<colgroup>
+						<col width="150">
+						<col>
+					</colgroup>
+					<tbody>
+					{volist name="info" id="vo"}
+					<tr>
+						<td>{$key}</td>
+						<td class="version">{$vo}</td>
+					</tr>
+					{/volist}
+					</tbody>
+				</table>
+				<!--<blockquote class="layui-elem-quote title">最新文章<i class="iconfont icon-new1"></i></blockquote>
+				<table class="layui-table" lay-skin="line">
+					<colgroup>
+						<col>
+						<col width="110">
+					</colgroup>
+					<tbody class="hot_news"></tbody>
+				</table>-->
+			</div>
+			<div class="sysNotice col">
+				<blockquote class="layui-elem-quote title">权限系统介绍</blockquote>
+				<div class="layui-elem-quote layui-quote-nm">
+					<p># 权限根据《系统配置》-《节点列表》得到</p>
+					<p>* 节点可禁用，一旦禁用，所有用户都将不能操作该节点功能</p>
+					<p>* 非开发人员请勿修改节点从属关系</p>
+					<br />
+					<p># 管理员权限分配介绍</p>
+					<p>* 每一个后端管理员都可分配一个角色，该管理员可拥有该角色对应的所有权限</p>
+					<p>* 管理员角色分配:《管理员列表》-添加/编辑-用户角色</p>
+					<br />
+					<p># 为角色分配权限</p>
+					<p>* 《角色列表》-添加，添加成功后点击列表中的《权限》</p>
+					<p>* 每一个板块控制器下有多个权限，可根据需要分配不同权限给不同角色</p>
+					<p>* 注：分配权限时得先给角色分配进入页面的权限，否则拥有权限也操作不了</p>
+					<p>* 例：给角色A分配管理员编辑权限，那么得先给角色一个进入管理员列表的权限，否则拥有权限也编辑不了对吧!</p>
+					<br />
+					<p># 系统配置-菜单</p>
+					<p>* 请勿随意禁用此列表中数据，禁用后该菜单下所有操作都将被禁用</p>
+				</div>
+			</div>
+		</div>
+{include file="public/footer" /} 

@@ -1,0 +1,184 @@
+{include file="public/header" /}
+
+
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+	<legend>
+		<div class="layui-inline">
+			<a href="{:url('course/courseclass')}" class="layui-btn layui-btn-normal">返回列表</a>
+		</div>
+	</legend>
+</fieldset>
+
+<form class="layui-form" id="form">
+	<div class="layui-form-item">
+		<label class="layui-form-label">分类名<span style="color: #FF5722;">*</span></label>
+		<div class="layui-input-block" style="width: 50%;">
+			<input type="text" name="name" placeholder="请输入标题" class="layui-input" value="{$class.name}">
+			<input type="hidden" name="id" value="{$class.id}">
+		</div>
+		<!--<div class="layui-form-mid layui-word-aux">字母、数字、下划线组成，字母或数字开头，4-16位</div>-->
+	</div>
+
+	<div class="layui-form-item">
+		<label class="layui-form-label">图标<span style="color: #FF5722;">*</span>:</label>
+		<div class="layui-input-block">
+			<img id="cover" style="width: 70px;height: 70px;" src="{$class.icon}" />
+			<input id="img" type="file" accept="image/gif, image/jpeg, image/png, image/jpg" style="display: none;" name="icon" />
+		</div>
+		<label class="layui-form-label"></label>
+		<!--<div class="layui-form-mid layui-word-aux">建议尺寸750:360，图片大小不得超过2M</div>-->
+	</div>
+
+	<div class="layui-form-item">
+		<label class="layui-form-label">控件:</label>
+		<div class="layui-input-block" id="type">
+			<input type="radio" name="control" value="0" title="无" {if condition="$class['control'] eq 0"}checked=""{/if}>
+			<input type="radio" name="control" value="1" {if condition="$class['control'] eq 1"}checked=""{/if} title="表单">
+			<input type="radio" name="control" value="2" {if condition="$class['control'] eq 2"}checked=""{/if} title="幻灯片">
+			<input type="radio" name="control" value="3" {if condition="$class['control'] eq 3"}checked=""{/if} title="视频">
+		</div>
+	</div>
+
+	<div class="layui-form-item" id="story" {if condition="$class['control'] eq 0"}style="display: none"{/if}>
+		<div class="layui-inline">
+			<label class="layui-form-label">控件位置:</label>
+			<div class="layui-input-inline">
+				<input type="text" name="control_sort" class="layui-input" value="{$class['control_sort']}">
+			</div>
+			<div class="layui-form-mid layui-word-aux">控件所在楼层</div>
+		</div>
+	</div>
+
+	<div class="layui-form-item" id="course" {if condition="$class['control'] eq 0 OR $class['control'] eq 2"}style="display: none"{/if}>
+		<label class="layui-form-label">控件背景图:</label>
+		<div class="layui-input-block">
+			{if condition="$class['control'] neq 0 "}
+				<img id="back" style="width: 70px;height: 70px;" src="{$class.control_background}" />
+			{else/}
+				<img id="back" style="width: 70px;height: 70px;" src="__STYLE__/img/upload.png" />
+			{/if}
+			<input id="ground" type="file" accept="image/gif, image/jpeg, image/png, image/jpg" style="display: none;" name="control_background" />
+		</div>
+		<label class="layui-form-label"></label>
+		<!--<div class="layui-form-mid layui-word-aux">建议尺寸750:360，图片大小不得超过2M</div>-->
+	</div>
+
+	<div class="layui-form-item">
+		<label class="layui-form-label">是否显示<span style="color: #FF5722;">*</span></label>
+		<div class="layui-input-block">
+			{if condition="$class['is_show'] eq 0"}
+				<input type="checkbox" name="is_show" lay-skin="switch" lay-text="ON|OFF" value="1" />
+			{else/}
+				<input type="checkbox" checked="" name="is_show" lay-skin="switch" lay-text="ON|OFF" value="1" />
+			{/if}
+		</div>
+	</div>
+
+	<div class="layui-form-item">
+		<div class="layui-inline">
+			<label class="layui-form-label">排序</label>
+			<div class="layui-input-inline">
+				<input type="text" name="sort" class="layui-input" value="{$class.sort}">
+			</div>
+		</div>
+	</div>
+	
+	<div class="layui-form-item">
+		<div class="layui-input-block">
+			<button type="button" class="layui-btn" id="button" data-url='{:url("course/editclass")}' data-succ='{:url("course/courseclass")}'>立即提交</button>
+		</div>
+	</div>
+	
+</form>
+{include file="public/footer" /}
+
+<script>
+	$(function(){
+		$("#cover").click(function(){
+			$("#img").click();
+		})
+		$('#img').change(function() {
+			var html = '';
+			for(var i=0;i<(this.files).length;i++){
+				var file = this.files[i];
+				var r = new FileReader();
+				r.readAsDataURL(file);
+				$(r).load(function() {
+					$("#cover").attr('src',this.result);
+				})
+			}
+		})
+
+		$("#back").click(function(){
+			$("#ground").click();
+		})
+		$('#ground').change(function() {
+			var html = '';
+			for(var i=0;i<(this.files).length;i++){
+				var file = this.files[i];
+				var r = new FileReader();
+				r.readAsDataURL(file);
+				$(r).load(function() {
+					$("#back").attr('src',this.result);
+				})
+			}
+		})
+
+		$('#type').on('click','div',function(){
+			var val =$('input[name=control]:checked').val();
+			if(val != 0 && val != 2){
+				$('#course').show();
+			}else{
+				$('#course').hide();
+			}
+			if(val != 0){
+				$('#story').show();
+			}
+		})
+
+		function checkForm(){
+			var name = $("input[name='name']").val();
+
+			if(!name){
+				layer.msg('请输入名称',{icon:0,time:1000});
+				return false;
+			}
+			return true;
+		}
+
+		/**
+		 * ajax序列化提交表单
+		 */
+		$("#button").click(function(){
+			var succ = $(this).attr("data-succ");
+			var url = $(this).attr("data-url");
+			var data = new FormData($("#form")[0]);
+			if(checkForm()){
+				var index = layer.load(2,{time:10000});
+				$.ajax({
+					url: url,
+					type: 'POST',
+					data: data,
+					dataType:'json',
+					async: true,
+					cache: false,
+					contentType: false,
+					processData: false,
+					success:function(date){
+						layer.close(index);
+						if(date.status == 1){
+							layer.msg(date.msg,{icon:1,time:1000});
+							setTimeout(function(){
+								location.href = succ;
+							},700)
+						}else{
+							layer.msg(date.msg,{icon:2,time:1000});
+						}
+					}
+				});
+			}
+		})
+	})
+	
+	layui.use(['form', 'layedit'], function() {});
+</script>

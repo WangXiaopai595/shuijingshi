@@ -1,0 +1,101 @@
+{include file="public/head" /}
+
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/interiorDesign.css" />
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/swiper.css"/>
+{include file="public/nav" /}
+<!--内容-->
+<div class="closeIconMore">
+	{volist name="$course['detail']" id="vo" key="key"}
+		<div class="col-xs-12 col-sm-12 clearpadding {$key == 1 ? 'margin-top60' : ''} {$key == count($course['detail']) ? 'margin-bottom80_38' : ''}">
+			<img src="{$vo.img}" width="100%" />
+		</div>
+		{if condition="isset($vo['control'])"}
+			{if condition="$course['course']['control'] == 3"}
+				<div class="col-xs-12 col-sm-12 clearpadding paddingleftright10">
+					{if condition="$course['course']['control_background']"}
+						<img src="{$course['course']['control_background']}" width="100%"/>
+					{/if}
+					<div class="col-xs-12 col-sm-12 clearpadding paddingleftright10 margin-top30" id="player" data-srcVideo="$vo['control'][0]['playcode']" data-srcImg="$vo['control'][0]['path']">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-12 clearpadding videoCvs">
+					{volist name="$vo['control']" id="item"}
+						<div class="col-xs-3 col-sm-3 clearpadding videoCv playMb" data-srcVideo="{$item.playcode}" data-srcImg="{$item.path}">
+							<img src="{$item.path}" width="100%"/>
+						</div>
+					{/volist}
+				</div>
+			{elseif condition="$course['course']['control'] == 2" /}
+				<!--轮播-->
+				<div class="col-xs-8 col-sm-8 clearpadding text-center marginleft16_67">
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+							{volist name="$vo['control']" id="item"}
+								<div class="swiper-slide">
+									<a href="{$item['url'] ?: 'javascript:;'}">
+										<img src="{$item.path}" width="100%"/>
+										<!--<div class="col-lg-12 col-md-12 interDesfont">-->
+											<!--<span class="col-lg-2 col-md-2 clearpadding ">时之岛</span>-->
+										<!--</div>-->
+									</a>
+								</div>
+							{/volist}
+						</div>
+					</div>
+				</div>
+			{/if}
+		{/if}
+	{/volist}
+</div>
+{include file="public/fiex" /}
+{include file="public/foot" /}
+<script type="text/javascript" src="__STYLE__/js/swiper.js" ></script>
+<script>
+	$(function(){
+		$('.playMb').each(function() {
+			$(this).bind('click', function() {
+				//获取视频地址
+				var urlVideo = $(this).attr('data-srcVideo');
+				//获取封面图片
+				var urlImg = $(this).attr('data-srcImg');
+
+				//	填充 url
+				new ckplayer({
+					container	: '#player', 	//“#”代表容器的ID，“.”或“”代表容器的class
+					variable	: 'player1', 	//该属性必需设置，值等于下面的new chplayer()的对象
+					poster		: urlImg, 		//视频封面图片
+					video		: urlVideo, 	//视频地址
+					autoplay	: true 			//是否自动播放
+				});
+			});
+		});
+		//默认播放第一个视频 并获取第一个视频地址和封面图片
+		var urlVideo = $('#player').attr('data-srcVideo');
+		var urlImg = $('#player').attr('data-srcImg');
+		//	填充 url
+		new ckplayer({
+			container	: '#player', 	//“#”代表容器的ID，“.”或“”代表容器的class
+			variable	: 'player1',	//该属性必需设置，值等于下面的new chplayer()的对象
+			poster		: urlImg, 		//封面图片
+			video		: urlVideo, 	//视频地址
+			autoplay	: false 			//是否自动播放
+		});
+
+		var swiper = new Swiper('.swiper-container', {
+			spaceBetween: 30,
+			centeredSlides: true,
+			autoplay: {
+				delay: 2500,
+				disableOnInteraction: false,
+			},
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			},
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+		});
+	})
+</script>

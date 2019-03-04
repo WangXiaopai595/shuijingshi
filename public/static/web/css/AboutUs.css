@@ -1,0 +1,350 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.goodwork{
+	font-size:40px;
+	font-weight:400;
+	color:rgba(0,0,0,1);
+}
+.border4{
+	width:150px;
+	border:3px solid rgba(51,51,51,1);
+	margin: 0 auto;
+}
+.TwentyTitle{
+	font-size:24px;
+	font-weight:400;
+	color:rgba(0,0,0,1);
+}
+.Medals img{
+	cursor: pointer;
+	overflow: hidden;
+	transition: 1s;
+}
+.Medals img:hover{
+	transform: scale(1.05);
+}
+.TwentyDs{
+	font-size:14px;
+	font-weight:300;
+	color:rgba(153,153,153,1);
+}
+.border3{
+	width:80px;
+	border:3px solid rgba(51,51,51,1);
+	margin: 0 auto;
+}
+.alonework{
+	font-size:16px;
+	font-weight:300;
+	color:rgba(153,153,153,1);
+}
+.honorTitle{
+	padding-top: 15px;
+	font-size:16px;
+	font-weight:300;
+	color:rgba(51,51,51,1);
+}
+.margin1_{
+	margin:1% 0;
+}
+.Medals .MedalsSpan a{
+	padding-bottom: 10px;
+	text-decoration: none;
+	font-size:20px;
+	font-weight:300;
+	border-bottom: 1px solid rgba(255,111,68,1);
+	color:rgba(255,111,68,1);
+}
+.borderright img{
+	width: 80px;
+	height: 80px;
+}
+.TwentyIcon img{
+	width: 80px;
+	height: 80px;
+}
+.paddingbottom72{
+	padding-bottom: 72px;
+}
+.paddingbottom36{
+	padding-bottom: 36px;
+}
+.bordernone{
+	border: none;
+}
+.borderright{
+	border-right: 1px solid rgba(245,245,245,1);
+}
+.bordertop{
+	border-top: 1px solid rgba(245,245,245,1);
+}
+.AuthorTitle{
+	padding-top: 21px;
+	font-size:16px;
+	font-weight:300;
+	color:rgba(51,51,51,1);
+	border:1px solid rgba(245,245,245,1)
+}
+.AuthorTitles{
+	padding-top: 21px;
+	font-size:16px;
+	font-weight:300;
+	color:rgba(51,51,51,1);
+}
+.border3white{
+	width:40px;
+	background:rgba(255,255,255,1);
+	border:3px solid rgba(245,245,245,1);
+	margin: 0 auto;
+}
+.CGCount{
+	position: relative;
+}
+.CGMb{
+	position: absolute;
+	top: 0;
+	left: 0;
+	border: none;
+	padding:25% 0 ;
+}
+.details{
+	font-size:14px;
+	font-weight:400;
+	color:rgba(137,136,136,1);
+	line-height:26px;
+}
+.Medalsd img{
+	width: 100%;
+}
+.Medalsd .MedalsSpan a{
+    padding-bottom: 10px;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 300;
+    border-bottom: 1px solid rgba(255,111,68,1);
+    color: rgba(255,111,68,1);
+}
+.Medalsd img{
+	height: 203.09px;
+}
+.forMeIcon{
+	padding-left:3.5% ;
+}
+.forMeIconUl{
+	padding-top:25% ;
+}
+.fontMbTitle{
+	line-height: 35px;
+	font-size:18px;
+	font-weight:400;
+	color:rgba(255,255,255,1);
+}
+.Abouts ul li{
+	font-size:16px;
+	font-weight:300;
+	color:rgba(255,255,255,0.5);
+	line-height: 30px;
+}
+.AboutUs{
+	position: relative;
+}
+
+.AboutUs .About .clearpadding .Abouts ul li{
+	margin: 0;
+	padding: 0;
+}
+.CGCount{
+	width: 24%;
+	margin: 0.5%;
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+}
+.aboutUsCover{
+	height: 579px;
+}
+.CGMb{
+	position: absolute;
+	top: 203.09px;
+	left: 0px;
+	height: 0;
+	background:rgba(0,0,0,0.6);
+	transition: height 0.7s,top 0.7s;
+}
+.CGCount:hover .CGMb{
+	height: 203.09px;
+	top: 0;
+}
+.CGMb span{
+	font-size:18px;
+	font-weight:400;
+	color:rgba(255,255,255,1);
+	line-height:30px;
+}
+.studentZj{
+	position: relative;
+	cursor: pointer;
+	overflow: hidden;
+}
+.studentMb{
+	width: 100%;
+	position: absolute;
+	top: 203.09px;
+	left: 0;
+	height: 0;
+	background:rgba(0,0,0,0.6);
+	padding: 38% 0;
+	transition: height 0.7s,top 0.7s;
+}
+.studentZj:hover .studentMb{
+	top: 0;
+	height: 203.09px;
+}
+.studentMb span{
+	font-size:18px;
+	font-weight:400;
+	color:rgba(255,255,255,1);
+	line-height:30px;
+}
+@media only screen and (min-width: 1280px) and (max-width: 1365px) {
+	.aboutUsCover{
+		height: 579px;
+	}
+	.CGMb{
+	position: absolute;
+	top: 203.09px;
+	left: 0px;
+	height: 0;
+	background:rgba(0,0,0,0.6);
+	transition: height 0.7s,top 0.7s;
+	padding: 38% 0;
+}
+.CGCount:hover .CGMb{
+	height: 203.09px;
+	top: 0;
+}
+	.studentMb{
+	width: 100%;
+	position: absolute;
+	top: 203.09px;
+	left: 0;
+	height: 0;
+	background:rgba(0,0,0,0.6);
+	padding: 38% 0;
+	transition: height 0.7s,top 0.7s;
+}
+.studentZj:hover .studentMb{
+	top: 0;
+	height: 203.09px;
+}
+	.margin-top80 {
+    margin-top: 40px;
+}
+.aboutUsCover{
+	height: 579px;
+}
+.details {
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(137,136,136,1);
+    line-height: 26px;
+}
+.goodwork {
+    font-size: 36px;
+    font-weight: 400;
+    color: rgba(0,0,0,1);
+}
+.alonework {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(153,153,153,1);
+}
+.Medals img{
+	width: 100%;
+}
+.Medals .MedalsSpan a {
+    padding-bottom: 10px;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 300;
+    border-bottom: 1px solid rgba(255,111,68,1);
+    color: rgba(255,111,68,1);
+}
+.studentMb span {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255,255,255,1);
+    line-height: 30px;
+}
+.AuthorTitle {
+    padding-top: 21px;
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(51,51,51,1);
+    border: 1px solid rgba(245,245,245,1);
+}
+.CGMb span {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255,255,255,1);
+    line-height: 30px;
+}
+}
+@media only screen and (min-width: 1367px) and (max-width: 1680px) {
+	.aboutUsCover{
+		height: 610px;
+	}
+	.CGMb{
+	position: absolute;
+	top: 203.09px;
+	left: 0px;
+	height: 0;
+	background:rgba(0,0,0,0.6);
+	transition: height 0.7s,top 0.7s;
+	padding: 30% 0;
+}
+.CGCount:hover .CGMb{
+	height: 203.09px;
+	top: 0;
+}
+	.studentMb{
+	width: 100%;
+	position: absolute;
+	top: 203.09px;
+	left: 0;
+	height: 0;
+	background:rgba(0,0,0,0.6);
+	padding: 32% 0;
+	transition: height 0.7s,top 0.7s;
+}
+.studentZj:hover .studentMb{
+	top: 0;
+	height: 203.09px;
+}
+}
+
+
+/*20190225 17:22 lfs  新加样式*/
+@media only screen and (min-width: 900px) and (max-width: 1490px){
+	.Medals img{
+		height: 188px !important;
+	}
+	.Medalsd img{
+		height: 151px !important;
+	}
+	#setImgStyle{
+		height: 344px !important;
+	}
+	.aboutUsCover{
+		height: 488px !important;
+	}
+	.details{
+	    font-size: 11px !important;
+	    line-height: 21px !important;
+	}
+	.bounceInRight .details:nth-child(1){
+		margin-top: 56px !important;
+	}
+}

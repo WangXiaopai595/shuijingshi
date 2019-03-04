@@ -1,0 +1,161 @@
+{include file="public/header" /}
+
+
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+	<legend>
+		<div class="layui-inline">
+			<a href="{:url('cases/index')}" class="layui-btn layui-btn-normal">返回列表</a>
+		</div>
+	</legend>
+</fieldset>
+
+<form class="layui-form" id="form">
+	<input type="hidden" name="id" value="{$case.id}">
+	<div class="layui-form-item">
+		<label class="layui-form-label">标题<span style="color: #FF5722;">*</span></label>
+		<div class="layui-input-block" style="width: 50%;">
+			<input type="text" name="title" placeholder="请输入标题" class="layui-input" value="{$case.title}">
+		</div>
+		<!--<div class="layui-form-mid layui-word-aux">字母、数字、下划线组成，字母或数字开头，4-16位</div>-->
+	</div>
+
+	<div class="layui-form-item">
+		<label class="layui-form-label">简介<span style="color: #FF5722;">*</span></label>
+		<div class="layui-input-block" style="width: 50%">
+			<textarea class="layui-textarea" name="brief">{$case.brief}</textarea>
+		</div>
+	</div>
+
+	<div class="layui-form-item">
+		<label class="layui-form-label">排序</label>
+		<div class="layui-input-block" style="width: 50%;">
+			<input type="text" name="sort" class="layui-input" value="{$case.sort}">
+		</div>
+		<div class="layui-form-mid layui-word-aux">从小到大排序</div>
+	</div>
+
+	<div class="layui-form-item">
+		<label class="layui-form-label">是否显示<span style="color: #FF5722;">*</span></label>
+		<div class="layui-input-block">
+			<input type="checkbox" {if condition="$case.is_show"}checked=""{/if} name="is_show" lay-skin="switch" lay-text="ON|OFF" value="1" />
+		</div>
+	</div>
+	<div class="layui-form news_list" style="width: 95%;margin-left: 3%">
+		<table class="layui-table">
+			<thead>
+			<tr>
+				<th>视频ID</th>
+				<th>标题</th>
+				<th>图标</th>
+			</tr>
+			</thead>
+			<tbody class="news_content">
+			{volist name="video" id="vo" key="k"}
+				<tr>
+					<td>
+						<input type="hidden" name="vid_{$k}" value="{$vo.id}">
+						<input type="text" name="video_id_{$k}" placeholder="视频链接" class="layui-input" value="{$vo.video_id}">
+					</td>
+					<td>
+						<input type="text" name="title_{$k}" placeholder="请输入标题" class="layui-input" value="{$vo.title}">
+					</td>
+					<td>
+						<div class="layui-form-item">
+							<img class="cover" style="width: 70px;height: 70px;" src="{$vo.icon}" />
+							<input class="img" type="file" accept="image/gif, image/jpeg, image/png, image/jpg" style="display: none;" name="icon_{$k}" />
+						</div>
+					</td>
+				</tr>
+			{/volist}
+			{for start="count($video)+1" end="4"}
+				<tr>
+					<td>
+						<input type="text" name="video_id_{$i}" placeholder="视频链接" class="layui-input">
+					</td>
+					<td>
+						<input type="text" name="title_{$i}" placeholder="请输入标题" class="layui-input">
+					</td>
+					<td>
+						<div class="layui-form-item">
+							<img class="cover" style="width: 70px;height: 70px;" src="__STYLE__/img/upload.png" />
+							<input class="img" type="file" accept="image/gif, image/jpeg, image/png, image/jpg" style="display: none;" name="icon_{$i}" />
+						</div>
+					</td>
+				</tr>
+			{/for}
+			</tbody>
+		</table>
+		<div class="layui-form-mid layui-word-aux">视频信息可空!!!!!!由于需要抓取CC视频信息，请求时间较长，请耐心等待!!!!</div>
+	</div>
+	
+	<div class="layui-form-item">
+		<div class="layui-input-block">
+			<button type="button" class="layui-btn" id="button" data-url='{:url("cases/editcase")}' data-succ='{:url("cases/index")}'>立即提交</button>
+		</div>
+	</div>
+	
+</form>
+{include file="public/footer" /}
+
+<script>
+	$(function(){
+		$(".cover").click(function(){
+			$(this).next().click();
+		})
+		$('.img').change(function() {
+			var that = $(this);
+			for(var i=0;i<(this.files).length;i++){
+				var file = this.files[i];
+				var r = new FileReader();
+				r.readAsDataURL(file);
+				$(r).load(function() {
+					that.prev().attr('src',this.result);
+				})
+			}
+		})
+
+		function checkForm(){
+			var title = $("input[name='title']").val();
+			
+			if(!name){
+				layer.msg('请输入标题',{icon:0,time:1000});
+				return false;
+			}
+			return true;
+		}
+		/**
+		 * ajax序列化提交表单
+		 */
+		$("#button").click(function(){
+			var succ = $(this).attr("data-succ");
+			var url = $(this).attr("data-url");
+			var data = new FormData($("#form")[0]);
+			if(checkForm()){
+				var index = layer.load(2,{time:20000});
+				$.ajax({
+					url: url,
+					type: 'POST',
+					data: data,
+					dataType:'json',
+					async: true,
+					cache: false,
+					contentType: false,
+					processData: false,
+					success:function(date){
+						layer.close(index);
+						if(date.status == 1){
+							layer.msg(date.msg,{icon:1,time:1000});
+							setTimeout(function(){
+								location.href = succ;
+							},700)
+						}else{
+							layer.msg(date.msg,{icon:2,time:1000});
+						}
+					}
+				});
+			}
+		})
+	})
+	
+	layui.use(['form', 'layedit'], function() {});
+</script>

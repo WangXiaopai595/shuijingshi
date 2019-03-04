@@ -1,0 +1,44 @@
+{include file="public/head" /}
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/newsCount.css"/>
+<style>
+	.newsDetails img{
+		max-width: 100% !important;
+		height: auto !important;
+	}
+	.paddingleft15{
+		padding-left: 0px;
+	}
+</style>
+{include file="public/nav" /}
+
+<!--内容-->
+<div class="closeIconMore">
+	<div class="col-xs-12 col-sm-12 clearpadding margin-top60 paddingleftright10">
+		<span class="col-xs-12 col-sm-12 clearpadding newsTitle">{$article.title}</span>
+
+
+	</div>
+	<div class="col-xs-12 col-sm-12 clearpadding padding-top15 border1">
+		<div class="col-xs-4 col-sm-4 clearpadding newsWidth1 paddleft10">
+			<img src="__STYLE__/img/newsPeople.png" width="13%"/>
+			<span class="newsZs">水晶石教育</span>
+		</div>
+		<div class="col-xs-4 col-sm-4 clearpadding newsWidth2">
+			<img src="__STYLE__/img/newsTime.png" width="12%"/>
+			<span class="newsZs">{$article.time|date="Y.m.d H:i:s",###}</span>
+		</div>
+		<div class="col-xs-4 col-sm-4 clearpadding newsWidth3 paddright10">
+			<img src="__STYLE__/img/newsBrowse.png" width="35%"/>
+			<span class="newsZs">{$article.people}</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-12 clearpadding paddingleftright10">
+			<span class="col-xs-12 col-sm-12 clearpadding newsDetails">
+				{$article.content}
+			</span>
+	</div>
+	<!--底部-->
+	<div class="col-xs-12 col-sm-12 clearpadding margin-bottom80_38"></div>
+</div>
+
+{include file="public/foot" /}

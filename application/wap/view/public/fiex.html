@@ -1,0 +1,9 @@
+<!--底部-->
+<a href="{:url('course/appointview')}" class="col-xs-3 col-sm-3 clearpadding bottomTitle2 text-right">
+    <img src="__STYLE__/img/freeTrial.png" width="35%"/>
+</a>
+{if condition="isset($is_project) AND $is_project"}
+<a href="{$user ? url('project/collection') : 'javascript:;'}" class="col-xs-3 col-sm-3 clearpadding bottomTitle4 text-right margin-top-bottom10 {$user ? '' : 'not_login'}">
+    <img src="__STYLE__/img/myColle.png" width="35%" />
+</a>
+{/if}

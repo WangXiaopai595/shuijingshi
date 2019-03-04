@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<title>{$site['content']['title']}|后台管理系统</title>
+		<link href="__STYLE__/css/default.css" rel="stylesheet" type="text/css" />
+		<!--必要样式-->
+		<link href="__STYLE__/css/styles.css" rel="stylesheet" type="text/css" />
+		<link href="__STYLE__/css/demo.css" rel="stylesheet" type="text/css" />
+		<link href="__STYLE__/css/loaders.css" rel="stylesheet" type="text/css" />
+		<style>
+			.layui-layer-padding{
+				color: #0066CC !important;
+			}
+			input:-webkit-autofill , textarea:-webkit-autofill, select:-webkit-autofill {  
+			    -webkit-text-fill-color: #ededed !important;  
+			    -webkit-box-shadow: 0 0 0px 1000px transparent  inset !important;  
+			    background-color:transparent;  
+			    background-image: none;  
+			     transition: background-color 50000s ease-in-out 0s; 
+			}  
+			input {  
+			     background-color:transparent;  
+			}  
+		</style>
+	</head>
+
+	<body>
+		<div class='login'>
+			<div class='login_title'>
+				<span>管理员登录</span>
+			</div>
+			<form id="form">
+				<div class='login_fields'>
+					<div class='login_fields__user'>
+						<div class='icon'>
+							<img alt="" src='__STYLE__/img/user_icon_copy.png'>
+						</div>
+						<input name="user" placeholder='用户名' maxlength="16" maxlength="16" type='text' autocomplete="off" value="" />
+						<div class='validation'>
+							<img alt="" src='__STYLE__/img/tick.png'>
+						</div>
+					</div>
+					<div class='login_fields__password'>
+						<div class='icon'>
+							<img alt="" src='__STYLE__/img/lock_icon_copy.png'>
+						</div>
+						<input name="password" placeholder='密码' maxlength="16" maxlength="16" type='password' autocomplete="off">
+						<div class='validation'>
+							<img alt="" src='__STYLE__/img/tick.png'>
+						</div>
+					</div>
+					<div class='login_fields__password'>
+						<div class='icon'>
+							<img alt="" src='__STYLE__/img/key.png'>
+						</div>
+						<input name="code" maxlength="4" placeholder='验证码' maxlength="4" type='text' name="ValidateNum" autocomplete="off">
+						<div class='validation' style="opacity: 1; right: -4px;top: -3px;">
+							<img src="{:url('login/code')}" class="J_codeimg" id="myCanvas" />
+						</div>
+					</div>
+					<div class='login_fields__submit'>
+						<input type='button' data-url="{:url('login/login')}" data-succ="{:url('index/index')}" id="button" value='登录'>
+					</div>
+				</div>
+				<div class='success'>
+				</div>
+				<div class='disclaimer' style="text-align: center;">
+					<p style="text-align: center;">Copyright @2018 {$site['content']['title']}版权所有<br/>备案号：
+						<a href="http://www.miitbeian.gov.cn/" target="_blank">{$site['content']['record']}</a>
+					</p>
+				</div>
+			</form>
+		</div>
+		<div class="OverWindows"></div>
+
+		<link href="__STYLE__/layui/css/layui.css" rel="stylesheet" type="text/css" />
+
+		<script type="text/javascript" src="__STYLE__/js/jquery.min.js"></script>
+		<script type="text/javascript" src="__STYLE__/js/layer.js"></script>
+		<script type="text/javascript" src="__STYLE__/js/jquery-ui.min.js"></script>
+		<script type="text/javascript" src='__STYLE__/js/stopExecutionOnTimeout.js?t=1'></script>
+		<script type="text/javascript" src="__STYLE__/layui/layui.js"></script>
+		<script type="text/javascript" src="__STYLE__/js/Particleground.js"></script>
+		<script type="text/javascript" src="__STYLE__/js/Treatment.js"></script>
+		<script type="text/javascript" src="__STYLE__/js/jquery.mockjax.js"></script>
+		<script type="text/javascript">
+			$(document).keypress(function(e) {
+				// 回车键事件  
+				if(e.which == 13) {
+					$('input[type="button"]').click();
+				}
+			});
+			//粒子背景特效
+//			$('body').particleground({
+//				dotColor: '#E8DFE8',
+//				lineColor: '#133b88'
+//			});
+		</script>
+
+	</body>
+
+</html>
+<script>
+	$(function(){
+		/**
+		 * 验证账号是否合法  4-16位
+		 * @param {Object} str 需要验证的字符
+		 * 验证规则：字母、数字、下划线组成，字母或数字开头，4-16位
+		 */
+		function checkUser(str){
+			var re = /^[0-9a-zA-z]\w{3,15}$/;
+			if(re.test(str)){
+				return true;
+			}else{
+				return false;
+			} 
+		}
+		
+		/**
+		 * 验证账号是否合法  4-16位
+		 * @param {Object} str 需要验证的字符
+		 * 验证规则：字母、数字、下划线组成，6-16位
+		 */
+		function checkPwd(str){
+			var re = /^\w{6,16}$/;
+			if(re.test(str)){
+				return true;
+			}else{
+				return false;
+			} 
+		}
+		
+		/**
+		 * 检测要提交的表单
+		 */
+		function checkForm(){
+			var user = $("input[name='user']").val();
+			var pwd = $("input[name='password']").val();
+			var code = $("input[name='code']").val();
+			
+			if(user == '' && !checkUser(user)){
+				layer.msg('用户名不能为空',{icon:0,time:1000});
+				return false;
+			}
+			if(pwd == '' && !checkPwd(pwd)){
+				layer.msg('密码不能为空',{icon:0,time:1000});
+				return false;
+			}
+			if(code == '' || code.length != 4){
+				layer.msg('请输入4位验证码',{icon:0,time:1000});
+				return false;
+			}
+			return true;
+		}
+		
+		/**
+		 * ajax序列化提交表单
+		 */
+		$("#button").click(function(){
+			var succ = $(this).attr("data-succ");
+			var url = $(this).attr("data-url");
+			var data = $("#form").serialize();
+			if(checkForm()){
+				$.ajax({
+					type:"post",
+					dataType:"json",
+					url:url,
+					data:data,
+					success:function(date){
+						if(date.status == 1){
+							location.href = succ;
+						}else{
+							layer.msg(date.msg,{icon:2,time:1000});
+							codeSrc();
+						}
+					}
+				})
+			}
+		})
+		
+		/**
+		 * 切换验证码
+		 */
+		$("#myCanvas").click(function(){
+			codeSrc();
+		})
+		
+		/**
+		 * 更换验证码
+		 */
+		function codeSrc(){
+			var src = $("#myCanvas").attr('src');
+			var rand = parseInt(Math.random()*8999+1000);
+			src += '?'+rand;
+			$("#myCanvas").attr('src',src);
+		}
+	})
+</script>

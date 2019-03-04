@@ -1,0 +1,447 @@
+.onRoomTab{
+	padding-top: 11px;
+	background:rgba(255,255,255,1);
+	border:1px solid rgba(245,245,245,1);
+}
+.onRoomTab ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.onRoomC2X{
+	margin-top: 38%;
+}
+
+.onRoomC{
+	width: 48%;
+	margin: 1%;
+	margin-top: 2%;
+}
+.clearpadding a{
+	text-decoration: none;
+}
+
+.twoXMb{
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba(2,2,2,1);
+	width: 100%;
+	height: 1366px;
+	z-index: 999999;
+}
+
+.onRoomC2X{
+	height: 300px;
+}
+
+.onRoomCTitle{
+	text-align: left;
+	padding-top:5px ;
+	font-size:13px;
+	font-family:PingFang-SC-Medium;
+	font-weight:500;
+	color:rgba(51,51,51,1);
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap
+}
+.onRoomC .onRoomImg{
+	height: 132.81px;
+}
+.onRoomCTitles{
+	padding-top:5px ;
+	font-size:13px;
+	font-family:PingFang-SC-Medium;
+	font-weight:500;
+	color:rgba(51,51,51,1);
+	padding-bottom: 10px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.paddingleftright10{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.collection{
+	margin-bottom: 3px;
+}
+.browse{
+	margin-bottom: 0.8px;
+}
+.onRoomCUser{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size:12px;
+	font-family:PingFang-SC-Regular;
+	font-weight:400;
+	color:rgba(153,153,153,1);
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.onRoomCs{
+	background: rgba(250,250,250,1);
+}
+.onRoomC{
+	background:rgba(255,255,255,1);
+	border:1px solid rgba(245,245,245,1);
+	border-radius:10px;
+}
+.login{
+	background:rgba(255,255,255,1);
+	border-radius:10px;
+	margin-top: 50%;
+	margin-bottom: 154.25px;
+}
+.paddingleft10_{
+	padding-left: 10%;
+}
+.clolog{
+	margin-top: 10%;
+}
+.logTitle{
+	padding-top: 10%;
+	font-size:18px;
+	font-family:PingFang-SC-Medium;
+	font-weight:500;
+	color:rgba(51,51,51,1);
+}
+input::-webkit-input-placeholder{
+	font-size:15px;
+	font-family:PingFang-SC-Medium;
+	font-weight:500;
+	color:rgba(202,202,202,1);
+}
+input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+	font-size:15px;
+	font-family:PingFang-SC-Medium;
+	font-weight:500;
+	color:rgba(202,202,202,1);
+}
+input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+	font-size:15px;
+	font-family:PingFang-SC-Medium;
+	font-weight:500;
+	color:rgba(202,202,202,1);
+}
+input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
+	font-size:15px;
+	font-family:PingFang-SC-Medium;
+	font-weight:500;
+	color:rgba(202,202,202,1);
+}
+.border-bottom2{
+	border-bottom: 2px solid rgba(245,245,245,1);
+}
+.placePho{
+	border: none;
+	background: none;
+	outline: none;
+	padding-top: 10px;
+	padding-bottom: 5px;
+	padding-top: 12%;
+	border-bottom: 2px solid rgba(245,245,245,1);
+}
+.plaCodes{
+	border-bottom: 2px solid rgba(245,245,245,1);
+	padding-top: 10%;
+}
+.plaCode{
+	border: none;
+	background: none;
+	outline: none;
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
+.btnLogin{
+	margin-top: 12%;
+	margin-bottom: 10%;
+	background:rgba(246,125,14,1);
+	border-radius:10px;
+	height: 44px;
+	font-size:18px;
+	font-family:PingFang-SC-Medium;
+	font-weight:500;
+	color:rgba(255,255,255,1);
+}
+.getCode{
+	border: none;
+	background: none;
+	outline: none;
+	margin-top: 8px;
+	font-size:15px;
+	font-family:PingFang-SC-Medium;
+	font-weight:500;
+	color:rgba(246,125,14,1);
+}
+.loginMb{
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	z-index: 9999;
+	width:100%;
+	height:1559px;
+	background:rgba(2,2,2,0.5);
+}
+.loginMbs{
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	z-index: 9999;
+	width:100%;
+	height:1559px;
+	background:rgba(2,2,2,0.5);
+}
+.youNick{
+	margin-top: 8px;
+	font-size:15px;
+	font-family:PingFang-SC-Medium;
+	font-weight:500;
+	color:rgba(51,51,51,1);
+}
+.onRoomC{
+	position: relative;
+}
+.playBlack{
+	position: absolute;
+	top: 26%;
+	left: 39%;
+}
+@media only screen and (max-width: 320px) {
+	.onRoomC .onRoomImg{
+		height: 122.81px;
+	}
+	.onRoomCUser {
+
+		padding-top: 10px;
+		padding-bottom: 10px;
+		font-size: 12px;
+		font-family: PingFang-SC-Regular;
+		font-weight: 400;
+		color: rgba(153,153,153,1);
+	}
+	.paddingleftright10{
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+	.onRoomC2X{
+		height: 350px;
+	}
+	.logTitle {
+		padding-top: 10%;
+		font-size: 17px;
+		font-family: PingFang-SC-Medium;
+		font-weight: 500;
+		color: rgba(51,51,51,1);
+	}
+}
+@media only screen and (max-width:768px ) and (min-width:415px) {
+	.login {
+		background: rgba(255,255,255,1);
+		border-radius: 10px;
+		margin-top: 35%;
+		margin-bottom: 154.25px;
+	}
+	.onRoomC .onRoomImg{
+		height: 263.455px;
+	}
+	.onRoomC2X{
+		height: 425px;
+	}
+	.logTitle {
+		padding-top: 10%;
+		font-size: 26px;
+		font-family: PingFang-SC-Medium;
+		font-weight: 500;
+		color: rgba(51,51,51,1);
+	}
+	input::-webkit-input-placeholder{
+		font-size:22px;
+		font-family:PingFang-SC-Medium;
+		font-weight:500;
+		color:rgba(202,202,202,1);
+	}
+	input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+		font-size:22px;
+		font-family:PingFang-SC-Medium;
+		font-weight:500;
+		color:rgba(202,202,202,1);
+	}
+	input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+		font-size:22px;
+		font-family:PingFang-SC-Medium;
+		font-weight:500;
+		color:rgba(202,202,202,1);
+	}
+	input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
+		font-size:22px;
+		font-family:PingFang-SC-Medium;
+		font-weight:500;
+		color:rgba(202,202,202,1);
+	}
+	.getCode {
+		border: none;
+		background: none;
+		outline: none;
+		margin-top: 0px;
+		font-size: 22px;
+		font-family: PingFang-SC-Medium;
+		font-weight: 500;
+		color: rgba(246,125,14,1);
+	}
+	.btnLogin {
+		margin-top: 12%;
+		margin-bottom: 10%;
+		background: rgba(246,125,14,1);
+		border-radius: 10px;
+		height: 70px;
+		font-size: 26px;
+		font-family: PingFang-SC-Medium;
+		font-weight: 500;
+		color: rgba(255,255,255,1);
+	}
+	.youNick {
+		margin-top: 8px;
+		font-size: 25px;
+		font-family: PingFang-SC-Medium;
+		font-weight: 500;
+		color: rgba(51,51,51,1);
+	}
+	.plaCode {
+		border: none;
+		background: none;
+		outline: none;
+		padding-top: 10px;
+		height: 53.5px;
+		padding-bottom: 5px;
+	}
+	.onRoomCTitle {
+		padding-top: 10px;
+		font-size: 18px;
+		font-family: PingFang-SC-Medium;
+		font-weight: 500;
+		color: rgba(51,51,51,1);
+	}
+	.onRoomCUser {
+		padding-top: 10px;
+		padding-bottom: 10px;
+		font-size: 16px;
+		font-family: PingFang-SC-Regular;
+		font-weight: 400;
+		color: rgba(153,153,153,1);
+	}
+	.onRoomCTitles {
+		padding-top: 10px;
+		font-size: 18px;
+		font-family: PingFang-SC-Medium;
+		font-weight: 500;
+		color: rgba(51,51,51,1);
+		padding-bottom: 15px;
+	}
+}
+@media only screen and (min-width: 769px) and (max-width:1024px) {
+	.logTitle {
+		padding-top: 10%;
+		font-size: 36px;
+		font-family: PingFang-SC-Medium;
+		font-weight: 500;
+		color: rgba(51,51,51,1);
+	}
+	.onRoomC .onRoomImg{
+		height: 357.94px;
+	}
+	.onRoomC2X{
+		height: 450px;
+	}
+	.placePho {
+		border: none;
+		background: none;
+		outline: none;
+		padding-top: 10px;
+		font-size: 30px;
+		padding-bottom: 5px;
+		padding-top: 12%;
+		border-bottom: 2px solid rgba(245,245,245,1);
+	}
+	input::-webkit-input-placeholder{
+		font-size:30px;
+		font-family:PingFang-SC-Medium;
+		font-weight:500;
+		color:rgba(202,202,202,1);
+	}
+	input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+		font-size:30px;
+		font-family:PingFang-SC-Medium;
+		font-weight:500;
+		color:rgba(202,202,202,1);
+	}
+	input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+		font-size:30px;
+		font-family:PingFang-SC-Medium;
+		font-weight:500;
+		color:rgba(202,202,202,1);
+	}
+	input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
+		font-size:30px;
+		font-family:PingFang-SC-Medium;
+		font-weight:500;
+		color:rgba(202,202,202,1);
+	}
+	.getCode {
+		border: none;
+		background: none;
+		outline: none;
+		margin-top: 0px;
+		font-size: 30px;
+		font-family: PingFang-SC-Medium;
+		font-weight: 500;
+		color: rgba(246,125,14,1);
+	}
+	.btnLogin {
+		margin-top: 12%;
+		margin-bottom: 10%;
+		background: rgba(246,125,14,1);
+		border-radius: 10px;
+		height: 88px;
+		font-size: 36px;
+		font-family: PingFang-SC-Medium;
+		font-weight: 500;
+		color: rgba(255,255,255,1);
+	}
+	.login {
+		background: rgba(255,255,255,1);
+		border-radius: 10px;
+		margin-top: 32%;
+		margin-bottom: 154.25px;
+	}
+	.onRoomCTitle {
+		padding-top: 10px;
+		font-size: 26px;
+		font-family: PingFang-SC-Medium;
+		font-weight: 500;
+		color: rgba(51,51,51,1);
+	}
+	.onRoomCUser {
+		padding-top: 15px;
+		padding-bottom: 15px;
+		font-size: 24px;
+		font-family: PingFang-SC-Regular;
+		font-weight: 400;
+		color: rgba(153,153,153,1);
+	}
+	.onRoomCTitles {
+		padding-top: 10px;
+		font-size: 26px;
+		font-family: PingFang-SC-Medium;
+		font-weight: 500;
+		color: rgba(51,51,51,1);
+		padding-bottom: 15px;
+	}
+	.onRoomC2X{
+		margin-top: 28%;
+	}
+
+}

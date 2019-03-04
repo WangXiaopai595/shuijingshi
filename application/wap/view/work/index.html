@@ -1,0 +1,175 @@
+{include file="public/head" /}
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/onRoom.css"/>
+<link rel="stylesheet" type="text/css" href="__STYLE__/css/leftrightTab.css" />
+<style type="text/css">
+	.close{
+		width: 5%;
+		z-index: 999999;
+		position: absolute;
+		right: 0;
+		top: 40%;
+	}
+</style>
+{include file="public/nav" /}
+<!--视频播放器-->
+
+<div class='col-xs-12 col-sm-12 clearpadding videoMb hide'>
+
+	<img class="return" src="__STYLE__/img/return.png" width="5%"/>
+	<span class="white"></span>
+	<div class='col-xs-12 col-sm-12 clearpadding video1' id="player">
+
+	</div>
+</div>
+<!--放大图片-->
+<div class="col-xs-12 col-md-12 clearpadding twoXMb hide">
+	<div class="col-xs-12 col-sm-12 clearpadding">
+		<!--图片地址-->
+		<img class="onRoomC2X" src="" width="100%"/>
+	</div>
+</div>
+
+<!--内容-->
+<div class="closeIconMore">
+	<div class="col-xs-12 col-sm-12 margin-top60 clearpadding">
+		{if condition="$work['banner']"}
+		<img class="" src="{$work['banner']['path']}" width="100%"/>
+		{else/}
+		<img class="" src="__STYLE__/img/onRoomC1.png" width="100%"/>
+		{/if}
+	</div>
+	<div class="wrapper editWrapper" id="editWrapper">
+		<div class="scroller">
+			<ul class="clearfix ">
+				<li>
+					<a class="{$param['class_id'] ? '' : 'myactive'}" href="{:url('work/index')}">全部</a>
+				</li>
+				{volist name="$work['class']" id="vo"}
+				<li>
+					<a class="{$param['class_id'] == $vo['id'] ? 'myactive' : ''}" href="{:url('work/index',['class_id'=>$vo['id']])}">{$vo.name}</a>
+				</li>
+				{/volist}
+			</ul>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-12 clearpadding paddingleftright5 onRoomCs">
+		{volist name="work['work']['list']" id="vo"}
+		{if condition="$vo['type'] eq 1"}
+		<a href="javascript:;" class="col-xs-6 col-sm-6 clearpadding onRoomC play2X">
+			<img class="onRoomImg" src="{$vo.icon}" width="100%"/>
+			<span class="col-xs-12 col-sm-12 clearpadding onRoomCTitles paddingleftright10">{$vo.title}</span>
+		</a>
+		{else/}
+		<a href="javascript:;" class="col-xs-6 col-sm-6 clearpadding onRoomC playMb"data-srcVideo="{$vo.playcode}" data-srcImg="{$vo.icon}">
+			<img class="onRoomImg" src="{$vo.icon}" width="100%"/>
+			<span class="col-xs-12 col-sm-12 clearpadding onRoomCTitles paddingleftright10">{$vo.title}</span>
+			<img class="playBlack" src="__STYLE__/img/playBlack.png" width="25%"/>
+		</a>
+		{/if}
+		{/volist}
+	</div>
+	<div class="col-xs-12 col-sm-12 clearpadding height100"></div>
+</div>
+
+{include file="public/fiex" /}
+{include file="public/foot" /}
+<script type="text/javascript" src="__STYLE__/js/mx-plugin.js" ></script>
+<script type="text/javascript" src="/static/admin/js/layer.js" ></script>
+<script>
+    $(function(){
+        $('.editWrapper').mxPlugin();
+        $('.onRoomNav li').each(function(){
+            $(this).click(function(){
+                $(this).addClass('myactive').parent().siblings().children().removeClass('myactive');
+            });
+        });
+        $('.scroller .clearfix li a').each(function(){
+            $(this).click(function(){
+                $(this).addClass('myactive').parent().siblings().children().removeClass('myactive');
+            });
+        })
+        function video(){
+            $('.playMb').each(function() {
+                $(this).bind('click', function() {
+                    $(".videoMb").removeClass("hide").addClass("show");
+                    var urlVideo = $(this).attr('data-srcVideo');
+                    var urlImg = $(this).attr('data-srcImg');
+                    //	填充 url
+                    var myVideo = new ckplayer({
+                        container: '#player', //“#”代表容器的ID，“.”或“”代表容器的class
+                        variable: 'player1', //该属性必需设置，值等于下面的new chplayer()的对象
+                        poster: urlImg, //封面图片
+                        video: urlVideo, //视频地址
+                        autoplay: true //是否自动播放
+                    });
+                });
+            });
+        }
+        video();
+        $("body").on('click','.play2X',function(){
+            var img = $(this).children('img').attr('src');
+            $('.twoXMb').removeClass('hide').addClass('show');
+            $('.twoXMb').children('div').children('img').attr('src',img);
+        });
+        $('.return').click(function(){
+            $('.videoMb').removeClass('show').addClass('hide');
+        })
+        $('.twoXMb').click(function(){
+            $('.twoXMb').removeClass('show').addClass('hide');
+        })
+
+        $('.onRoomC').click(function(){
+            var title = $(this).children('span').html();
+            $('.white').html(title);
+        })
+
+        var class_id = "{$param['class_id'] ?: ''}";
+        var is_request = true;
+        var page = 2;
+        var url = "{:url('work/index')}";
+        $(window).scroll(function () {
+            if ($(window).scrollTop() >= $(document).height() - $(window).height() - 100) {
+                if(is_request){
+                    is_request = false;
+                    var index = layer.load(3,{time:10000});
+                    $.ajax({
+                        type:'GET',
+                        dataType:'json',
+                        url:url,
+                        data:{
+                            page:page,
+                            class_id:class_id
+                        },
+                        success:function(data){
+                            layer.close(index);
+                            var res = data.data;
+                            if(page < res.last_page){
+                                is_request = true;
+                            }
+                            content(res.data);
+                        }
+                    });
+                }
+            }
+        });
+
+        function content(arr){
+            for(var item in arr){
+                if(arr[item]['type'] == 1){
+                    html = '<a href="javascript:;" class="col-xs-6 col-sm-6 clearpadding onRoomC play2X">'
+                        +'<img class="onRoomImg" src="'+arr[item]['icon']+'" width="100%"/>'
+                        +'<span class="col-xs-12 col-sm-12 clearpadding onRoomCTitles paddingleftright10">'+arr[item]['title']+'</span>'
+                        +'</a>';
+                }else{
+                    html = '<a href="javascript:;" class="col-xs-6 col-sm-6 clearpadding onRoomC playMb"data-srcVideo="'+arr[item]['playcode']+'" data-srcImg="'+arr[item]['icon']+'">'
+                        +'<img class="onRoomImg" src="'+arr[item]['icon']+'" width="100%"/>'
+                        +'<span class="col-xs-12 col-sm-12 clearpadding onRoomCTitles paddingleftright10">'+arr[item]['title']+'</span>'
+                        +'<img class="playBlack" src="__STYLE__/img/playBlack.png" width="25%"/>'
+                        +'</a>';
+                }
+                $('.onRoomCs').append(html);
+            }
+            video();
+        }
+    })
+</script>

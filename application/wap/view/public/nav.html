@@ -1,0 +1,27 @@
+<div class="col-sm-12 col-xs-12 clearpadding header paddingleft15 navbar-fixed-top">
+    <div class="closeIconMore">
+        {if condition="isset($is_project) AND $is_project"}
+            <a onclick="window.history.go(-1);" class="col-xs-1 col-sm-1 clearpadding paddingleftright10">
+                <img class="headRet" src="__STYLE__/img/return.png" width="110%" />
+            </a>
+        {/if}
+        <a href="{:url('index/index')}" class="col-sm-5 col-xs-5 clearpadding">
+            <img src="{$site.icon}" width="110%" />
+        </a>
+        <span class="col-sm-5 col-xs-5 {$is_project ? '' : 'marginleft8_3'} head_phone text-right">{$site.mobile}</span>
+    </div>
+    <div class="col-sm-1 col-xs-1 clearpadding paddingright10 iconMore" data-state='hide'>
+        <img class="icon_more" src="__STYLE__/img/icon_more.png" width="120%" />
+        <ul class="col-xs-12 col-sm-12 clearpadding selectTab text-center hide" id="menu">
+            <li class="col-xs-12 col-sm-12 clearpadding borderbottom1"><a href="{:url('index/index')}">首页</a></li>
+            <li class="col-xs-12 col-sm-12 clearpadding borderbottom1"><a href="{:url('course/courselist')}">课程介绍</a></li>
+            <li class="col-xs-12 col-sm-12 clearpadding borderbottom1"><a href="{:url('course/appointview')}">免费试听</a></li>
+            <li class="col-xs-12 col-sm-12 clearpadding borderbottom1"><a href="{:url('project/index')}">在线课堂</a></li>
+            <li class="col-xs-12 col-sm-12 clearpadding borderbottom1"><a href="{:url('work/index')}">学生作品</a></li>
+            <li class="col-xs-12 col-sm-12 clearpadding borderbottom1"><a href="{:url('interview/index')}">学员采访</a></li>
+            <li class="col-xs-12 col-sm-12 clearpadding borderbottom1"><a href="{:url('news/index')}">学院新闻</a></li>
+            <li class="col-xs-12 col-sm-12 clearpadding borderbottom1"><a href="{:url('news/loan')}">助学贷款</a></li>
+            <li class="col-xs-12 col-sm-12 clearpadding borderbottom1"><a href="{:url('about/index')}">学院介绍</a></li>
+        </ul>
+    </div>
+</div>

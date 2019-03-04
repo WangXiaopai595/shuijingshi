@@ -1,0 +1,435 @@
+
+.iconFont{
+	font-size:12px;
+	font-family:PingFang-SC-Regular;
+	font-weight:400;
+	color:rgba(51,51,51,1);
+}
+.icon{
+	width: 23%;
+	margin-left: 1.5%;
+	margin-top:4% ;
+	margin-bottom: 4%;
+}
+.icon img{
+	width: 80%;
+}
+.icons{
+	background:rgba(255,255,255,1);
+}
+.colleImage{
+    height: 175px;
+}
+.icons a{
+	text-decoration: none;
+	font-size:12px;
+	font-family:PingFang-SC-Regular;
+	font-weight:400;
+	color:rgba(51,51,51,1);
+}
+.stuWorks{
+	position: relative;
+}
+.colleHorDs{
+    position: absolute;
+    left:1.25%;
+    bottom:0;
+    width:97.5%;
+    background: rgba(0,0,0,0.5);
+    color: rgba(255,255,255,1);
+    padding:10px 20px;
+}
+.playBlack{
+	position: absolute;
+	top: 30%;
+	left: 37%;
+}
+.play{
+	position: absolute;
+	top: 30%;
+	left: 40%;
+}
+.stuWorksTitle{
+
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+	font-size:12px;
+	font-family:PingFang-SC-Medium;
+	font-weight:500;
+	color:rgba(51,51,51,1);
+	background:rgba(255,255,255,1);
+	border:1px solid rgba(245,245,245,1);
+	border-radius:5px;
+}
+.colleHorImg{
+	position: relative;
+	margin-top: 15px;
+}
+.bigPlay{
+	position: absolute;
+	top: 38%;
+	left: 43%;
+}
+.colleHor .seeMore{
+	line-height: 66px;
+	text-decoration: none;
+	font-size:12px;
+	font-family:PingFang-SC-Medium;
+	font-weight:500;
+	color:rgba(153,153,153,1);
+}
+.collNews{
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 15px;
+}
+.collNewsTitle{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+	font-size:15px;
+	font-family:PingFang-SC-Medium;
+	font-weight:500;
+	color:rgba(51,51,51,1);
+}
+.border1News{
+	height: 1px;
+	background: rgba(245,245,245,1);
+}
+.collNewsCover{
+	height: 91.25px;
+}
+.stuWorks img:first-of-type{
+	height: 130.22px;
+}
+.indexImgbanner{
+    height: 175px;
+}
+.marginleft25{
+	margin-left: 25%;
+}
+.collNewsdesribe{
+	padding-top: 5px;
+	font-size:12px;
+	font-family:PingFang-SC-Regular;
+	font-weight:400;
+	color:rgba(51,51,51,0.8);
+	line-height:15px;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    word-break: break-all;/*在任何地方换行*/
+}
+.collNews{
+    position: relative;
+    height: 91.25px;
+}
+.nowTime {
+    position: absolute;
+    left: 10px;
+    bottom:0;
+    font-size: 12px;
+    font-family: PingFang-SC-Regular;
+    font-weight: 400;
+    color: rgba(51,51,51,0.6);
+    line-height: 15px;
+    padding-top: 5px;
+}
+.iconTime{
+	padding-right: 5px;
+	margin-bottom: 1px;
+}
+
+@media only screen and (max-width:320px ) {
+	.collNewsTitle {
+	width: 100%;
+    font-size: 14px;
+    font-family: PingFang-SC-Medium;
+    font-weight: 500;
+    color: rgba(51,51,51,1);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	}
+	.nowTime{
+		width: 100%;
+	}
+	.iconTime{
+		width: 8%;
+	}
+	.collNewsdesribe {
+	width: 100%;
+  	overflow: hidden;
+  	display: -webkit-box;
+  	-webkit-line-clamp: 2;
+  	-webkit-box-orient: vertical;
+  	-moz-line-clamp: 2;
+  	-moz-box-orient: vertical;
+  	-o-line-clamp: 2;
+  	-o-box-orient: vertical;
+    padding-top: 3px;
+    font-size: 12px;
+    font-family: PingFang-SC-Regular;
+    font-weight: 400;
+    color: rgba(51,51,51,0.8);
+    line-height: 15px;
+	}
+	.nowTime {
+    font-size: 12px;
+    font-family: PingFang-SC-Regular;
+    font-weight: 400;
+    color: rgba(51,51,51,0.6);
+    line-height: 15px;
+    padding-top: 3px;
+	}
+	.collNewsCover{
+		height: 73px;
+	}
+    .collNews{
+        height: 73px;
+    }
+	.stuWorksTitle {
+	white-space: nowrap;
+    overflow: hidden;
+    word-break: break-all;
+    font-size: 12px;
+    font-family: PingFang-SC-Medium;
+    font-weight: 500;
+    color: rgba(51,51,51,1);
+    background: rgba(255,255,255,1);
+    border: 1px solid rgba(245,245,245,1);
+    border-radius: 5px;
+	}
+}
+@media only screen and (max-width: 375px){
+	.collNewsTitle {
+	width: 100%;
+    font-size: 14px;
+    font-family: PingFang-SC-Medium;
+    font-weight: 500;
+    color: rgba(51,51,51,1);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	}
+}
+@media only screen and (max-width: 768px) and (min-width : 415px) {
+	.iconFont {
+    font-size: 20px;
+    font-family: PingFang-SC-Regular;
+    font-weight: 400;
+    color: rgba(51,51,51,1);
+}
+.collNewsCover{
+	height: 159px;
+}
+.collNews{
+    height: 159px;
+}
+.stuWorks img:first-of-type{
+	height: 324.2625px;
+}
+.colleHor {
+    padding-left: 15px;
+    padding-right: 15px;
+    background: rgba(255,255,255,1);
+}
+.colleHorTitle {
+    padding-top: 35px;
+    padding-bottom: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 26px;
+    font-family: PingFang-SC-Bold;
+    font-weight: bold;
+    color: rgba(51,51,51,1);
+}
+.stuWorksTitle {
+	padding-left: 15px;
+    font-size: 22px;
+    font-family: PingFang-SC-Medium;
+    font-weight: 500;
+    color: rgba(51,51,51,1);
+    background: rgba(255,255,255,1);
+    border: 1px solid rgba(245,245,245,1);
+    line-height: 30px;
+}
+.collNews {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 20px;
+}
+.collNewsTitle {
+    font-size: 20px;
+    font-family: PingFang-SC-Medium;
+    font-weight: 500;
+    color: rgba(51,51,51,1);
+}
+.collNewsdesribe {
+    padding-top: 20px;
+    font-size: 16px;
+    font-family: PingFang-SC-Regular;
+    font-weight: 400;
+    color: rgba(51,51,51,0.8);
+    line-height: 25px;
+}
+.nowTime {
+    left: 15px;
+    font-size: 16px;
+    font-family: PingFang-SC-Regular;
+    font-weight: 400;
+    color: rgba(51,51,51,0.6);
+    line-height: 30px;
+    padding-top: 20px;
+}
+.iconTime {
+	width: 8%;
+    padding-right: 5px;
+    margin-bottom: 1px;
+}
+.colleHor .seeMore {
+    line-height: 66px;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: PingFang-SC-Medium;
+    font-weight: 500;
+    color: rgba(153,153,153,1);
+}
+.video1 {
+    margin-top: 26%;
+}
+.swiper-slide img{
+	height: 255px;
+}
+.swiper-slide a img{
+	height: 400px;
+}
+.colleImage{
+	height: 400px;
+}
+.swiper-pagination-bullet {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    border-radius: 100%;
+    background: rgba(255,255,255,0.5);
+}
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    background: rgba(255,255,255,1);
+}
+.height100 {
+    height: 150px;
+}
+}
+@media only screen and (min-width: 769px) and (max-width:1024px) {
+	.iconFont {
+    font-size: 24px;
+    font-family: PingFang-SC-Regular;
+    font-weight: 400;
+    color: rgba(51,51,51,1);
+}
+.stuWorks img:first-of-type{
+	height: 432.35px;
+}
+.colleImage{
+	height: 500px;
+}
+.height100 {
+    height: 200px;
+}
+.swiper-pagination-bullet {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    border-radius: 100%;
+    background: rgba(255,255,255,0.5);
+}
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    background: rgba(255,255,255,1);
+}
+.swiper-slide img{
+	height: 325px;
+}
+.swiper-slide a img{
+	height: 500px;
+}
+.collNewsCover{
+	height: 212px;
+}
+.collNews{
+    height: 212px;
+}
+.colleHorTitle {
+    padding-top: 50px;
+    padding-bottom: 40px;
+    font-size: 36px;
+    font-family: PingFang-SC-Bold;
+    font-weight: bold;
+    color: rgba(51,51,51,1);
+}
+.stuWorksTitle {
+    font-size: 32px;
+    font-family: PingFang-SC-Medium;
+    font-weight: 500;
+    color: rgba(51,51,51,1);
+    background: rgba(255,255,255,1);
+    border: 1px solid rgba(245,245,245,1);
+    border-radius: 5px;
+}
+.collNewsTitle {
+    font-size: 30px;
+    font-family: PingFang-SC-Medium;
+    font-weight: 500;
+    color: rgba(51,51,51,1);
+}
+.collNewsdesribe {
+    padding-top: 30px;
+    font-size: 24px;
+    font-family: PingFang-SC-Regular;
+    font-weight: 400;
+    color: rgba(51,51,51,0.8);
+    line-height: 30px;
+}
+.nowTime {
+    left: 20px;
+    font-size: 24px;
+    font-family: PingFang-SC-Regular;
+    font-weight: 400;
+    color: rgba(51,51,51,0.6);
+    line-height: 30px;
+    padding-top: 30px;
+}
+.collNews {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 40px;
+}
+.margin-top15{
+	margin-top: 30px;
+}
+.iconTime{
+	width: 7%;
+}
+.paddingtopbottom10{
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.return{
+	width: 3%;
+	margin-left: 20px;
+	margin-bottom: 5px;
+}
+.white {
+    color: white;
+    font-size: 32px;
+    line-height: 100px;
+}
+.video1 {
+    margin-top: 27%;
+}
+}

@@ -1,0 +1,388 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+ul li{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.margin5_{
+	margin-left: 5%;
+}
+.clearpadding{
+	padding-left: 0;
+	padding-right: 0;
+}
+.lineheight80{
+	line-height: 80px;
+}
+.introduce{
+	padding: 30px 0;
+	background:rgba(0,0,0,1);
+}
+.introduce .address p{
+	font-size:14px;
+	font-weight:300;
+	color:rgba(255,255,255,1);
+	opacity:0.5;
+}
+.starImage{
+	height: 400px;
+}
+.startStuBg{
+	background: url(../img/startStuBg.png);
+	height: 600px;
+	background-size:100% 100% ;
+}
+.KcCount{
+	padding: 5% 0;
+}
+.KcCount span{
+	font-size:16px;
+	font-weight:500;
+	color:rgba(51,51,51,0.5);
+}
+.fenyediv{
+	margin-right:12px ;
+}
+.fenye{
+		padding-right: 7%;
+}
+.fenye .fenyediv ul{
+	/* padding: 0 20px 0 15px; */
+}
+.fenye .fenyediv ul li{
+	padding: 5px 0;
+	margin-left: 12px;
+	border:1px solid rgba(245,245,245,1);
+}
+.fenye .fenyediv ul li.myactive{
+	color: #FFFFFF;
+	background: #F67D0E;
+}
+.bottomfenye{
+	padding-bottom:5% ;
+}
+.StartStudent{
+	font-size:36px;
+	font-weight:300;
+	color:rgba(0,0,0,1);
+}
+.EnlishStar{
+	font-size:30px;
+	font-weight:200;
+	color:rgba(51,51,51,1);
+}
+.StarCover{
+	width: 23%;
+	position: relative;
+	margin: 1%;
+	overflow: hidden;
+}
+
+.StarCoverMb{
+	background:rgba(0,0,0,0.3);
+	padding: 15px 0;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	transition: bottom 1s;
+}
+.starCoverMbs{
+	width: 100%;
+	background:rgba(0,0,0,0.5);
+	position: absolute;
+	bottom: -407.52px;
+	left: 0;
+	height: 407.52px;
+	transition: bottom 1s;
+}
+.StarCover:hover .StarCoverMb{
+	bottom: 407.52px;
+}
+.StarCover:hover .starCoverMbs{
+	bottom: 0px;
+}
+.starCoverMbName{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	text-align: center;
+	font-size: 18px;
+	font-weight: 400;
+	color: rgba(255,255,255,1);
+	padding-top: 47%;
+}
+.borderMb{
+	width: 40px;
+	height: 1px;
+	background: rgba(255,255,255,1);
+	margin: 0 auto;
+	margin-top: 62%;
+}
+.starCoverMbTitle{
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	overflow: hidden;
+	padding-top: 5%;
+	font-size: 16px;
+	font-weight: 300;
+	color: rgba(255,255,255,1);
+	padding-left: 19px;
+}
+@-moz-document url-prefix() {
+	.starCoverMbTitle{
+		display: block;
+		position: relative;
+		line-height: 30px;
+		max-height: 100px;
+		overflow: hidden;
+	}
+	.starCoverMbTitle::after{
+		content: ""; position: absolute;
+		bottom: 0;
+		right: 0;
+		padding-left: 40px;
+		background: -webkit-gradient(linear, 0 0, 100% 0, from(transparent), color-stop(0.55, #fff));
+		background: -webkit-linear-gradient(left, transparent, #fff 55%);
+		background: -moz-linear-gradient(left, transparent, #fff 55%);
+		background: -o-linear-gradient(left, transparent, #fff 55%);
+		background: linear-gradient(left, transparent, #fff 55%);
+	}
+}
+
+.StarCoverMb span{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-size: 18px;
+	font-weight: 300;
+	color: rgba(255,255,255,1);
+}
+.border30{
+	width:30px;
+	height:1px;
+	background:rgba(255,255,255,1);
+}
+.MbName{
+	font-size:18px;
+	font-weight:400;
+	color:rgba(255,255,255,1);
+}
+.MbDetails{
+	font-size:16px;
+	font-weight:300;
+	color:rgba(255,255,255,1);
+}
+.StartMb{
+	padding-top: 78%;
+	background:rgba(0,0,0,0.5);
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.ExcellentCount{
+	background: rgba(255,255,255,1);
+    border-radius: 5px;
+    margin: 1% 1%;
+}
+
+@media only screen and (max-width:1366px ) {
+	.starCoverMbs {
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    bottom: -258.23px;
+    left: 0;
+    height: 258.23px;
+    transition: bottom 0.7s;
+    }
+    .StarCover:hover .starCoverMbs{
+    	bottom: 0;
+    }
+    .StarCoverMb {
+    background: rgba(0,0,0,0.3);
+    padding: 15px 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transition: bottom 0.7s;
+}
+	.StarCover:hover .StarCoverMb{
+		bottom:258.23px
+	}
+}
+@media only screen and (max-width:1366px ) {
+	.StarCoverMb span{
+		font-size: 14px;
+	}
+	.starCoverMbName {
+		text-align: center;
+		font-size: 14px;
+		font-weight: 400;
+		color: rgba(255,255,255,1);
+	}
+	.starCoverMbTitle{
+		font-size: 14px;
+	}
+	.starImage{
+		height: 230px;
+	}
+	.StarCoverMb {
+		width: 100%;
+		background: rgba(0,0,0,0.3);
+		padding: 15px 0;
+		position: absolute;
+		bottom: 0;
+	}
+	.ForMeCovers{
+		height: 160px;
+	}
+	.ForMeImg{
+		width: 100%;
+		height: 160px;
+	}
+	.starCoverMbs {
+		width: 100%;
+		background: rgba(0,0,0,0.5);
+		position: absolute;
+		bottom: -300px;
+		left: 0;
+		height: 300px;
+		transition: bottom 0.7s;
+	}
+	.borderMb {
+		width: 30px;
+		height: 1px;
+		background: rgba(255,255,255,1);
+		margin: 0 auto;
+		margin-top: 68%;
+	}
+	.StarCoverMb {
+		background: rgba(0,0,0,0.3);
+		padding: 15px 0;
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		transition: bottom 0.7s;
+	}
+	.StarCover:hover .StarCoverMb{
+		bottom:300px;
+	}
+	.starCoverMbName {
+		text-align: center;
+		font-size: 14px;
+		font-weight: 400;
+		color: rgba(255,255,255,1);
+	}
+	.starCoverMbs {
+		width: 100%;
+		background: rgba(0,0,0,0.5);
+		position: absolute;
+		bottom: -230px;
+		left: 0;
+		height: 230px;
+		transition: bottom 0.7s;
+	}
+	.starCoverMbName{
+		padding-top: 37%;
+	}
+	.borderMb {
+		width: 30px;
+		height: 1px;
+		background: rgba(255,255,255,1);
+		margin: 0 auto;
+		margin-top: 55%;
+	}
+	.StarCoverMb {
+		background: rgba(0,0,0,0.3);
+		padding: 15px 0;
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		transition: bottom 0.7s;
+	}
+	.StarCover:hover .StarCoverMb{
+		bottom:300px;
+	}
+}
+@media only screen and (min-width: 1440px) and (max-height: 900px) {
+	.starImage{
+		height: 300px;
+	}
+	.StarCoverMb span{
+		font-size: 14px;
+	}
+	.starCoverMbName {
+		text-align: center;
+		font-size: 14px;
+		font-weight: 400;
+		color: rgba(255,255,255,1);
+	}
+	.starCoverMbTitle{
+		font-size: 14px;
+	}
+	.StarCoverMb {
+		width: 100%;
+		background: rgba(0,0,0,0.3);
+		padding: 15px 0;
+		position: absolute;
+		bottom: 0;
+	}
+	.ForMeCovers{
+		height: 160px;
+	}
+	.ForMeImg{
+		width: 100%;
+		height: 160px;
+	}
+	.starCoverMbs {
+		width: 100%;
+		background: rgba(0,0,0,0.5);
+		position: absolute;
+		bottom: -300px;
+		left: 0;
+		height: 300px;
+		transition: bottom 0.7s;
+	}
+	.borderMb {
+		width: 30px;
+		height: 1px;
+		background: rgba(255,255,255,1);
+		margin: 0 auto;
+		margin-top: 68%;
+	}
+	.StarCoverMb {
+		background: rgba(0,0,0,0.3);
+		padding: 15px 0;
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		transition: bottom 0.7s;
+	}
+	.StarCover:hover .StarCoverMb{
+		bottom:300px;
+	}
+
+}
+
+
+/*20190225 19:52 lfs  新加样式*/
+@media only screen and (min-width: 900px) and (max-width: 1490px){
+	.startStuBg{
+		height: 450px !important;
+	}
+	.ExcellentCounts .setHeight{  
+		height: 300px !important; 
+	}
+	.StarCovers .StarCoverMb{
+		height: 45px !important;
+		line-height: 20px;
+	}
+	
+}
