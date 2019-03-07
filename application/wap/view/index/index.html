@@ -55,7 +55,7 @@
 <div class='col-xs-12 col-sm-12 clearpadding videoMb hide'>
 
 	<img class="return" src="__STYLE__/img/return.png" width="5%"/>
-	<span class="white">这个学生很牛逼！</span>
+	<span class="white">视频播放中</span>
 	<div class='col-xs-12 col-sm-12 clearpadding video1' id="player" ondragstart="return false;">
 
 	</div>
@@ -70,7 +70,11 @@
 		<div class="swiper-container">
 			<div class="swiper-wrapper">
 				{volist name="$data['banner']" id="vo"}
-					<div class="swiper-slide"><img src="{$vo.path}" width="100%" height="190px"/></div>
+					<div class="swiper-slide">
+						<a href='{$vo['url'] ?: 'javascript:; '}' >
+							<img src="{$vo.path}" width="100%" height="190px"/>
+						</a>
+					</div>
 				{/volist}
 			</div>
 			<!-- Add Pagination -->
@@ -154,7 +158,7 @@
 				<div class="col-xs-8 col-sm-8 clearpadding collNews">
 					<span class="col-sm-12 col-xs-12 clearpadding collNewsTitle">{$vo.title}</span>
 					<span class="col-sm-12 col-xs-12 clearpadding collNewsdesribe">{$vo.brief}</span>
-					<span class="col-sm-7 col-xs-7 clearpadding nowTime"><img class="iconTime" src="__STYLE__/img/iconTime.png" width="11%"/>{$vo.time|date="Y-m-d H:i:s",###}</span>
+					<span class="col-sm-7 col-xs-7 clearpadding nowTime" style="width: 61%;"><img class="iconTime" src="__STYLE__/img/iconTime.png" width="11%"/>{$vo.time|date="Y-m-d H:i:s",###}</span>
 				</div>
 				<div class="col-xs-12 col-md-12 clearpadding margin-top15 myNewsbor">
 					<div class="col-xs-9 col-md-9 clearpadding border1News marginleft25"></div>

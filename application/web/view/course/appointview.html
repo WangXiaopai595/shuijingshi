@@ -1,0 +1,138 @@
+{include file="public/head" /}
+<link rel="stylesheet" type="text/css" href="/static/web/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/static/web/css/topbottom.css" />
+<link rel="stylesheet" type="text/css" href="/static/web/css/InteriorDesign.css" />
+<link rel='stylesheet' type='text/css' href='/static/web/css/animate.css' />
+<link rel="stylesheet" type="text/css" href="/static/web/css/usercenter.css" />
+
+<style type="text/css">
+	._select{
+		width:583px;
+		height:60px;
+		border: 1px solid rgba(255,255,255,0.3);
+		background: rgba(73, 73, 73, 0.3);
+		border-radius: 5px;
+		outline: none;
+		color: #fff;
+		cursor: pointer;
+		padding-left: 15px;
+	}
+	._select option{
+		color: #000;
+		background: #fff;
+		cursor: pointer;
+	}
+</style>
+
+<style type="text/css">
+	._select{width:583px;height:60px;border:1px solid rgba(255,255,255,0.3);background:rgba(73,73,73,0.3);border-radius:5px;outline:none;color:#fff;cursor:pointer;padding-left:15px;}
+	._select option{color:#000;background:#fff;cursor:pointer;}
+</style>
+{include file="public/nav" /}
+{include file="public/fiex" /}
+
+<!--表单提交-->
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center clearpadding ArchitectureBg" style="background:url('/static/web/img/StudentWorks_bg.png') no-repeat;-webkit-background-size: ;background-size: 100% 100%;: ">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margintop130">
+		<span class="question">免费体验真实课程</span>
+	</div>
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearpadding text-center margin-top20">
+		<div class="border4white"></div>
+	</div>
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		<span class="beforeWork">先学，先就业</span>
+	</div>
+	<form id="Form" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 makeAnAppointment " style="margin-bottom:7px">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 makeAnAppointment margin-top60">
+			<input type="text" name="name" placeholder="输入你的姓名" />
+		</div>
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 makeAnAppointment margin-top40">
+			<input type="text" name="phone" placeholder="输入你的手机号码" />
+		</div>
+		<div class="col-lg-12 col-md-12 col-sm-12 col-sx-12" style="margin-top:40px;">
+			<select name="calss" class="_select">
+				{volist name="course" id="vo"}
+				<option value="{$vo.name}">{$vo.name}</option>
+				{/volist}
+			</select>
+		</div>
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center btnmakeAnAppointment margin-top40"style="margin-bottom: 130px">
+			<input type="button" id="btn" value="免费试听" />
+		</div>
+	</form>
+</div>
+
+
+
+{include file="public/foot" /}
+<script type="text/javascript" src="__STYLE__/js/jQuery-2.1.0.js" ></script>
+<script type="text/javascript" src="__STYLE__/js/topHover.js" ></script>
+<script type="text/javascript" src="__STYLE__/js/fixedRight.js" ></script>
+<script type="text/javascript" src="__STYLE__/js/qrCodeAndPage.js" ></script>
+<script type="text/javascript" src="/static/admin/js/layer.js" ></script>
+<script>
+	window.onload=function (){
+		$('#btn').click(function(){
+			var data = $('#Form').serialize();
+
+			var phone = $('input[name=phone]').val();
+			var name = $('input[name=name]').val();
+			if(!name || name.length > 6){
+				return layer.open({
+					title: '提示',
+					content: '请输入正确的姓名'
+				});
+			}
+			re = /^1[3|4|5|7|8|9]\d{9}$/;
+			if(!re.test(phone)){
+				return layer.open({
+					title: '提示',
+					content: '请输入正确的手机号'
+				});
+			}
+
+			$.ajax({
+				type:'POST',
+				dataType:'json',
+				url:'{:url("Course/appoint")}',
+				data:data,
+				success:function(data){
+					if(data.status){
+						layer.open({
+							title: '提示',
+							icon:1,
+							content: data.msg,
+							end:function(){
+								location.reload();
+							}
+						});
+					}else{
+						layer.open({
+							title: '提示',
+							icon:2,
+							content: data.msg
+						});
+					}
+				}
+			});
+		});
+
+		$('.li2').mouseenter(function(){
+			$('.meXl').removeClass('hide').addClass('show');
+		});
+		$('.li2').mouseleave(function(){
+			$('.meXl').removeClass('show').addClass('hide');
+		});
+		$('#loginOut').click(function(){
+			$.ajax({
+				type:'POST',
+				dataType:'json',
+				url:'/web/index/loginout.html',
+				data:{},
+				success:function(data){
+					location.reload();
+				}
+			});
+		})
+	}
+</script>

@@ -11,6 +11,7 @@ namespace app\web\controller;
 
 use app\common\Index;
 use app\common\Msg;
+use app\model\CourseClass;
 use think\Request;
 
 class Course extends Common
@@ -53,9 +54,22 @@ class Course extends Common
 		return $common->appoint();
 	}
 
-	public function sendMsg()
+	/**
+	 * 在线预约页面
+	 * Created by：Mp_Lxj
+	 * @date 2019/1/14 10:39
+	 * @return mixed
+	 */
+	public function appointView()
 	{
-		$Msg = new Msg();
-		$Msg->sendMsg('18302370061');
+		$Course = new CourseClass();
+		$map['is_show'] = $Course::IS_SHOW_TRUE;
+		$course = $Course->classList($map);
+		$this->assign('course',$course);
+
+//		$this->assign('reuest_url','');
+		$this->assign('site_title','在线预约');
+		$this->assign('is_app',true);
+		return $this->fetch();
 	}
 }
